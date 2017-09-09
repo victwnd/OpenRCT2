@@ -450,6 +450,33 @@ static sint32 cc_echo(const utf8 **argv, sint32 argc)
     return 0;
 }
 
+static void cc_ride_set_all_vehicles(rct_ride* ride, int value, void (*set_func)(rct_vehicle*, int))
+{
+	for (int i = 0; i < ride->num_vehicles; i++) {
+		uint16 vehicle_index = ride->vehicles[i];
+ 		while (vehicle_index != SPRITE_INDEX_NULL) {
+			rct_vehicle *vehicle = GET_VEHICLE(vehicle_index);
+			set_func(vehicle, value);
+			vehicle_index = vehicle->next_vehicle_on_train;
+		}
+	}
+}
+
+static void cc_ride_vehicle_set_friction(rct_vehicle* vehicle, int value)
+{
+	vehicle->friction = value;
+}
+
+static void cc_ride_vehicle_set_powered_velocity(rct_vehicle* vehicle, int value)
+{
+	vehicle->speed = value;
+}
+
+static void cc_ride_vehicle_set_powered_acceleration(rct_vehicle* vehicle, int value)
+{
+	vehicle->powered_acceleration = value;
+}
+
 static sint32 cc_rides(const utf8 **argv, sint32 argc)
 {
     if (argc > 0) {
@@ -476,6 +503,7 @@ static sint32 cc_rides(const utf8 **argv, sint32 argc)
                     console_printf("rides set type <ride id> <ride type>");
                     console_printf("rides set mode [<ride id> <operating mode>]");
                     console_printf("rides set friction <ride id> <friction value>");
+                    console_printf("rides set powered_velocity <ride id> <velocity> [acceleration]");
                     console_printf("rides set excitement <ride id> <excitement value>");
                     console_printf("rides set intensity <ride id> <intensity value>");
                     console_printf("rides set nausea <ride id> <nausea value>");
