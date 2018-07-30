@@ -34,6 +34,7 @@
 #include "coaster/meta/FlyingRollerCoaster.h"
 #include "coaster/meta/GigaCoaster.h"
 #include "coaster/meta/HeartlineTwisterCoaster.h"
+#include "coaster/meta/HybridCoaster.h"
 #include "coaster/meta/InvertedHairpinCoaster.h"
 #include "coaster/meta/InvertedImpulseCoaster.h"
 #include "coaster/meta/InvertedRollerCoaster.h"
@@ -192,7 +193,7 @@ const uint8_t rideBonusValue[RIDE_TYPE_COUNT] = {
     35,  // 4d Magic Carpet
     40,  // 4e Submarine Ride
     65,  // 4f River Rafts
-    15,  // 50 (none)
+    120,  // 50 Hybrid Coaster
     45,  // 51 Enterprise
     15,  // 52 (none)
     15,  // 53 (none)
@@ -286,7 +287,7 @@ const rct_ride_name RideNaming[] =  {
     { STR_RIDE_NAME_MAGIC_CARPET,                   STR_RIDE_DESCRIPTION_MAGIC_CARPET                   }, // RIDE_TYPE_MAGIC_CARPET
     { STR_RIDE_NAME_SUBMARINE_RIDE,                 STR_RIDE_DESCRIPTION_SUBMARINE_RIDE                 }, // RIDE_TYPE_SUBMARINE_RIDE
     { STR_RIDE_NAME_RIVER_RAFTS,                    STR_RIDE_DESCRIPTION_RIVER_RAFTS                    }, // RIDE_TYPE_RIVER_RAFTS
-    { STR_RIDE_NAME_50,                             STR_RIDE_DESCRIPTION_UNKNOWN                        }, // RIDE_TYPE_50
+    { STR_RIDE_NAME_HYBRID_COASTER,                 STR_RIDE_DESCRIPTION_HYBRID_COASTER                 }, // RIDE_TYPE_HYBRID_COASTER
     { STR_RIDE_NAME_ENTERPRISE,                     STR_RIDE_DESCRIPTION_ENTERPRISE                     }, // RIDE_TYPE_ENTERPRISE
     { STR_RIDE_NAME_52,                             STR_RIDE_DESCRIPTION_UNKNOWN                        }, // RIDE_TYPE_52
     { STR_RIDE_NAME_53,                             STR_RIDE_DESCRIPTION_UNKNOWN                        }, // RIDE_TYPE_53
@@ -476,7 +477,7 @@ const ride_cost RideTrackCosts[RIDE_TYPE_COUNT] =   {
     {   198,    2   },  // RIDE_TYPE_MAGIC_CARPET
     {   70,     0   },  // RIDE_TYPE_SUBMARINE_RIDE
     {   40,     5   },  // RIDE_TYPE_RIVER_RAFTS
-    {   525,    0   },  // RIDE_TYPE_50
+    {   100,    0   },  // RIDE_TYPE_HYBRID_COASTER
     {   100,    2   },  // RIDE_TYPE_ENTERPRISE
     {   500,    0   },  // RIDE_TYPE_52
     {   520,    0   },  // RIDE_TYPE_53
@@ -571,7 +572,7 @@ const rct_ride_data_5 RideData5[RIDE_TYPE_COUNT] = {
     {   15,     176,    7,      255,    11,     1,   },  // RIDE_TYPE_MAGIC_CARPET
     {   255,    16,     0,      255,    3,      5,   },  // RIDE_TYPE_SUBMARINE_RIDE
     {   12,     24,     7,      255,    11,     30,  },  // RIDE_TYPE_RIVER_RAFTS
-    {   12,     64,     0,      255,    0,      1,   },  // RIDE_TYPE_50
+    {   54,     24,     8,      31,     9,      55   },  // RIDE_TYPE_HYBRID_COASTER
     {   16,     160,    3,      255,    2,      1,   },  // RIDE_TYPE_ENTERPRISE
     {   12,     48,     0,      255,    0,      1,   },  // RIDE_TYPE_52
     {   12,     64,     0,      255,    0,      1,   },  // RIDE_TYPE_53
@@ -719,7 +720,7 @@ const rating_tuple RideRatings[RIDE_TYPE_COUNT] = {
     {   50,     30, 10  },  // RIDE_TYPE_MAGIC_CARPET
     {   70,     6,  0   },  // RIDE_TYPE_SUBMARINE_RIDE
     {   80,     34, 6   },  // RIDE_TYPE_RIVER_RAFTS
-    {   0,      0,  0   },  // RIDE_TYPE_50
+    {   51,     32, 10  },  // RIDE_TYPE_HYBRID_COASTER TODO revisit this
     {   50,     10, 0   },  // RIDE_TYPE_ENTERPRISE
     {   0,      0,  0   },  // RIDE_TYPE_52
     {   0,      0,  0   },  // RIDE_TYPE_53
@@ -1329,8 +1330,12 @@ const track_colour_preset_list RideColourPresets[] = {
         { COLOUR_BLACK, COLOUR_BLACK, COLOUR_SATURATED_BROWN },
     ),
 
-    // RIDE_TYPE_50
-    DEFAULT_FLAT_RIDE_COLOUR_PRESET,
+    // RIDE_TYPE_HYBRID_COASTER  TODO come back to this
+    TRACK_COLOUR_PRESETS(
+        { COLOUR_BRIGHT_YELLOW, COLOUR_BRIGHT_YELLOW, COLOUR_BRIGHT_RED },
+        { COLOUR_BLACK, COLOUR_ICY_BLUE, COLOUR_BLACK },
+        { COLOUR_WHITE, COLOUR_WHITE, COLOUR_YELLOW },
+    ),
 
     // RIDE_TYPE_ENTERPRISE
     DEFAULT_FLAT_RIDE_COLOUR_PRESET,
@@ -1505,7 +1510,7 @@ constexpr const RideTypeDescriptor RideTypeDescriptors[RIDE_TYPE_COUNT] = {
     /* RIDE_TYPE_MAGIC_CARPET                       */ MagicCarpetRTD,
     /* RIDE_TYPE_SUBMARINE_RIDE                     */ SubmarineRideRTD,
     /* RIDE_TYPE_RIVER_RAFTS                        */ RiverRaftsRTD,
-    /* RIDE_TYPE_50                                 */ DummyRTD,
+    /* RIDE_TYPE_HYBRID_COASTER                     */ HybridCoasterRTD,
     /* RIDE_TYPE_ENTERPRISE                         */ EnterpriseRTD,
     /* RIDE_TYPE_52                                 */ DummyRTD,
     /* RIDE_TYPE_53                                 */ DummyRTD,
