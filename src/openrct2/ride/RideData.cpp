@@ -572,7 +572,7 @@ const rct_ride_data_5 RideData5[RIDE_TYPE_COUNT] = {
     {   15,     176,    7,      255,    11,     1,   },  // RIDE_TYPE_MAGIC_CARPET
     {   255,    16,     0,      255,    3,      5,   },  // RIDE_TYPE_SUBMARINE_RIDE
     {   12,     24,     7,      255,    11,     30,  },  // RIDE_TYPE_RIVER_RAFTS
-    {   54,     24,     8,      31,     9,      55   },  // RIDE_TYPE_HYBRID_COASTER
+    {   54,     24,     12,     31,     9,      55,  },  // RIDE_TYPE_HYBRID_COASTER
     {   16,     160,    3,      255,    2,      1,   },  // RIDE_TYPE_ENTERPRISE
     {   12,     48,     0,      255,    0,      1,   },  // RIDE_TYPE_52
     {   12,     64,     0,      255,    0,      1,   },  // RIDE_TYPE_53
