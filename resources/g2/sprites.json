@@ -2092,32 +2092,32 @@
         "y_offset": -12
     },
     {
-        "path": "track/rmc/flat_3.png",
+        "path": "track/rmc/brake_1.png",
         "x_offset": -34,
         "y_offset": -12
     },
     {
-        "path": "track/rmc/flat_4.png",
+        "path": "track/rmc/brake_2.png",
         "x_offset": -34,
         "y_offset": -12
     },
     {
-        "path": "track/rmc/flat_1.png",
+        "path": "track/rmc/block_brake_1.png",
         "x_offset": -34,
         "y_offset": -12
     },
     {
-        "path": "track/rmc/flat_2.png",
+        "path": "track/rmc/block_brake_2.png",
         "x_offset": -34,
         "y_offset": -12
     },
     {
-        "path": "track/rmc/flat_3.png",
+        "path": "track/rmc/booster_1.png",
         "x_offset": -34,
         "y_offset": -12
     },
     {
-        "path": "track/rmc/flat_4.png",
+        "path": "track/rmc/booster_2.png",
         "x_offset": -34,
         "y_offset": -12
     },
@@ -5452,86 +5452,6 @@
         "y_offset": -45
     },
     {
-        "path": "track/rmc/half_loop_1_1.png",
-        "x_offset": -28,
-        "y_offset": -116
-    },
-    {
-        "path": "track/rmc/half_loop_1_2.png",
-        "x_offset": -54,
-        "y_offset": -81
-    },
-    {
-        "path": "track/rmc/half_loop_1_3.png",
-        "x_offset": -70,
-        "y_offset": -57
-    },
-    {
-        "path": "track/rmc/half_loop_1_4.png",
-        "x_offset": -54,
-        "y_offset": 55
-    },
-    {
-        "path": "track/rmc/half_loop_2_1.png",
-        "x_offset": -16,
-        "y_offset": -64
-    },
-    {
-        "path": "track/rmc/half_loop_2_2.png",
-        "x_offset": -40,
-        "y_offset": -68
-    },
-    {
-        "path": "track/rmc/half_loop_2_3.png",
-        "x_offset": -98,
-        "y_offset": -67
-    },
-    {
-        "path": "track/rmc/half_loop_2_4.png",
-        "x_offset": -54,
-        "y_offset": 75
-    },
-    {
-        "path": "track/rmc/half_loop_3_1.png",
-        "x_offset": -67,
-        "y_offset": -64
-    },
-    {
-        "path": "track/rmc/half_loop_3_2.png",
-        "x_offset": -35,
-        "y_offset": -64
-    },
-    {
-        "path": "track/rmc/half_loop_3_3.png",
-        "x_offset": -3,
-        "y_offset": -74
-    },
-    {
-        "path": "track/rmc/half_loop_3_4.png",
-        "x_offset": -45,
-        "y_offset": 67
-    },
-    {
-        "path": "track/rmc/half_loop_4_1.png",
-        "x_offset": -55,
-        "y_offset": -116
-    },
-    {
-        "path": "track/rmc/half_loop_4_2.png",
-        "x_offset": -23,
-        "y_offset": -84
-    },
-    {
-        "path": "track/rmc/half_loop_4_3.png",
-        "x_offset": 3,
-        "y_offset": -65
-    },
-    {
-        "path": "track/rmc/half_loop_4_4.png",
-        "x_offset": -13,
-        "y_offset": 47
-    },
-    {
         "path": "track/rmc/flat_to_steep_up_1_1.png",
         "x_offset": -34,
         "y_offset": -145
@@ -5812,22 +5732,32 @@
         "y_offset": -34
     },
     {
+        "path": "track/rmc/powered_lift_1.png",
+        "x_offset": -34,
+        "y_offset": -28
+    },
+    {
+        "path": "track/rmc/powered_lift_2.png",
+        "x_offset": -34,
+        "y_offset": -12
+    },
+    {
+        "path": "track/rmc/powered_lift_3.png",
+        "x_offset": -34,
+        "y_offset": -12
+    },
+    {
+        "path": "track/rmc/powered_lift_4.png",
+        "x_offset": -34,
+        "y_offset": -28
+    },
+    {
         "path": "track/rmc/flat_lift_1.png",
         "x_offset": -34,
         "y_offset": -12
     },
     {
         "path": "track/rmc/flat_lift_2.png",
-        "x_offset": -34,
-        "y_offset": -12
-    },
-    {
-        "path": "track/rmc/flat_lift_3.png",
-        "x_offset": -34,
-        "y_offset": -12
-    },
-    {
-        "path": "track/rmc/flat_lift_4.png",
         "x_offset": -34,
         "y_offset": -12
     },

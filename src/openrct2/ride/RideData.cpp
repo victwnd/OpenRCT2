@@ -815,7 +815,7 @@ const rct_ride_properties RideProperties[RIDE_TYPE_COUNT] = {
         { 7,  15,  0,  0,  0, 0 },  // RIDE_TYPE_MAGIC_CARPET
         { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_SUBMARINE_RIDE
         { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_RIVER_RAFTS
-        { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_50
+        {10, 27,  30, 17,  68, 0 },  // RIDE_TYPE_HYBRID_COASTER TODO not sure what last 6 values are for
         { 10, 20,  0,  0,  0, 0 },  // RIDE_TYPE_ENTERPRISE
         { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_52
         { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_53
