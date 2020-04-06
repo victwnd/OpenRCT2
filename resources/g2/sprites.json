@@ -2304,22 +2304,22 @@
     {
         "path": "track/rmc/vertical_1.png",
         "x_offset": -14,
-        "y_offset": -46
+        "y_offset": -45
     },
     {
         "path": "track/rmc/vertical_2.png",
         "x_offset": -14,
-        "y_offset": -35
+        "y_offset": -34
     },
     {
         "path": "track/rmc/vertical_3.png",
         "x_offset": -32,
-        "y_offset": -35
+        "y_offset": -34
     },
     {
         "path": "track/rmc/vertical_4.png",
         "x_offset": -32,
-        "y_offset": -46
+        "y_offset": -45
     },
     {
         "path": "track/rmc/small_turn_left_1_1.png",
@@ -5614,122 +5614,122 @@
     {
         "path": "track/rmc/quarter_loop_up_1_1.png",
         "x_offset": -98,
-        "y_offset": -98
+        "y_offset": -99
     },
     {
         "path": "track/rmc/quarter_loop_up_1_2.png",
         "x_offset": -98,
-        "y_offset": -98
+        "y_offset": -99
     },
     {
         "path": "track/rmc/quarter_loop_up_1_3.png",
         "x_offset": -66,
-        "y_offset": -58
+        "y_offset": -59
     },
     {
         "path": "track/rmc/quarter_loop_up_1_4.png",
         "x_offset": -66,
-        "y_offset": -58
+        "y_offset": -59
     },
     {
         "path": "track/rmc/quarter_loop_up_1_5.png",
         "x_offset": -34,
-        "y_offset": -34
+        "y_offset": -35
     },
     {
         "path": "track/rmc/quarter_loop_up_1_6.png",
         "x_offset": -34,
-        "y_offset": -34
+        "y_offset": -35
     },
     {
         "path": "track/rmc/quarter_loop_up_2_1.png",
         "x_offset": -98,
-        "y_offset": -172
+        "y_offset": -173
     },
     {
         "path": "track/rmc/quarter_loop_up_2_2.png",
         "x_offset": -98,
-        "y_offset": -172
+        "y_offset": -173
     },
     {
         "path": "track/rmc/quarter_loop_up_2_3.png",
         "x_offset": -66,
-        "y_offset": -100
+        "y_offset": -101
     },
     {
         "path": "track/rmc/quarter_loop_up_2_4.png",
         "x_offset": -66,
-        "y_offset": -100
+        "y_offset": -101
     },
     {
         "path": "track/rmc/quarter_loop_up_2_5.png",
         "x_offset": -34,
-        "y_offset": -44
+        "y_offset": -45
     },
     {
         "path": "track/rmc/quarter_loop_up_2_6.png",
         "x_offset": -34,
-        "y_offset": -44
+        "y_offset": -45
     },
     {
         "path": "track/rmc/quarter_loop_up_3_1.png",
         "x_offset": -32,
-        "y_offset": -172
+        "y_offset": -173
     },
     {
         "path": "track/rmc/quarter_loop_up_3_2.png",
         "x_offset": -32,
-        "y_offset": -172
+        "y_offset": -173
     },
     {
         "path": "track/rmc/quarter_loop_up_3_3.png",
         "x_offset": -64,
-        "y_offset": -100
+        "y_offset": -101
     },
     {
         "path": "track/rmc/quarter_loop_up_3_4.png",
         "x_offset": -64,
-        "y_offset": -100
+        "y_offset": -101
     },
     {
         "path": "track/rmc/quarter_loop_up_3_5.png",
         "x_offset": -96,
-        "y_offset": -44
+        "y_offset": -45
     },
     {
         "path": "track/rmc/quarter_loop_up_3_6.png",
         "x_offset": -96,
-        "y_offset": -44
+        "y_offset": -45
     },
     {
         "path": "track/rmc/quarter_loop_up_4_1.png",
         "x_offset": -32,
-        "y_offset": -98
+        "y_offset": -99
     },
     {
         "path": "track/rmc/quarter_loop_up_4_2.png",
         "x_offset": -32,
-        "y_offset": -98
+        "y_offset": -99
     },
     {
         "path": "track/rmc/quarter_loop_up_4_3.png",
         "x_offset": -64,
-        "y_offset": -58
+        "y_offset": -59
     },
     {
         "path": "track/rmc/quarter_loop_up_4_4.png",
         "x_offset": -64,
-        "y_offset": -58
+        "y_offset": -59
     },
     {
         "path": "track/rmc/quarter_loop_up_4_5.png",
         "x_offset": -96,
-        "y_offset": -34
+        "y_offset": -35
     },
     {
         "path": "track/rmc/quarter_loop_up_4_6.png",
         "x_offset": -96,
-        "y_offset": -34
+        "y_offset": -35
     },
     {
         "path": "track/rmc/powered_lift_1.png",
@@ -6009,7 +6009,7 @@
     {
         "path": "track/rmc/steep_to_gentle_up_diag_lift_2.png",
         "x_offset": -24,
-        "y_offset": -19
+        "y_offset": -20
     },
     {
         "path": "track/rmc/steep_to_gentle_up_diag_lift_3.png",
@@ -6023,7 +6023,7 @@
     },
     {
         "path": "track/rmc/steep_diag_lift_1.png",
-        "x_offset": -48,
+        "x_offset": -49,
         "y_offset": -69
     },
     {
