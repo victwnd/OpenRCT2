@@ -4426,7 +4426,7 @@ static const ride_ratings_calculation RideRatingsCalculateFuncTable[RIDE_TYPE_CO
     ride_ratings_calculate_magic_carpet,                   // MAGIC_CARPET
     ride_ratings_calculate_submarine_ride,                 // SUBMARINE_RIDE
     ride_ratings_calculate_river_rafts,                    // RIVER_RAFTS
-    ride_ratings_calculate_giga_coaster,                   // HYBRID_COASTER  TODO actually implement rating function
+    nullptr,                                               // 50
     ride_ratings_calculate_enterprise,                     // ENTERPRISE
     nullptr,                                               // 52
     nullptr,                                               // 53
@@ -4437,6 +4437,7 @@ static const ride_ratings_calculation RideRatingsCalculateFuncTable[RIDE_TYPE_CO
     ride_ratings_calculate_mine_ride,                      // MINE_RIDE
     nullptr,                                               // 59
     ride_ratings_calculate_lim_launched_roller_coaster,    // LIM_LAUNCHED_ROLLER_COASTER
+    ride_ratings_calculate_giga_coaster,                   // HYBRID_COASTER  TODO actually implement rating function
 };
 
 static ride_ratings_calculation ride_ratings_get_calculate_func(uint8_t rideType)
