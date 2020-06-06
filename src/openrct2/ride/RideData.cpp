@@ -34,7 +34,7 @@
 #include "coaster/meta/FlyingRollerCoaster.h"
 #include "coaster/meta/GigaCoaster.h"
 #include "coaster/meta/HeartlineTwisterCoaster.h"
-#include "coaster/meta/HybridCoaster.h"
+#include "coaster/meta/MultiLoopingCoaster.h"
 #include "coaster/meta/InvertedHairpinCoaster.h"
 #include "coaster/meta/InvertedImpulseCoaster.h"
 #include "coaster/meta/InvertedRollerCoaster.h"
@@ -204,7 +204,7 @@ const uint8_t rideBonusValue[RIDE_TYPE_COUNT] = {
     70,  // 58 Mine Ride
     55,  // 59 (none)
     55,  // 5a LIM Launched Roller Coaster
-    120, // 5b RIDE_TYPE_HYBRID_COASTER
+    120, // 5b RIDE_TYPE_MULTILOOPING_COASTER
 };
 
 const rct_ride_name RideNaming[] =  {
@@ -299,7 +299,7 @@ const rct_ride_name RideNaming[] =  {
     { STR_RIDE_NAME_MINE_RIDE,                      STR_RIDE_DESCRIPTION_MINE_RIDE                      }, // RIDE_TYPE_MINE_RIDE
     { STR_RIDE_NAME_59,                             STR_RIDE_DESCRIPTION_UNKNOWN                        }, // RIDE_TYPE_59
     { STR_RIDE_NAME_LIM_LAUNCHED_ROLLER_COASTER,    STR_RIDE_DESCRIPTION_LIM_LAUNCHED_ROLLER_COASTER    }, // RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER
-    { STR_RIDE_NAME_HYBRID_COASTER,                 STR_RIDE_DESCRIPTION_HYBRID_COASTER                 }, // RIDE_TYPE_HYBRID_COASTER
+    { STR_RIDE_NAME_MULTILOOPING_COASTER,           STR_RIDE_DESCRIPTION_MULTILOOPING_COASTER           }, // RIDE_TYPE_MULTILOOPING_COASTER
 };
 
 // rct2: 0x0097D4F0,  0x0097D4F1,  0x0097D4F2, 0x0097D4F4, 0x0097D4F5
@@ -395,7 +395,7 @@ const rct_ride_data_4 RideData4[RIDE_TYPE_COUNT] = {
     {   20, 20, MUSIC_STYLE_WILD_WEST,         },  // RIDE_TYPE_MINE_RIDE
     {   20, 20, MUSIC_STYLE_ROCK_STYLE_2,      },  // RIDE_TYPE_59
     {   20, 20, MUSIC_STYLE_ROCK,              },  // RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER
-    {   20, 20, MUSIC_STYLE_WILD_WEST,         },  // RIDE_TYPE_HYBRID_COASTER
+    {   20, 20, MUSIC_STYLE_WILD_WEST,         },  // RIDE_TYPE_MULTILOOPING_COASTER
 };
 
 // rct2: 0x0097DD78
@@ -491,7 +491,7 @@ const ride_cost RideTrackCosts[RIDE_TYPE_COUNT] =   {
     {   85,     4   },  // RIDE_TYPE_MINE_RIDE
     {   55,     4   },  // RIDE_TYPE_59
     {   95,     5   },  // RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER
-    {   100,    0   },  // RIDE_TYPE_HYBRID_COASTER
+    {   100,    0   },  // RIDE_TYPE_MULTILOOPING_COASTER
 };
 
 // 0x0097D218
@@ -587,7 +587,7 @@ const rct_ride_data_5 RideData5[RIDE_TYPE_COUNT] = {
     {   13,     24,     9,      27,     11,     40,  },  // RIDE_TYPE_MINE_RIDE
     {   16,     24,     4,      4,      7,      40,  },  // RIDE_TYPE_59
     {   35,     24,     5,      18,     7,      50,  },  // RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER
-    {   54,     24,     12,      31,     9,     55,  },  // RIDE_TYPE_HYBRID_COASTER
+    {   54,     24,     9,      31,     9,     55,  },  // RIDE_TYPE_MULTILOOPING_COASTER
 };
 
 const rct_ride_entry_vehicle CableLiftVehicle = {
@@ -736,7 +736,7 @@ const rating_tuple RideRatings[RIDE_TYPE_COUNT] = {
     {   60,     20, 10  },  // RIDE_TYPE_MINE_RIDE
     {   50,     30, 30  },  // RIDE_TYPE_59
     {   50,     30, 10  },  // RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER
-    {   51,     32, 10  },  // RIDE_TYPE_HYBRID_COASTER TODO revisit this
+    {   51,     32, 10  },  // RIDE_TYPE_MULTILOOPING_COASTER TODO revisit this
 };
 
 // rct2: 0x0097CF40
@@ -832,7 +832,7 @@ const rct_ride_properties RideProperties[RIDE_TYPE_COUNT] = {
         { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_MINE_RIDE
         { 0,  0,   0,  0,  0, 0 },  // RIDE_TYPE_59
         { 10, 31,  26, 18,  18, 0 },  // RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER
-        { 10, 27,  30, 17,  68, 0 },  // RIDE_TYPE_HYBRID_COASTER TODO not sure what last 6 values are for
+        { 10, 27,  30, 17,  68, 1 },  // RIDE_TYPE_MULTILOOPING_COASTER TODO not sure what last 6 values are for
 
 };
 
@@ -1390,7 +1390,7 @@ const track_colour_preset_list RideColourPresets[] = {
         { COLOUR_BRIGHT_RED, COLOUR_BRIGHT_RED, COLOUR_DARK_BROWN },
         { COLOUR_YELLOW, COLOUR_YELLOW, COLOUR_SATURATED_GREEN },
     ),
-    // RIDE_TYPE_HYBRID_COASTER  TODO come back to this
+    // RIDE_TYPE_MULTILOOPING_COASTER  TODO come back to this
     TRACK_COLOUR_PRESETS(
         { COLOUR_BRIGHT_YELLOW, COLOUR_BRIGHT_YELLOW, COLOUR_BRIGHT_RED },
         { COLOUR_BLACK, COLOUR_ICY_BLUE, COLOUR_BLACK },
@@ -1531,7 +1531,7 @@ constexpr const RideTypeDescriptor RideTypeDescriptors[RIDE_TYPE_COUNT] = {
     /* RIDE_TYPE_MINE_RIDE                          */ MineRideRTD,
     /* RIDE_TYPE_59                                 */ DummyRTD,
     /* RIDE_TYPE_LIM_LAUNCHED_ROLLER_COASTER        */ LIMLaunchedRollerCoasterRTD,
-    /* RIDE_TYPE_HYBRID_COASTER                     */ HybridCoasterRTD,
+    /* RIDE_TYPE_MULTILOOPING_COASTER               */ MultiLoopingCoasterRTD,
 };
 
 bool RideTypeDescriptor::HasFlag(uint64_t flag) const
