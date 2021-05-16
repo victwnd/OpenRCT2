@@ -283,6 +283,10 @@ const rct_track_coordinates TrackCoordinates[TrackElemType::Count] = {
         {    0,    2,    0,    0,    0,   32 }, // TrackElemType::FlatTrack1x1B
         {    0,    2,    0,    0,    0,   32 }, // TrackElemType::FlatTrack1x4C
         {    0,    0,    0,   96,   32,    0 }, // TrackElemType::FlatTrack3x3
+        { 0, 3, 0, 128, -64, -64 },  // ELEM_LEFT_CORKSCREW_UP
+        { 0, 1, 0, 128, -64, 64 },   // ELEM_RIGHT_CORKSCREW_UP
+        { 0, 3, 0, -128, -64, -64 }, // ELEM_LEFT_CORKSCREW_DOWN
+        { 0, 1, 0, -128, -64, 64 },  // ELEM_RIGHT_CORKSCREW_DOWN
 };
 
 /** rct2: 0x0099BA64 */
@@ -2543,6 +2547,53 @@ static constexpr const rct_preview_track TrackBlocksFlatTrack3x3[] = {
     TRACK_BLOCK_END
 };
 
+//  1
+//2   0
+//  3
+
+static constexpr const rct_preview_track TrackBlocksLeftLargeCorkscrewUp[] = {
+    { 0,   0,   0,  0, 16, { 0b1111, 0 }, 0 },
+    { 1, -32,   0,  8, 32, { 0b1111, 0 }, 0 },
+    { 2, -64,   0, 32, 24, { 0b0111, 0 }, 0 },
+    { 3, -32, -32, 32, 24, { 0b1000, 0 }, 0 },
+    { 4, -64, -32, 48, 48, { 0b1111, 0 }, 0 },
+    { 5, -64, -64, 88, 24, { 0b1111, 0 }, 0 },
+    TRACK_BLOCK_END
+};
+
+static constexpr const rct_preview_track TrackBlocksRightLargeCorkscrewUp[] = {
+    { 0,   0,   0 ,  0, 16, { 0b1111, 0 }, 0 },
+    { 1, -32,   0,   8, 32, { 0b1111, 0 }, 0 },
+    { 2, -64,   0,  32, 24, { 0b1011, 0 }, 0 },
+    { 3, -32,  32,  32, 24, { 0b0100, 0 }, 0 },
+    { 4, -64,  32,  48, 48, { 0b1111, 0 }, 0 },
+    { 5, -64,  64,  88, 24, { 0b1111, 0 }, 0 },
+    TRACK_BLOCK_END
+};
+
+static constexpr const rct_preview_track TrackBlocksLeftLargeCorkscrewDown[] = {
+    { 0,   0,   0 ,  -40, 24, { 0b1111, 0 }, 0 },
+    { 1, -32,   0,   -80, 48, { 0b1111, 0 }, 0 },
+    { 2, -32, -32,   -96, 24, { 0b1000, 0 }, 0 },
+    { 3, -64,   0,   -96, 24, { 0b0111, 0 }, 0 },
+    { 4, -64, -32,  -120, 32, { 0b1111, 0 }, 0 },
+    { 5, -64, -64,  -128, 16, { 0b1111, 0 }, 0 },
+    TRACK_BLOCK_END
+};
+
+static constexpr const rct_preview_track TrackBlocksRightLargeCorkscrewDown[] = {
+    { 0,   0,   0 ,  -40, 24, { 0b1111, 0 }, 0 },
+    { 1, -32,   0,   -80, 48, { 0b1111, 0 }, 0 },
+    { 2, -32,  32,   -96, 24, { 0b0100, 0 }, 0 },
+    { 3, -64,   0,   -96, 24, { 0b1011, 0 }, 0 },
+    { 4, -64,  32,  -120, 32, { 0b1111, 0 }, 0 },
+    { 5, -64,  64,  -128, 16, { 0b1111, 0 }, 0 },
+    TRACK_BLOCK_END
+};
+
+
+
+
 // rct2: 0x00994638
 const rct_preview_track *TrackBlocks[TrackElemType::Count] = {
     TrackBlocks000,
@@ -2813,6 +2864,10 @@ const rct_preview_track *TrackBlocks[TrackElemType::Count] = {
     TrackBlocksFlatTrack1x1B,
     TrackBlocksFlatTrack1x4C,
     TrackBlocksFlatTrack3x3,
+    TrackBlocksLeftLargeCorkscrewUp,
+    TrackBlocksRightLargeCorkscrewUp,
+    TrackBlocksLeftLargeCorkscrewDown,
+    TrackBlocksRightLargeCorkscrewDown,
 };
 
 const uint8_t TrackPieceLengths[TrackElemType::Count] = {
@@ -3083,6 +3138,10 @@ const uint8_t TrackPieceLengths[TrackElemType::Count] = {
     0,      // TrackElemType::FlatTrack1x1B
     0,      // TrackElemType::FlatTrack1x4C
     0,      // TrackElemType::FlatTrack3x3
+    55,     // TrackElemType::LeftLargeCorkscrewUp
+    55,     // TrackElemType::RightLargeCorkscrewUp
+    55,     // TrackElemType::LeftLargeCorkscrewDown
+    55,     // TrackElemType::RightLargeCorkscrewDown
 };
 
 // rct2: 0x00998C95
@@ -3354,6 +3413,10 @@ const track_curve_chain gTrackCurveChain[TrackElemType::Count] = {
     { 65535, 65535 },                       // TrackElemType::FlatTrack1x1B
     { 65535, 65535 },                       // TrackElemType::FlatTrack1x4C
     { 65535, 65535 },                       // TrackElemType::FlatTrack3x3
+    { RideConstructionSpecialPieceSelected | TrackElemType::RightLargeCorkscrewDown, TRACK_CURVE_NONE },
+    { RideConstructionSpecialPieceSelected | TrackElemType::LeftLargeCorkscrewDown, TRACK_CURVE_NONE },
+    { TRACK_CURVE_NONE, RideConstructionSpecialPieceSelected | TrackElemType::RightLargeCorkscrewUp },
+    { TRACK_CURVE_NONE, RideConstructionSpecialPieceSelected | TrackElemType::LeftLargeCorkscrewUp },
 };
 
 const track_descriptor gTrackDescriptors[142] = {
@@ -3770,6 +3833,10 @@ const track_type_t AlternativeTrackTypes[TrackElemType::Count] = {
     TrackElemType::None, // TrackElemType::FlatTrack1x1B
     TrackElemType::None, // TrackElemType::FlatTrack1x4C
     TrackElemType::None, // TrackElemType::FlatTrack3x3
+    TrackElemType::None,
+    TrackElemType::None,
+    TrackElemType::None,
+    TrackElemType::None
 };
 
 /** rct2: 0x0099DA34 */
@@ -4041,6 +4108,10 @@ const money32 TrackPricing[TrackElemType::Count] = {
     65536,  // TrackElemType::FlatTrack1x1B
     262144, // TrackElemType::FlatTrack1x4C
     524288, // TrackElemType::FlatTrack3x3
+    229376, // TrackElemType::LeftCorkscrewUp
+    229376, // TrackElemType::RightCorkscrewUp
+    229376, // TrackElemType::LeftCorkscrewDown
+    229376, // TrackElemType::RightCorkscrewDown
 };
 
 /** rct2: 0x0099EA1C */
@@ -4312,6 +4383,10 @@ const track_type_t TrackElementMirrorMap[TrackElemType::Count] = {
     TrackElemType::FlatTrack1x1B, // TrackElemType::FlatTrack1x1B
     TrackElemType::FlatTrack1x4C, // TrackElemType::FlatTrack1x4C
     TrackElemType::FlatTrack3x3, // TrackElemType::FlatTrack3x3
+    TrackElemType::RightLargeCorkscrewUp, // TrackElemType::LeftLargeCorkscrewUp
+    TrackElemType::LeftLargeCorkscrewUp, // TrackElemType::RightLargeCorkscrewUp
+    TrackElemType::RightLargeCorkscrewDown, // TrackElemType::LeftLargeCorkscrewDown
+    TrackElemType::LeftLargeCorkscrewDown, // TrackElemType::RightLargeCorkscrewDown
 };
 
 /** rct2: 0x00999694 */
@@ -4583,6 +4658,10 @@ const uint32_t TrackHeightMarkerPositions[TrackElemType::Count] = {
     (1 << 0), // TrackElemType::FlatTrack1x1B
     (1 << 0), // TrackElemType::FlatTrack1x4C
     (1 << 0), // TrackElemType::FlatTrack3x3
+    (1 << 0) | (1 << 2), // TrackElemType::LeftLargeCorkscrewUp
+    (1 << 0) | (1 << 2), // TrackElemType::RightLargeCorkscrewUp
+    (1 << 0) | (1 << 2), // TrackElemType::LeftLargeCorkscrewDown
+    (1 << 0) | (1 << 2), // TrackElemType::RightLargeCorkscrewDown
 };
 
 /** rct2: 0x00999A94 */
@@ -4854,6 +4933,10 @@ const uint8_t TrackSequenceElementAllowedWallEdges[TrackElemType::Count][MaxSequ
     {      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::FlatTrack1x1B
     {      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::FlatTrack1x4C
     {      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::FlatTrack3x3
+    { 0b1010, 0b0011, 0b0101,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::LeftLargeCorkscrewUp
+    { 0b1010, 0b1001, 0b0101,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::RightLargeCorkscrewUp
+    { 0b1010, 0b0011, 0b0101,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::LeftLargeCorkscrewDown
+    { 0b1010, 0b1001, 0b0101,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0 }, // TrackElemType::RightLargeCorkscrewDown
 };
 
 /** rct2: 0x0099423C */
@@ -5125,5 +5208,9 @@ const uint16_t TrackFlags[TrackElemType::Count] = {
     /* TrackElemType::FlatTrack1x1B                                 */   0,
     /* TrackElemType::FlatTrack1x4C                                 */   0,
     /* TrackElemType::FlatTrack3x3                                  */   0,
+    /* TrackElemType::LeftCorkscrewUp                               */   TRACK_ELEM_FLAG_UP | TRACK_ELEM_FLAG_NORMAL_TO_INVERSION | TRACK_ELEM_FLAG_INVERSION_TO_NORMAL,
+    /* TrackElemType::RightCorkscrewUp                              */   TRACK_ELEM_FLAG_UP | TRACK_ELEM_FLAG_NORMAL_TO_INVERSION | TRACK_ELEM_FLAG_INVERSION_TO_NORMAL,
+    /* TrackElemType::LeftCorkscrewDown                             */   TRACK_ELEM_FLAG_DOWN | TRACK_ELEM_FLAG_INVERSION_TO_NORMAL,
+    /* TrackElemType::RightCorkscrewDown                            */   TRACK_ELEM_FLAG_DOWN | TRACK_ELEM_FLAG_INVERSION_TO_NORMAL,
 };
 // clang-format on

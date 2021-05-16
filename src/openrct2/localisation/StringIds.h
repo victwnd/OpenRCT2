@@ -3947,6 +3947,9 @@ enum
     STR_TILE_INSPECTOR_FOOTPATH_RAILINGS_NAME = 6446,
 
     STR_UNSUPPORTED_OBJECT_FORMAT = 6447,
+    
+    STR_LARGE_HALF_CORKSCREW_LEFT = 6448,
+    STR_LARGE_HALF_CORKSCREW_RIGHT = 6449,
 
     // Have to include resource strings (from scenarios and objects) for the time being now that language is partially working
     /* MAX_STR_COUNT = 32768 */ // MAX_STR_COUNT - upper limit for number of strings, not the current count strings

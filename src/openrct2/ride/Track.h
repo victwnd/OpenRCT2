@@ -174,6 +174,7 @@ enum
     TRACK_HEARTLINE_TRANSFER,
     TRACK_MINI_GOLF_HOLE,
     TRACK_ROTATION_CONTROL_TOGGLE,
+    TRACK_LARGE_CORKSCREW,
 
     TRACK_GROUP_COUNT,
 };
@@ -509,7 +510,12 @@ namespace TrackElemType
     constexpr track_type_t FlatTrack1x4C = 265;
     constexpr track_type_t FlatTrack3x3 = 266;
 
-    constexpr track_type_t Count = 267;
+    constexpr track_type_t LeftLargeCorkscrewUp = 267;
+    constexpr track_type_t RightLargeCorkscrewUp = 268;
+    constexpr track_type_t LeftLargeCorkscrewDown = 269;
+    constexpr track_type_t RightLargeCorkscrewDown = 270;
+    
+    constexpr track_type_t Count = 271;
     constexpr track_type_t None = 65535;
 
     constexpr track_type_t FlatTrack1x4A_Alias = 95;

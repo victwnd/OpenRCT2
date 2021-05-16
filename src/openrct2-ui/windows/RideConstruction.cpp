@@ -426,6 +426,20 @@ static constexpr const rct_string_id RideConfigurationStringIds[] = {
     STR_QUARTER_LOOP,                       // 254
     STR_QUARTER_LOOP,                       // 255
     STR_SPINNING_CONTROL_TOGGLE_TRACK,      // 256
+    0,                                      // 257
+    0,                                      // 258
+    0,                                      // 259
+    0,                                      // 260
+    0,                                      // 261
+    0,                                      // 262
+    0,                                      // 263
+    0,                                      // 264
+    0,                                      // 265
+    0,                                      // 266
+    STR_LARGE_HALF_CORKSCREW_LEFT,          // 267
+    STR_LARGE_HALF_CORKSCREW_RIGHT,         // 268
+    STR_LARGE_HALF_CORKSCREW_LEFT,          // 269
+    STR_LARGE_HALF_CORKSCREW_RIGHT,         // 270
 };
 // clang-format on
 
