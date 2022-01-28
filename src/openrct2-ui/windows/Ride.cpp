@@ -2317,7 +2317,8 @@ private:
             auto trackType = vehicle->GetTrackType();
             if (trackType == TrackElemType::BlockBrakes || trackType == TrackElemType::CableLiftHill
                 || trackType == TrackElemType::Up25ToFlat || trackType == TrackElemType::Up60ToFlat
-                || trackType == TrackElemType::DiagUp25ToFlat || trackType == TrackElemType::DiagUp60ToFlat)
+                || trackType == TrackElemType::DiagUp25ToFlat || trackType == TrackElemType::DiagUp60ToFlat
+                || trackType == TrackElemType::DiagBlockBrakes)
             {
                 if (ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_BLOCK_BRAKES) && vehicle->velocity == 0)
                 {
