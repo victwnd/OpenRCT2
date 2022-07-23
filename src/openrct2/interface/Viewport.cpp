@@ -1516,7 +1516,7 @@ VisibilityKind GetPaintStructVisibility(const PaintStruct* ps, uint32_t viewFlag
 static bool PSSpriteTypeIsInFilter(PaintStruct* ps, uint16_t filter)
 {
     if (ps->sprite_type != ViewportInteractionItem::None && ps->sprite_type != ViewportInteractionItem::Label
-        && ps->sprite_type <= ViewportInteractionItem::Banner)
+        && ps->sprite_type <= ViewportInteractionItem::Pool)
     {
         auto mask = EnumToFlag(ps->sprite_type);
         if (filter & mask)

@@ -282,6 +282,7 @@ namespace OpenRCT2::TileInspector
                 }
                 case TileElementType::Surface:
                 case TileElementType::LargeScenery:
+                case TileElementType::Pool://TODO this will need implementation
                     break;
             }
 
@@ -676,6 +677,30 @@ namespace OpenRCT2::TileInspector
 
         return GameActions::Result();
     }
+    
+    GameActions::Result PoolToggleEdge(const CoordsXY& loc, int32_t elementIndex, int32_t edgeIndex, bool isExecuting)
+    {
+        TileElement* const poolElement = map_get_nth_element_at(loc, elementIndex);
+
+        if (poolElement == nullptr || poolElement->GetType() != TileElementType::Pool)
+            return GameActions::Result(GameActions::Status::Unknown, STR_NONE, STR_NONE);
+
+        if (isExecuting)
+        {
+            uint8_t newEdges = poolElement->AsPool()->GetEdgesAndCorners() ^ (1 << edgeIndex);
+            poolElement->AsPool()->SetEdgesAndCorners(newEdges);
+
+            map_invalidate_tile_full(loc);
+
+            if (auto* inspector = GetTileInspectorWithPos(loc); inspector != nullptr)
+            {
+                inspector->Invalidate();
+            }
+        }
+
+        return GameActions::Result();
+    }
+
 
     GameActions::Result EntranceMakeUsable(const CoordsXY& loc, int32_t elementIndex, bool isExecuting)
     {

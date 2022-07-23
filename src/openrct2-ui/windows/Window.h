@@ -46,6 +46,7 @@ WindowBase* WindowEditorMainOpen();
 WindowBase* WindowEditorObjectiveOptionsOpen();
 WindowBase* WindowEditorScenarioOptionsOpen();
 WindowBase* WindowFootpathOpen();
+WindowBase* WindowPoolOpen();
 void WindowFootpathResetSelectedPath();
 WindowBase* WindowGuestOpen(Peep* peep);
 WindowBase* WindowLandOpen();

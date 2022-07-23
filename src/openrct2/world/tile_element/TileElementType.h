@@ -21,4 +21,5 @@ enum class TileElementType : uint8_t
     Wall = 5,
     LargeScenery = 6,
     Banner = 7,
+    Pool = 8,
 };

@@ -136,6 +136,7 @@ static void PaintTileElementBase(PaintSession& session, const CoordsXY& origCoor
     session.VerticalTunnelHeight = 0xFF;
     session.MapPosition.x = coords.x;
     session.MapPosition.y = coords.y;
+    session.Flags &= ~PaintSessionFlags::HideSurface;
 
     auto* tile_element = MapGetFirstElementAt(session.MapPosition);
     if (tile_element == nullptr)
@@ -286,6 +287,9 @@ static void PaintTileElementBase(PaintSession& session, const CoordsXY& origCoor
             case TileElementType::Banner:
                 PaintBanner(session, direction, baseZ, *(tile_element->AsBanner()));
                 break;
+            case TileElementType::Pool:
+                PaintPool(session, direction, baseZ, *(tile_element->AsPool()));
+                break;
         }
         session.MapPosition = mapPosition;
     } while (!(tile_element++)->IsLastForTile());
@@ -409,6 +413,11 @@ uint16_t PaintUtilRotateSegments(uint16_t segments, uint8_t rotation)
     temp = Numerics::rol8(temp, rotation * 2);
 
     return (segments & 0xFF00) | temp;
+}
+
+void PaintUtilHideSurface(PaintSession& session)
+{
+    session.Flags |= PaintSessionFlags::HideSurface;
 }
 
 bool PaintShouldShowHeightMarkers(const PaintSession& session, const uint32_t viewportFlag)

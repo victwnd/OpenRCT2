@@ -24,6 +24,7 @@
 #include <openrct2/actions/LargeSceneryRemoveAction.h>
 #include <openrct2/actions/ParkEntranceRemoveAction.h>
 #include <openrct2/actions/SmallSceneryRemoveAction.h>
+#include <openrct2/actions/PoolRemoveAction.h>
 #include <openrct2/actions/WallRemoveAction.h>
 #include <openrct2/entity/Balloon.h>
 #include <openrct2/entity/Duck.h>
@@ -51,6 +52,7 @@
 #include <openrct2/world/Scenery.h>
 #include <openrct2/world/Surface.h>
 #include <openrct2/world/Wall.h>
+#include <openrct2/world/Pool.h>
 
 static void ViewportInteractionRemoveScenery(TileElement* tileElement, const CoordsXY& mapCoords);
 static void ViewportInteractionRemoveFootpath(TileElement* tileElement, const CoordsXY& mapCoords);
@@ -58,6 +60,7 @@ static void ViewportInteractionRemoveFootpathItem(TileElement* tileElement, cons
 static void ViewportInteractionRemoveParkWall(TileElement* tileElement, const CoordsXY& mapCoords);
 static void ViewportInteractionRemoveLargeScenery(TileElement* tileElement, const CoordsXY& mapCoords);
 static void ViewportInteractionRemoveParkEntrance(TileElement* tileElement, CoordsXY mapCoords);
+static void ViewportInteractionRemovePool(TileElement* tileElement, const CoordsXY& mapCoords);
 static Peep* ViewportInteractionGetClosestPeep(ScreenCoordsXY screenCoords, int32_t maxDistance);
 
 /**
@@ -457,7 +460,7 @@ InteractionInfo ViewportInteractionGetItemRight(const ScreenCoordsXY& screenCoor
             return info;
         }
     }
-
+    
     auto ft = Formatter();
     switch (info.SpriteType)
     {
@@ -466,6 +469,13 @@ InteractionInfo ViewportInteractionGetItemRight(const ScreenCoordsXY& screenCoor
             auto* sceneryEntry = tileElement->AsSmallScenery()->GetEntry();
             ft.Add<StringId>(STR_MAP_TOOLTIP_STRINGID_CLICK_TO_REMOVE);
             ft.Add<StringId>(sceneryEntry->name);
+            SetMapTooltip(ft);
+            return info;
+        }
+	case ViewportInteractionItem::Pool:
+        {
+            ft.Add<rct_string_id>(STR_MAP_TOOLTIP_STRINGID_CLICK_TO_REMOVE);
+            ft.Add<rct_string_id>(STR_POOL_TIP);
             SetMapTooltip(ft);
             return info;
         }
@@ -539,6 +549,7 @@ bool ViewportInteractionRightOver(const ScreenCoordsXY& screenCoords)
  */
 bool ViewportInteractionRightClick(const ScreenCoordsXY& screenCoords)
 {
+
     CoordsXYE tileElement;
     auto info = ViewportInteractionGetItemRight(screenCoords);
 
@@ -592,6 +603,9 @@ bool ViewportInteractionRightClick(const ScreenCoordsXY& screenCoords)
             break;
         case ViewportInteractionItem::Banner:
             ContextOpenDetailWindow(WD_BANNER, info.Element->AsBanner()->GetIndex().ToUnderlying());
+            break;
+        case ViewportInteractionItem::Pool:
+            ViewportInteractionRemovePool(info.Element, info.Loc);
             break;
     }
 
@@ -709,6 +723,16 @@ static void ViewportInteractionRemoveLargeScenery(TileElement* tileElement, cons
             tileElement->AsLargeScenery()->GetSequenceIndex());
         GameActions::Execute(&removeSceneryAction);
     }
+}
+
+static void ViewportInteractionRemovePool(TileElement* tileElement, const CoordsXY& mapCoords)
+{
+    rct_window* w;
+    w = window_find_by_class(WC_POOL);
+    if (w != nullptr)
+        pool_provisional_update();
+auto removeSceneryAction = PoolRemoveAction({ mapCoords.x, mapCoords.y, tileElement->GetBaseZ()});
+GameActions::Execute(&removeSceneryAction);
 }
 
 struct PeepDistance

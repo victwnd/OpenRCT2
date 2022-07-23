@@ -306,6 +306,36 @@
         "y_offset": 2
     },
     {
+        "path": "icons/square_corners.png",
+        "x_offset": 0,
+        "y_offset": 0
+    },
+    {
+        "path": "icons/angled_corners.png",
+        "x_offset": 0,
+        "y_offset": 0
+    },
+    {
+        "path": "icons/rounded_corners.png",
+        "x_offset": 0,
+        "y_offset": 0
+    },
+    {
+        "path": "icons/pool_path.png",
+        "x_offset": 0,
+        "y_offset": 0
+    },
+    {
+        "path": "icons/pool_water.png",
+        "x_offset": 0,
+        "y_offset": 0
+    },
+    {
+        "path": "icons/pool_rectangle.png",
+        "x_offset": 0,
+        "y_offset": 0
+    },
+    {
         "path": "surface/glassy_recolourable.png",
         "x_offset": -32,
         "y_offset": -1,

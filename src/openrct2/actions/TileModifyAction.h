@@ -37,6 +37,7 @@ enum class TileModifyType : uint8_t
     ScenerySetQuarterLocation,
     ScenerySetQuarterCollision,
     BannerToggleBlockingEdge,
+    PoolToggleEdge,
     Count,
 };
 

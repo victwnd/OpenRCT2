@@ -561,6 +561,9 @@ static void ShortcutIncreaseElementHeight()
             case WC_TILE_INSPECTOR__TILE_INSPECTOR_PAGE_BANNER:
                 action = WC_TILE_INSPECTOR__WIDX_BANNER_SPINNER_HEIGHT_INCREASE;
                 break;
+            case WC_TILE_INSPECTOR__TILE_INSPECTOR_PAGE_POOL:
+                action = WC_TILE_INSPECTOR__WIDX_POOL_SPINNER_HEIGHT_INCREASE;
+                break;
             case TileInspectorPage::Default:
                 break;
         }
@@ -601,6 +604,9 @@ static void ShortcutDecreaseElementHeight()
                 break;
             case WC_TILE_INSPECTOR__TILE_INSPECTOR_PAGE_BANNER:
                 action = WC_TILE_INSPECTOR__WIDX_BANNER_SPINNER_HEIGHT_DECREASE;
+                break;
+            case WC_TILE_INSPECTOR__TILE_INSPECTOR_PAGE_POOL:
+                action = WC_TILE_INSPECTOR__WIDX_POOL_SPINNER_HEIGHT_DECREASE;
                 break;
             case TileInspectorPage::Default:
                 break;

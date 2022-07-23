@@ -145,6 +145,7 @@ static constexpr const ObjectPageDesc ObjectSelectionPages[] = {
     { STR_OBJECT_SELECTION_TERRAIN_SURFACES,          SPR_G2_TAB_LAND,            true  },
     { STR_OBJECT_SELECTION_TERRAIN_EDGES,             SPR_G2_TERRAIN_EDGE_TAB,    true  },
     { STR_OBJECT_SELECTION_WATER,                     SPR_TAB_WATER,              false },
+    { STR_POOLS                 ,                     SPR_TAB_WATER,              false},
 };
 // clang-format on
 
@@ -155,7 +156,8 @@ ObjectType static TabOrder[] = {
     ObjectType::Walls,        ObjectType::FootpathSurface, ObjectType::FootpathRailings,
     ObjectType::Paths,        ObjectType::PathBits,        ObjectType::Banners,
     ObjectType::ParkEntrance, ObjectType::TerrainSurface,  ObjectType::TerrainEdge,
-    ObjectType::Water,
+    ObjectType::Water,        ObjectType::Pool,
+
 };
 
 #pragma region Widgets

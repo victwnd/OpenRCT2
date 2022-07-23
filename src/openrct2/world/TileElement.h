@@ -15,6 +15,7 @@
 #include "../ride/Station.h"
 #include "Banner.h"
 #include "Footpath.h"
+#include "Pool.h"
 #include "tile_element/TileElementType.h"
 
 struct Banner;
@@ -47,6 +48,7 @@ struct LargeSceneryElement;
 struct WallElement;
 struct EntranceElement;
 struct BannerElement;
+struct PoolElement;
 
 struct TileElementBase
 {
@@ -163,6 +165,14 @@ struct TileElementBase
     BannerElement* AsBanner()
     {
         return as<BannerElement>();
+    }
+    const PoolElement* AsPool() const
+    {
+        return as<PoolElement>();
+    }
+    PoolElement* AsPool()
+    {
+        return as<PoolElement>();
     }
 };
 
@@ -614,6 +624,39 @@ public:
     void ResetAllowedEdges();
 };
 assert_struct_size(BannerElement, 16);
+
+struct PoolElement : TileElementBase
+{
+    static constexpr TileElementType ElementType = TileElementType::Pool;
+
+private:
+    ObjectEntryIndex PoolIndex;
+    uint8_t Flags;
+    uint8_t EdgesAndCorners;
+    uint8_t unused[7];
+
+public:
+    ObjectEntryIndex GetPoolEntryIndex() const;
+    const PoolObject* GetPoolEntry() const;
+    void SetPoolEntryIndex(ObjectEntryIndex newIndex);
+   
+    bool IsInGround() const;
+    void SetInGround(bool isInGround);
+    
+    bool IsWater() const;
+    void SetIsWater(bool isWater);
+ 
+    uint8_t GetEdges() const;
+    void SetEdges(uint8_t newEdges);
+    uint8_t GetCorners() const;
+    void SetCorners(uint8_t newCorners);
+    uint8_t GetEdgesAndCorners() const;
+    void SetEdgesAndCorners(uint8_t newEdgesAndCorners);
+};
+assert_struct_size(PoolElement, 16);
+
+
+
 
 #pragma pack(pop)
 

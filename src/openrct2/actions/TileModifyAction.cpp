@@ -218,6 +218,13 @@ GameActions::Result TileModifyAction::QueryExecute(bool isExecuting) const
             res = TileInspector::BannerToggleBlockingEdge(_loc, elementIndex, edgeIndex, isExecuting);
             break;
         }
+        case TileModifyType::PoolToggleEdge:
+        {
+            const auto elementIndex = _value1;
+            const auto edgeIndex = _value2;
+            res = TileInspector::PoolToggleEdge(_loc, elementIndex, edgeIndex, isExecuting);
+            break;
+        }
         default:
             LOG_ERROR("invalid instruction");
             return GameActions::Result(GameActions::Status::InvalidParameters, STR_NONE, STR_NONE);

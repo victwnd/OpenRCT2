@@ -182,6 +182,7 @@ static constexpr const WindowThemeDesc WindowThemeDescriptors[] =
     { WindowClass::ServerList,                  "WC_SERVER_LIST",                    STR_SERVER_LIST,                                  COLOURS_2(COLOUR_LIGHT_BLUE,               COLOUR_LIGHT_BLUE                                                                   ) },
     { WindowClass::Chat,                        "WC_CHAT",                           STR_CHAT,                                         COLOURS_1(TRANSLUCENT(COLOUR_GREY)                                                                                             ) },
     { WindowClass::Console,                     "WC_CONSOLE",                        STR_CONSOLE,                                      COLOURS_2(TRANSLUCENT(COLOUR_LIGHT_BLUE),  COLOUR_WHITE                                                                        ) },
+    { WindowClass::Pool,                        "WC_POOL",                           STR_POOLS,                                        COLOURS_3(COLOUR_DARK_BROWN,               COLOUR_DARK_BROWN,               COLOUR_DARK_BROWN                                  ) },
 };
 
 #pragma endregion

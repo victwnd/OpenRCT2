@@ -1101,7 +1101,7 @@ void PaintSurface(PaintSession& session, uint8_t direction, uint16_t height, con
     }
 
     bool has_surface = false;
-    if (session.VerticalTunnelHeight * COORDS_Z_PER_TINY_Z == height)
+    if (session.VerticalTunnelHeight !=0xFF)// height)
     {
         // Vertical tunnels
         PaintAddImageAsParent(session, ImageId(1575), { 0, 0, height }, { { -2, 1, height - 40 }, { 1, 30, 39 } });
@@ -1138,6 +1138,10 @@ void PaintSurface(PaintSession& session, uint8_t direction, uint16_t height, con
         {
             imageId = imageId.WithTransparency(FilterPaletteID::PaletteDarken1);
         }
+	else if(session.Flags&PaintSessionFlags::HideSurface)
+	{
+            imageId = imageId.WithTransparancy(FilterPaletteID::PaletteNull);
+	}
 
         if (OpenRCT2::TileInspector::IsElementSelected(elementPtr))
         {
@@ -1309,9 +1313,12 @@ void PaintSurface(PaintSession& session, uint8_t direction, uint16_t height, con
             LOG_VERBOSE("edgeStyle: %d", edgeStyle);
         }
 
+	if(!(session.Flags&PaintSessionFlags::HideSurface))
+	{
         ViewportSurfaceDrawLandSideTop(session, EDGE_TOPLEFT, height, edgeStyle, tileDescriptors[0], tileDescriptors[3]);
         ViewportSurfaceDrawLandSideTop(session, EDGE_TOPRIGHT, height, edgeStyle, tileDescriptors[0], tileDescriptors[4]);
-        ViewportSurfaceDrawLandSideBottom(session, EDGE_BOTTOMLEFT, height, edgeStyle, tileDescriptors[0], tileDescriptors[1]);
+        }
+	ViewportSurfaceDrawLandSideBottom(session, EDGE_BOTTOMLEFT, height, edgeStyle, tileDescriptors[0], tileDescriptors[1]);
         ViewportSurfaceDrawLandSideBottom(session, EDGE_BOTTOMRIGHT, height, edgeStyle, tileDescriptors[0], tileDescriptors[2]);
     }
 

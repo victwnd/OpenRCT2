@@ -696,6 +696,8 @@ void MapAnimationAutoCreate()
             }
             case TileElementType::Surface:
                 break;
+            case TileElementType::Pool:
+                break;
         }
     }
 }

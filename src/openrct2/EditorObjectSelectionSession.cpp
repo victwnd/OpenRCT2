@@ -124,6 +124,7 @@ static void SetupTrackDesignerObjects()
  */
 void SetupInUseSelectionFlags()
 {
+printf("1\n");
     auto& objectMgr = OpenRCT2::GetContext()->GetObjectManager();
 
     for (auto objectType : TransientObjectTypes)
@@ -140,6 +141,7 @@ void SetupInUseSelectionFlags()
         }
     }
 
+printf("2\n");
     TileElementIterator iter;
     TileElementIteratorBegin(&iter);
     do
@@ -229,9 +231,14 @@ void SetupInUseSelectionFlags()
                 }
                 break;
             }
+            case TileElementType::Pool:
+                type = iter.element->AsPool()->GetPoolEntryIndex();
+                Editor::SetSelectedObject(ObjectType::Pool, type, ObjectSelectionFlags::InUse);
+                break;
         }
     } while (TileElementIteratorNext(&iter));
 
+printf("3\n");
     for (auto& ride : GetRideManager())
     {
         Editor::SetSelectedObject(ObjectType::Ride, ride.subtype, ObjectSelectionFlags::InUse);
@@ -239,6 +246,7 @@ void SetupInUseSelectionFlags()
         Editor::SetSelectedObject(ObjectType::Music, ride.music, ObjectSelectionFlags::InUse);
     }
 
+printf("4\n");
     // Apply selected object status for hacked vehicles that may not have an associated ride
     for (auto* vehicle : TrainManager::View())
     {
@@ -257,6 +265,7 @@ void SetupInUseSelectionFlags()
         }
     }
 
+printf("5\n");
     auto numObjects = ObjectRepositoryGetItemsCount();
     const auto* items = ObjectRepositoryGetItems();
     for (size_t i = 0; i < numObjects; i++)
@@ -272,6 +281,7 @@ void SetupInUseSelectionFlags()
             *selectionFlags |= Editor::GetSelectedObjectFlags(objectType, entryIndex);
         }
     }
+printf("6\n");
 }
 
 /**

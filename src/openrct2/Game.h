@@ -100,6 +100,8 @@ enum class GameCommand : int32_t
     RemoveFootpathAddition,   // GA
     GuestSetFlags,            // GA
     SetDate,                  // GA
+    PlacePool,                // GA
+    RemovePool,               // GA
     Custom,                   // GA
     ChangeMapSize,
     FreezeRideRating,

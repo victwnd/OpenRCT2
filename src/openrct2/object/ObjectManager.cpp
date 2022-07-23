@@ -27,6 +27,7 @@
 #include "RideObject.h"
 #include "SceneryGroupObject.h"
 #include "SmallSceneryObject.h"
+#include "PoolObject.h"
 #include "WallObject.h"
 
 #include <algorithm>

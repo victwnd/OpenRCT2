@@ -86,7 +86,8 @@ enum class ViewportInteractionItem : uint8_t
     Wall,
     LargeScenery,
     Label,
-    Banner
+    Banner,
+    Pool
 };
 
 constexpr uint16_t ViewportInteractionItemAll = std::numeric_limits<uint16_t>::max();
