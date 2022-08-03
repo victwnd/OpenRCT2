@@ -60,7 +60,7 @@ const PoolObject* GetPoolEntry(ObjectEntryIndex entryIndex);
 money32 pool_remove(const CoordsXYZ& footpathLoc, int32_t flags);
 void pool_provisional_remove();
 void pool_provisional_update();
-money32 pool_provisional_set(ObjectEntryIndex type, const CoordsXYZ& poolLoc);
+money32 pool_provisional_set(ObjectEntryIndex type, const CoordsXYZ& poolLoc,bool isWater);
 TileElement* map_get_pool_element(const CoordsXYZ& coords);
 
 void pool_connect_edges(const CoordsXY& poolPos, TileElement* tileElement);

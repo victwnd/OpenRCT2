@@ -33,7 +33,6 @@ static constexpr const rct_string_id WINDOW_TITLE = STR_POOLS;
 static constexpr const int32_t WH = 180;
 static constexpr const int32_t WW = 150;
 
-static uint8_t _footpathConstructionMode;
 
 static std::vector<std::pair<ObjectType, ObjectEntryIndex>> _dropdownEntries;
 
@@ -43,7 +42,7 @@ static bool _poolPlaceShiftState;
 static ScreenCoordsXY _poolPlaceShiftStart;
 static int32_t _poolPlaceShiftZ;
 static int32_t _poolPlaceZ;
-
+static bool _poolIsWater=true;
 // clang-format off
 enum
 {
@@ -177,9 +176,9 @@ rct_window* WindowPoolOpen()
     show_gridlines();
 
     tool_cancel();
-    _footpathConstructionMode = PATH_CONSTRUCTION_MODE_LAND;
-    tool_set(window, WIDX_CONSTRUCT_PATH_TILE, Tool::PathDown);
+    tool_set(*window, WIDX_CONSTRUCT_WATER_TILE, Tool::PathDown);
     input_set_flag(INPUT_FLAG_6, true);
+    _poolIsWater=true;
     _poolErrorOccured = false;
     WindowPoolSetEnabledAndPressedWidgets();
 
@@ -211,6 +210,18 @@ static void WindowPoolMouseup(rct_window* w, rct_widgetindex widgetIndex)
         case WIDX_CLOSE:
             window_close(w);
             break;
+        case WIDX_CONSTRUCT_PATH_TILE:
+		tool_cancel();
+		tool_set(*w, WIDX_CONSTRUCT_PATH_TILE, Tool::PathDown);
+                input_set_flag(INPUT_FLAG_6, true);
+        	_poolIsWater=false;
+	break;
+        case WIDX_CONSTRUCT_WATER_TILE:
+		tool_cancel();
+		tool_set(*w, WIDX_CONSTRUCT_WATER_TILE, Tool::PathDown);
+	        input_set_flag(INPUT_FLAG_6, true);
+        	_poolIsWater=true;
+		break;
     }
 }
 
@@ -411,7 +422,7 @@ static void WindowPoolToolupdate(rct_window* w, rct_widgetindex widgetIndex, con
         gMapSelectPositionB = *coords;
 
         //pool_provisional_update();
-       _window_pool_cost = pool_provisional_set(gPoolSelection.Pool, loc);
+       _window_pool_cost = pool_provisional_set(gPoolSelection.Pool, loc, _poolIsWater);
       window_invalidate_by_class(WC_POOL);
 }
 
@@ -430,8 +441,7 @@ static void WindowPoolPlacePoolAt(const ScreenCoordsXY& screenCoords)
     auto loc=*coords;
 
     // Try and place path
-    gGameCommandErrorTitle = STR_CANT_BUILD_POOL_HERE;
-    auto poolPlaceAction = PoolPlaceAction(loc, gPoolSelection.Pool);
+    auto poolPlaceAction = PoolPlaceAction(loc, gPoolSelection.Pool,_poolIsWater);
     poolPlaceAction.SetCallback([](const GameAction* ga, const GameActions::Result* result) {
         if (result->Error == GameActions::Status::Ok)
         {
@@ -479,33 +489,6 @@ static void WindowPoolUpdate(rct_window* w)
         WindowPoolSetEnabledAndPressedWidgets();
     }
 
-    // Check tool
-    if (_footpathConstructionMode == PATH_CONSTRUCTION_MODE_LAND)
-    {
-        if (!(input_test_flag(INPUT_FLAG_TOOL_ACTIVE)))
-        {
-            window_close(w);
-        }
-        else if (gCurrentToolWidget.window_classification != WC_POOL)
-        {
-            window_close(w);
-        }
-        else if (gCurrentToolWidget.widget_index != WIDX_CONSTRUCT_PATH_TILE)
-        {
-            window_close(w);
-        }
-    }
-    else if (_footpathConstructionMode == PATH_CONSTRUCTION_MODE_BRIDGE_OR_TUNNEL_TOOL)
-    {
-        if (!(input_test_flag(INPUT_FLAG_TOOL_ACTIVE)))
-        {
-            window_close(w);
-        }
-        else if (gCurrentToolWidget.window_classification != WC_POOL)
-        {
-            window_close(w);
-        }
-    }
 }
 
 /**

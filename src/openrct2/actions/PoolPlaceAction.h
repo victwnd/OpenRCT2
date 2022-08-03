@@ -17,11 +17,11 @@ class PoolPlaceAction final : public GameActionBase<GameCommand::PlacePool>
 private:
     CoordsXYZ _loc;
     ObjectEntryIndex _type{};
-
+    bool _isWater;
 public:
     PoolPlaceAction() = default;
     PoolPlaceAction(
-        const CoordsXYZ& loc, ObjectEntryIndex type);
+        const CoordsXYZ& loc, ObjectEntryIndex type, bool isWater);
     void AcceptParameters(GameActionParameterVisitor& visitor) override;
 
     uint16_t GetActionFlags() const override;
