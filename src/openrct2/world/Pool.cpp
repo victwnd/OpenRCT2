@@ -105,13 +105,13 @@ void pool_provisional_update()
 }
 
 
-money32 pool_provisional_set(ObjectEntryIndex type, const CoordsXYZ& poolLoc, bool isWater)
+money32 pool_provisional_set(ObjectEntryIndex type, const CoordsXYZ& poolLoc, bool isWater,uint8_t edgeStyle)
 {
     money32 cost;
 
     pool_provisional_remove();
 
-    auto poolPlaceAction = PoolPlaceAction(poolLoc, type, isWater);
+    auto poolPlaceAction = PoolPlaceAction(poolLoc, type, isWater, edgeStyle);
     poolPlaceAction.SetFlags(GAME_COMMAND_FLAG_GHOST | GAME_COMMAND_FLAG_ALLOW_DURING_PAUSED);
     auto res = GameActions::Execute(&poolPlaceAction);
     cost = res.Error == GameActions::Status::Ok ? res.Cost : MONEY32_UNDEFINED;
@@ -146,6 +146,16 @@ void PoolElement::SetIsWater(bool isWater)
     Flags &= ~POOL_ELEMENT_FLAGS_WATER;
     if (isWater)
         Flags |= POOL_ELEMENT_FLAGS_WATER;
+}
+
+uint8_t PoolElement::GetEdgeStyle() const
+{
+return EdgeStyle;
+}
+
+void PoolElement::SetEdgeStyle(uint8_t newEdgeStyle)
+{
+EdgeStyle=newEdgeStyle;
 }
 
 TileElement* map_get_pool_element(const CoordsXYZ& coords)

@@ -18,10 +18,11 @@ private:
     CoordsXYZ _loc;
     ObjectEntryIndex _type{};
     bool _isWater;
+    uint8_t _edgeStyle;
 public:
     PoolPlaceAction() = default;
     PoolPlaceAction(
-        const CoordsXYZ& loc, ObjectEntryIndex type, bool isWater);
+        const CoordsXYZ& loc, ObjectEntryIndex type, bool isWater,uint8_t edgeStyle);
     void AcceptParameters(GameActionParameterVisitor& visitor) override;
 
     uint16_t GetActionFlags() const override;

@@ -29,10 +29,11 @@
 using namespace OpenRCT2;
 
 PoolPlaceAction::PoolPlaceAction(
-    const CoordsXYZ& loc, ObjectEntryIndex type, bool isWater)
+    const CoordsXYZ& loc, ObjectEntryIndex type, bool isWater,uint8_t edgeStyle)
     : _loc(loc)
     , _type(type)
     , _isWater(isWater)
+    , _edgeStyle(edgeStyle)
 {
 }
 
@@ -110,7 +111,7 @@ GameActions::Result PoolPlaceAction::ElementUpdateQuery(PoolElement* poolElement
 {
     if (GetFlags() & GAME_COMMAND_FLAG_GHOST && !poolElement->IsGhost())
     {
-        return GameActions::Result(GameActions::Status::Unknown, STR_CANT_BUILD_FOOTPATH_HERE, STR_NONE);
+        return GameActions::Result(GameActions::Status::Unknown, STR_CANT_BUILD_POOL_HERE, STR_NONE);
     }
 return res;
 }
@@ -118,10 +119,11 @@ GameActions::Result PoolPlaceAction::ElementUpdateExecute(PoolElement* poolEleme
 {
 poolElement->SetPoolEntryIndex(_type);
 
-	if(poolElement->IsWater()!=_isWater)
+	if(poolElement->IsWater()!=_isWater||poolElement->GetEdgeStyle()!=_edgeStyle)
 	{
         pool_remove_edges(_loc,reinterpret_cast<TileElement*>(poolElement));
 	poolElement->SetIsWater(_isWater);
+	poolElement->SetEdgeStyle(_edgeStyle);
         pool_connect_edges(_loc,reinterpret_cast<TileElement*>(poolElement));
 	}
 return res;
@@ -194,6 +196,7 @@ res.Cost = 12.00_GBP;
         poolElement->SetGhost(GetFlags() & GAME_COMMAND_FLAG_GHOST);
 	poolElement->SetInGround(inGround);
 	poolElement->SetIsWater(_isWater);
+	poolElement->SetEdgeStyle(_edgeStyle);
 
         pool_connect_edges(_loc,reinterpret_cast<TileElement*>(poolElement));
 

@@ -422,7 +422,7 @@ static void WindowPoolToolupdate(rct_window* w, rct_widgetindex widgetIndex, con
         gMapSelectPositionB = *coords;
 
         //pool_provisional_update();
-       _window_pool_cost = pool_provisional_set(gPoolSelection.Pool, loc, _poolIsWater);
+       _window_pool_cost = pool_provisional_set(gPoolSelection.Pool, loc, _poolIsWater, PoolEdgeStyle::Curved);
       window_invalidate_by_class(WC_POOL);
 }
 
@@ -440,8 +440,8 @@ static void WindowPoolPlacePoolAt(const ScreenCoordsXY& screenCoords)
 	if(!coords)return;
     auto loc=*coords;
 
-    // Try and place path
-    auto poolPlaceAction = PoolPlaceAction(loc, gPoolSelection.Pool,_poolIsWater);
+    // Try and place pool
+    auto poolPlaceAction = PoolPlaceAction(loc, gPoolSelection.Pool,_poolIsWater,PoolEdgeStyle::Curved);
     poolPlaceAction.SetCallback([](const GameAction* ga, const GameActions::Result* result) {
         if (result->Error == GameActions::Status::Ok)
         {
