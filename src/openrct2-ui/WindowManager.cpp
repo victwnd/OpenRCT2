@@ -70,7 +70,6 @@ public:
                 return WindowFootpathOpen();
             case WindowClass::Pool:
                 return WindowPoolOpen();
-            case WC_GUEST_LIST:
             case WindowClass::GuestList:
                 return WindowGuestListOpen();
             case WindowClass::Land:

@@ -1731,21 +1731,21 @@ static void WindowTileInspectorInvalidate(rct_window* w)
             WidgetSetCheckboxValue(w, WIDX_POOL_CHECK_BROKEN, tileElement->AsPath()->IsBroken());
 */
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_NE, tileElement->AsPool()->GetEdges() & (1 << ((0 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_NE, tileElement->AsPool()->GetEdges() & (1 << ((0 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_SE, tileElement->AsPool()->GetEdges() & (1 << ((1 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_SE, tileElement->AsPool()->GetEdges() & (1 << ((1 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_SW, tileElement->AsPool()->GetEdges() & (1 << ((2 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_SW, tileElement->AsPool()->GetEdges() & (1 << ((2 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_NW, tileElement->AsPool()->GetEdges() & (1 << ((3 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_NW, tileElement->AsPool()->GetEdges() & (1 << ((3 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_E, tileElement->AsPool()->GetCorners() & (1 << ((0 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_E, tileElement->AsPool()->GetCorners() & (1 << ((0 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_S, tileElement->AsPool()->GetCorners() & (1 << ((1 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_S, tileElement->AsPool()->GetCorners() & (1 << ((1 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_W, tileElement->AsPool()->GetCorners() & (1 << ((2 - get_current_rotation()) & 3)));
+                *w, WIDX_POOL_CHECK_EDGE_W, tileElement->AsPool()->GetCorners() & (1 << ((2 - get_current_rotation()) & 3)));
             WidgetSetCheckboxValue(
-                w, WIDX_POOL_CHECK_EDGE_N, tileElement->AsPool()->GetCorners() & (1 << ((3 - get_current_rotation()) & 3)));  
+                *w, WIDX_POOL_CHECK_EDGE_N, tileElement->AsPool()->GetCorners() & (1 << ((3 - get_current_rotation()) & 3)));  
           break;
   break;
         default:
@@ -2756,7 +2756,7 @@ static void WindowTileInspectorInvalidate(rct_window* w)
                     if (poolElement != nullptr)
                     {
                         auto ft = Formatter();
-                        ft.Add<rct_string_id>(poolObj->NameStringId);
+                        ft.Add<StringId>(poolObj->NameStringId);
                         DrawTextBasic(dpi, screenCoords, STR_TILE_INSPECTOR_FOOTPATH_SURFACE_NAME, ft, { COLOUR_WHITE });//TODO string
                     }
 

@@ -15,7 +15,7 @@
 class PoolObject final : public Object
 {
 public:
-    rct_string_id NameStringId{};
+    StringId NameStringId{};
     uint32_t PreviewImageId{};
     uint32_t BaseImageId{};
     uint8_t Flags{};

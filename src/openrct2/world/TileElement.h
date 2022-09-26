@@ -634,7 +634,7 @@ private:
     uint8_t Flags;
     uint8_t EdgeStyle;
     uint16_t EdgesAndCorners;
-    uint8_t unused[6];
+    uint8_t unused[5];
 
 public:
     ObjectEntryIndex GetPoolEntryIndex() const;
@@ -650,12 +650,12 @@ public:
     uint8_t GetEdgeStyle() const;
     void SetEdgeStyle(uint8_t newEdgeStyle);
 
-    uint16_t GetEdges() const;
-    void SetEdges(uint16_t newEdges);
-    uint16_t GetCorners() const;
-    void SetCorners(uint16_t newCorners);
-    uint16_t GetEdgesAndCorners() const;
-    void SetEdgesAndCorners(uint16_t newEdgesAndCorners);
+    uint8_t GetEdges() const;
+    void SetEdges(uint8_t newEdges);
+    uint8_t GetCorners() const;
+    void SetCorners(uint8_t newCorners);
+    uint8_t GetEdgesAndCorners() const;
+    void SetEdgesAndCorners(uint8_t newEdgesAndCorners);
 };
 assert_struct_size(PoolElement, 16);
 

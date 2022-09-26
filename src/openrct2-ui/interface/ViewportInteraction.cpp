@@ -474,8 +474,8 @@ InteractionInfo ViewportInteractionGetItemRight(const ScreenCoordsXY& screenCoor
         }
 	case ViewportInteractionItem::Pool:
         {
-            ft.Add<rct_string_id>(STR_MAP_TOOLTIP_STRINGID_CLICK_TO_REMOVE);
-            ft.Add<rct_string_id>(STR_POOL_TIP);
+            ft.Add<StringId>(STR_MAP_TOOLTIP_STRINGID_CLICK_TO_REMOVE);
+            ft.Add<StringId>(STR_POOL_TIP);
             SetMapTooltip(ft);
             return info;
         }
@@ -728,7 +728,7 @@ static void ViewportInteractionRemoveLargeScenery(TileElement* tileElement, cons
 static void ViewportInteractionRemovePool(TileElement* tileElement, const CoordsXY& mapCoords)
 {
     rct_window* w;
-    w = window_find_by_class(WC_POOL);
+    w = window_find_by_class(WindowClass::Pool);
     if (w != nullptr)
         pool_provisional_update();
 auto removeSceneryAction = PoolRemoveAction({ mapCoords.x, mapCoords.y, tileElement->GetBaseZ()});

@@ -1859,7 +1859,7 @@ static void WindowTopToolbarInvalidate(rct_window* w)
         w->pressed_widgets |= (1ULL << WIDX_PATH);
 
     // Pool button pressed down
-    if (window_find_by_class(WC_POOL) == nullptr)
+    if (window_find_by_class(WindowClass::Pool) == nullptr)
         w->pressed_widgets &= ~(1ULL << WIDX_POOL);
     else
         w->pressed_widgets |= (1ULL << WIDX_POOL);
@@ -4174,14 +4174,14 @@ void TopToolbar::InitFastforwardMenu(Widget& widget)
 =======
 static void TogglePoolWindow()
 {
-    if (window_find_by_class(WC_POOL) == nullptr)
+    if (window_find_by_class(WindowClass::Pool) == nullptr)
     {
-        context_open_window(WC_POOL);
+        context_open_window(WindowClass::Pool);
     }
     else
     {
         tool_cancel();
-        window_close_by_class(WC_POOL);
+        window_close_by_class(WindowClass::Pool);
     }
 }
 
