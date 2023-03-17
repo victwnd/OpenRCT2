@@ -25,6 +25,7 @@
 #include "../../object/ObjectManager.h"
 #include "../../object/PoolObject.h"
 #include "../../paint/Paint.h"
+#include "../../paint/Paint.SessionFlags.h"
 #include "../../profiling/Profiling.h"
 #include "../../sprites.h"
 #include "../../world/Pool.h"
@@ -60,7 +61,7 @@ static constexpr const uint8_t waterSpriteMap[] ={0,1,2,16,4,5,17,20,8,21,10,24,
 
 static constexpr const uint8_t solidSpriteMap[] ={162,193,194,176,191,161,177,161,192,175,161,161,178,161,161,161,162,189,186,176,191,161,169,161,192,174,161,161,178,161,161,161,162,193,190,171,183,161,177,161,192,175,161,161,170,161,161,161,162,189,182,171,183,161,169,161,192,174,161,161,170,161,161,161,162,193,194,176,187,161,172,161,184,167,161,161,178,161,161,161,162,189,186,176,187,161,165,161,184,163,161,161,178,161,161,161,162,193,190,171,179,161,172,161,184,167,161,161,170,161,161,161,162,189,182,171,179,161,165,161,184,163,161,161,170,161,161,161,162,185,194,168,191,161,177,161,188,175,161,161,173,161,161,161,162,181,186,168,191,161,169,161,188,174,161,161,173,161,161,161,162,185,190,164,183,161,177,161,188,175,161,161,166,161,161,161,162,181,182,164,183,161,169,161,188,174,161,161,166,161,161,161,162,185,194,168,187,161,172,161,180,167,161,161,173,161,161,161,162,181,186,168,187,161,165,161,180,163,161,161,173,161,161,161,162,185,190,164,179,161,172,161,180,167,161,161,166,161,161,161,162,181,182,164,179,161,165,161,180,163,161,161,166,161,161,161};
 
-void PaintPool(paint_session& session, uint8_t direction, uint16_t height, const PoolElement& tileElement)
+void PaintPool(PaintSession& session, uint8_t direction, uint16_t height, const PoolElement& tileElement)
 {
     PROFILED_FUNCTION();
 
@@ -119,7 +120,7 @@ void PaintPool(paint_session& session, uint8_t direction, uint16_t height, const
 
      PaintAddImageAsParent(session, imageId, {0, 0, height }, { 32, 32,16});
 
-	if(tileElement.IsInGround())paint_util_hide_surface(session);
+	if(tileElement.IsInGround())PaintUtilHideSurface(session);
 //TODO set segment support heights
 
 }

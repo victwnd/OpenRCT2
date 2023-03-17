@@ -160,7 +160,7 @@ EdgeStyle=newEdgeStyle;
 
 TileElement* map_get_pool_element(const CoordsXYZ& coords)
 {
-    TileElement* tileElement = map_get_first_element_at(coords);
+    TileElement* tileElement = MapGetFirstElementAt(coords);
     do
     {
         if (tileElement == nullptr)

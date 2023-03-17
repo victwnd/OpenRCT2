@@ -27,12 +27,12 @@
 void PoolObject::Load()
 {
     GetStringTable().Sort();
-    NameStringId = language_allocate_object_string(GetName());
+    NameStringId = LanguageAllocateObjectString(GetName());
 
     auto numImages = GetImageTable().GetCount();
     if (numImages != 0)
     {
-        PreviewImageId = gfx_object_allocate_images(GetImageTable().GetImages(), GetImageTable().GetCount());
+        PreviewImageId = GfxObjectAllocateImages(GetImageTable().GetImages(), GetImageTable().GetCount());
         BaseImageId = PreviewImageId + 1;
     }
 
@@ -40,18 +40,18 @@ void PoolObject::Load()
 
 void PoolObject::Unload()
 {
-    language_free_object_string(NameStringId);
-    gfx_object_free_images(PreviewImageId, GetImageTable().GetCount());
+    LanguageFreeObjectString(NameStringId);
+    GfxObjectFreeImages(PreviewImageId, GetImageTable().GetCount());
 
     NameStringId = 0;
     PreviewImageId = 0;
     BaseImageId = 0;
 }
 
-void PoolObject::DrawPreview(rct_drawpixelinfo* dpi, int32_t width, int32_t height) const
+void PoolObject::DrawPreview(DrawPixelInfo* dpi, int32_t width, int32_t height) const
 {
 auto screenCoords = ScreenCoordsXY{24,32};
-gfx_draw_sprite(dpi, ImageId(PreviewImageId + 0), screenCoords);
+GfxDrawSprite(dpi, ImageId(PreviewImageId + 0), screenCoords);
 }
 
 

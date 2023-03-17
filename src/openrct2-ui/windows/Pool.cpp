@@ -77,7 +77,7 @@ WIDX_CONSTRUCT_WATER_TILE,
 WIDX_CONSTRUCT_DRAW_RECTANGLE,
 };
 
-static rct_widget window_pool_widgets[] = {
+static Widget window_pool_widgets[] = {
     WINDOW_SHIM(WINDOW_TITLE, WW, WH),
 
     // Type group
@@ -104,17 +104,17 @@ static rct_widget window_pool_widgets[] = {
     WIDGETS_END,
 };
 
-static void WindowPoolClose(rct_window * w);
-static void WindowPoolMouseup(rct_window * w, WidgetIndex widgetIndex);
-static void WindowPoolMousedown(rct_window * w, WidgetIndex widgetIndex, rct_widget * widget);
-static void WindowPoolDropdown(rct_window * w, WidgetIndex widgetIndex, int32_t dropdownIndex);
-static void WindowPoolUpdate(rct_window * w);
-static void WindowPoolToolupdate(rct_window * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
-static void WindowPoolTooldown(rct_window * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
-static void WindowPoolTooldrag(rct_window * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
-static void WindowPoolToolup(rct_window * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
-static void WindowPoolInvalidate(rct_window * w);
-static void WindowPoolPaint(rct_window * w, rct_drawpixelinfo * dpi);
+static void WindowPoolClose(WindowBase * w);
+static void WindowPoolMouseup(WindowBase * w, WidgetIndex widgetIndex);
+static void WindowPoolMousedown(WindowBase * w, WidgetIndex widgetIndex, Widget * widget);
+static void WindowPoolDropdown(WindowBase * w, WidgetIndex widgetIndex, int32_t dropdownIndex);
+static void WindowPoolUpdate(WindowBase * w);
+static void WindowPoolToolupdate(WindowBase * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
+static void WindowPoolTooldown(WindowBase * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
+static void WindowPoolTooldrag(WindowBase * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
+static void WindowPoolToolup(WindowBase * w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords);
+static void WindowPoolInvalidate(WindowBase * w);
+static void WindowPoolPaint(WindowBase * w, DrawPixelInfo * dpi);
 
 static WindowEventList window_pool_events([](auto& events)
 {
@@ -145,7 +145,7 @@ static constexpr const uint8_t ConstructionPreviewImages[][4] = {
     { 18, 19, 16, 17 }, // Downwards
 };
 */
-static void WindowPoolShowPoolTypesDialog(rct_window* w, rct_widget* widget);
+static void WindowPoolShowPoolTypesDialog(WindowBase* w, Widget* widget);
 static void WindowPoolSetEnabledAndPressedWidgets();
 static bool PoolSelectDefault();
 
@@ -153,7 +153,7 @@ static bool PoolSelectDefault();
  *
  *  rct2: 0x006A7C43
  */
-rct_window* WindowPoolOpen()
+WindowBase* WindowPoolOpen()
 {
     if (!PoolSelectDefault())
     {
@@ -162,7 +162,7 @@ rct_window* WindowPoolOpen()
     }
 
     // Check if window is already open
-    rct_window* window = window_bring_to_front_by_class(WindowClass::Pool);
+    WindowBase* window = WindowBringToFrontByClass(WindowClass::Pool);
     if (window != nullptr)
     {
         return window;
@@ -172,12 +172,12 @@ rct_window* WindowPoolOpen()
     window->widgets = window_pool_widgets;
 
     WindowInitScrollWidgets(*window);
-    window_push_others_right(*window);
-    show_gridlines();
+    WindowPushOthersRight(*window);
+    ShowGridlines();
 
-    tool_cancel();
-    tool_set(*window, WIDX_CONSTRUCT_WATER_TILE, Tool::PathDown);
-    input_set_flag(INPUT_FLAG_6, true);
+    ToolCancel();
+    ToolSet(*window, WIDX_CONSTRUCT_WATER_TILE, Tool::PathDown);
+    InputSetFlag(INPUT_FLAG_6, true);
     _poolIsWater=true;
     _poolErrorOccured = false;
     WindowPoolSetEnabledAndPressedWidgets();
@@ -189,37 +189,37 @@ rct_window* WindowPoolOpen()
  *
  *  rct2: 0x006A852F
  */
-static void WindowPoolClose(rct_window* w)
+static void WindowPoolClose(WindowBase* w)
 {
     pool_provisional_update();
-    viewport_set_visibility(0);
-    map_invalidate_map_selection_tiles();
+    ViewportSetVisibility(0);
+    MapInvalidateMapSelectionTiles();
     gMapSelectFlags &= ~MAP_SELECT_FLAG_ENABLE_CONSTRUCT;
-    window_invalidate_by_class(WindowClass::TopToolbar);
-    hide_gridlines();
+    WindowInvalidateByClass(WindowClass::TopToolbar);
+    HideGridlines();
 }
 
 /**
  *
  *  rct2: 0x006A7E92
  */
-static void WindowPoolMouseup(rct_window* w, WidgetIndex widgetIndex)
+static void WindowPoolMouseup(WindowBase* w, WidgetIndex widgetIndex)
 {
     switch (widgetIndex)
     {
         case WIDX_CLOSE:
-            window_close(*w);
+            WindowClose(*w);
             break;
         case WIDX_CONSTRUCT_PATH_TILE:
-		tool_cancel();
-		tool_set(*w, WIDX_CONSTRUCT_PATH_TILE, Tool::PathDown);
-                input_set_flag(INPUT_FLAG_6, true);
+		ToolCancel();
+		ToolSet(*w, WIDX_CONSTRUCT_PATH_TILE, Tool::PathDown);
+                InputSetFlag(INPUT_FLAG_6, true);
         	_poolIsWater=false;
 	break;
         case WIDX_CONSTRUCT_WATER_TILE:
-		tool_cancel();
-		tool_set(*w, WIDX_CONSTRUCT_WATER_TILE, Tool::PathDown);
-	        input_set_flag(INPUT_FLAG_6, true);
+		ToolCancel();
+		ToolSet(*w, WIDX_CONSTRUCT_WATER_TILE, Tool::PathDown);
+	        InputSetFlag(INPUT_FLAG_6, true);
         	_poolIsWater=true;
 		break;
     }
@@ -229,7 +229,7 @@ static void WindowPoolMouseup(rct_window* w, WidgetIndex widgetIndex)
  *
  *  rct2: 0x006A7EC5
  */
-static void WindowPoolMousedown(rct_window* w, WidgetIndex widgetIndex, rct_widget* widget)
+static void WindowPoolMousedown(WindowBase* w, WidgetIndex widgetIndex, Widget* widget)
 {
     switch (widgetIndex)
     {
@@ -255,7 +255,7 @@ static void WindowPoolMousedown(rct_window* w, WidgetIndex widgetIndex, rct_widg
  *
  *  rct2: 0x006A7F18
  */
-static void WindowPoolDropdown(rct_window* w, WidgetIndex widgetIndex, int32_t dropdownIndex)
+static void WindowPoolDropdown(WindowBase* w, WidgetIndex widgetIndex, int32_t dropdownIndex)
 {
 /*
     if (dropdownIndex < 0 || static_cast<size_t>(dropdownIndex) >= _dropdownEntries.size())
@@ -297,7 +297,7 @@ static std::optional<CoordsXYZ> PoolGetPlacePositionFromScreenPosition(ScreenCoo
     {
         if (gInputPlaceObjectModifier & PLACE_OBJECT_MODIFIER_COPY_Z)
         {
-            auto info = get_map_coordinates_from_pos(screenCoords, 0xFCCA);
+            auto info = GetMapCoordinatesFromPos(screenCoords, 0xFCCA);
             if (info.SpriteType != ViewportInteractionItem::None)
             {
                 _poolPlaceCtrlZ = info.Element->GetBaseZ();
@@ -327,16 +327,16 @@ static std::optional<CoordsXYZ> PoolGetPlacePositionFromScreenPosition(ScreenCoo
     {
         if (gInputPlaceObjectModifier & PLACE_OBJECT_MODIFIER_SHIFT_Z)
         {
-            uint16_t maxHeight = ZoomLevel::max().ApplyTo(std::numeric_limits<decltype(TileElement::base_height)>::max() - 32);
+            uint16_t maxHeight = ZoomLevel::max().ApplyTo(std::numeric_limits<decltype(TileElement::BaseHeight)>::max() - 32);
 
             _poolPlaceShiftZ = _poolPlaceShiftStart.y - screenCoords.y + 4;
             // Scale delta by zoom to match mouse position.
-            auto* mainWnd = window_get_main();
+            auto* mainWnd = WindowGetMain();
             if (mainWnd != nullptr && mainWnd->viewport != nullptr)
             {
                 _poolPlaceShiftZ = mainWnd->viewport->zoom.ApplyTo(_poolPlaceShiftZ);
             }
-            _poolPlaceShiftZ = floor2(_poolPlaceShiftZ, 16);
+            _poolPlaceShiftZ = Floor2(_poolPlaceShiftZ, 16);
 
             // Clamp to maximum possible value of base_height can offer.
             _poolPlaceShiftZ = std::min<int16_t>(_poolPlaceShiftZ, maxHeight);
@@ -358,10 +358,10 @@ static std::optional<CoordsXYZ> PoolGetPlacePositionFromScreenPosition(ScreenCoo
         _poolPlaceZ = 0;
         if (_poolPlaceShiftState)
         {
-            auto surfaceElement = map_get_surface_element_at(mapCoords);
+            auto surfaceElement = MapGetSurfaceElementAt(mapCoords);
             if (surfaceElement == nullptr)
                 return std::nullopt;
-            auto mapZ = floor2(surfaceElement->GetBaseZ(), 16);
+            auto mapZ = Floor2(surfaceElement->GetBaseZ(), 16);
             mapZ += _poolPlaceShiftZ;
             mapZ = std::max<int16_t>(mapZ, 16);
             _poolPlaceZ = mapZ;
@@ -370,7 +370,7 @@ static std::optional<CoordsXYZ> PoolGetPlacePositionFromScreenPosition(ScreenCoo
     else
     {
         auto mapZ = _poolPlaceCtrlZ;
-        auto mapXYCoords = screen_get_map_xy_with_z(screenCoords, mapZ);
+        auto mapXYCoords = ScreenGetMapXYWithZ(screenCoords, mapZ);
         if (mapXYCoords.has_value())
         {
             mapCoords = mapXYCoords.value();
@@ -393,9 +393,9 @@ static std::optional<CoordsXYZ> PoolGetPlacePositionFromScreenPosition(ScreenCoo
 mapCoords=mapCoords.ToTileStart();
 	if (_poolPlaceZ == 0)
 	{
-	auto z=map_get_highest_z(mapCoords);
+	auto z=MapGetHighestZ(mapCoords);
 	//Check if pool can be placed in ground
-	auto surfaceElement = map_get_surface_element_at(mapCoords);
+	auto surfaceElement = MapGetSurfaceElementAt(mapCoords);
 	    if(surfaceElement&&surfaceElement->AsSurface()->GetSlope()==0&&surfaceElement->AsSurface()->GetBaseZ()==z)z-=POOL_DEPTH;
 	return CoordsXYZ(mapCoords,z);
 	}
@@ -405,13 +405,13 @@ return CoordsXYZ(mapCoords,_poolPlaceZ);
 }
 
 
-static void WindowPoolToolupdate(rct_window* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
+static void WindowPoolToolupdate(WindowBase* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
 {
     auto coords=PoolGetPlacePositionFromScreenPosition(screenCoords);
 	if(!coords)return;
     auto loc=*coords;
     
-    map_invalidate_selection_rect();
+    MapInvalidateSelectionRect();
 
         // Check for change
         if ((gProvisionalPool.Flags & PROVISIONAL_POOL_FLAG_1) && gProvisionalPool.Position == loc)return;
@@ -423,7 +423,7 @@ static void WindowPoolToolupdate(rct_window* w, WidgetIndex widgetIndex, const S
 
         //pool_provisional_update();
        _window_pool_cost = pool_provisional_set(gPoolSelection.Pool, loc, _poolIsWater, PoolEdgeStyle::Curved);
-      window_invalidate_by_class(WindowClass::Pool);
+      WindowInvalidateByClass(WindowClass::Pool);
 }
 
 
@@ -460,17 +460,17 @@ static void WindowPoolPlacePoolAt(const ScreenCoordsXY& screenCoords)
 
 }
 
-static void WindowPoolTooldown(rct_window* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
+static void WindowPoolTooldown(WindowBase* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
 {
 WindowPoolPlacePoolAt(screenCoords);
 }
 
-static void WindowPoolTooldrag(rct_window* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
+static void WindowPoolTooldrag(WindowBase* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
 {
 WindowPoolPlacePoolAt(screenCoords);
 }
 
-static void WindowPoolToolup(rct_window* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
+static void WindowPoolToolup(WindowBase* w, WidgetIndex widgetIndex, const ScreenCoordsXY& screenCoords)
 {
     if (widgetIndex == WIDX_CONSTRUCT_PATH_TILE)
     {
@@ -478,11 +478,11 @@ static void WindowPoolToolup(rct_window* w, WidgetIndex widgetIndex, const Scree
     }
 }
 
-static void WindowPoolUpdate(rct_window* w)
+static void WindowPoolUpdate(WindowBase* w)
 {
 
     // #2502: The camera might have changed rotation, so we need to update which directional buttons are pressed
-    uint8_t currentRotation = get_current_rotation();
+    uint8_t currentRotation = GetCurrentRotation();
     if (_lastUpdatedCameraRotation != currentRotation)
     {
         _lastUpdatedCameraRotation = currentRotation;
@@ -497,7 +497,7 @@ static void WindowPoolUpdate(rct_window* w)
  */
 
 
-static void WindowPoolInvalidate(rct_window* w)
+static void WindowPoolInvalidate(WindowBase* w)
 {
     // Press / unpress footpath and queue type buttons
     w->pressed_widgets &= ~(1ULL << WIDX_FOOTPATH_TYPE);
@@ -506,13 +506,13 @@ static void WindowPoolInvalidate(rct_window* w)
 }
 
 static void WindowPoolDrawDropdownButton(
-    rct_window* w, rct_drawpixelinfo* dpi, WidgetIndex widgetIndex, ImageIndex image)
+    WindowBase* w, DrawPixelInfo& dpi, WidgetIndex widgetIndex, ImageIndex image)
 {
     const auto& widget = w->widgets[widgetIndex];
-    gfx_draw_sprite(dpi, ImageId(image), { w->windowPos.x + widget.left, w->windowPos.y + widget.top });
+    GfxDrawSprite(&dpi, ImageId(image), { w->windowPos.x + widget.left, w->windowPos.y + widget.top });
 }
 
-static void WindowPoolDrawDropdownButtons(rct_window* w, rct_drawpixelinfo* dpi)
+static void WindowPoolDrawDropdownButtons(WindowBase* w, DrawPixelInfo& dpi)
 {
 auto poolImage = static_cast<uint32_t>(SPR_NONE);
 auto poolEntry = GetPoolEntry(gPoolSelection.Pool);
@@ -525,11 +525,11 @@ if (poolEntry != nullptr)
 WindowPoolDrawDropdownButton(w, dpi, WIDX_FOOTPATH_TYPE, poolImage);
 }
 
-static void WindowPoolPaint(rct_window* w, rct_drawpixelinfo* dpi)
+static void WindowPoolPaint(WindowBase* w, DrawPixelInfo* dpi)
 {
     ScreenCoordsXY screenCoords;
     WindowDrawWidgets(*w, dpi);
-    WindowPoolDrawDropdownButtons(w, dpi);
+    WindowPoolDrawDropdownButtons(w, *dpi);
 
     // Draw cost
     if (_window_pool_cost != MONEY32_UNDEFINED)
@@ -538,12 +538,12 @@ static void WindowPoolPaint(rct_window* w, rct_drawpixelinfo* dpi)
         {
             auto ft = Formatter();
             ft.Add<money64>(_window_pool_cost);
-            DrawTextBasic(dpi, screenCoords, STR_COST_LABEL, ft, { TextAlignment::CENTRE });
+            DrawTextBasic(*dpi, screenCoords, STR_COST_LABEL, ft, { TextAlignment::CENTRE });
         }
     }
 }
 
-static void WindowPoolShowPoolTypesDialog(rct_window* w, rct_widget* widget)
+static void WindowPoolShowPoolTypesDialog(WindowBase* w, Widget* widget)
 {
     auto& objManager = OpenRCT2::GetContext()->GetObjectManager();
 
@@ -607,7 +607,7 @@ static void WindowPoolShowPoolTypesDialog(rct_window* w, rct_widget* widget)
 
 static void WindowPoolSetEnabledAndPressedWidgets()
 {
-    rct_window* w = window_find_by_class(WindowClass::Pool);
+    WindowBase* w = WindowFindByClass(WindowClass::Pool);
     if (w == nullptr)
     {
         return;

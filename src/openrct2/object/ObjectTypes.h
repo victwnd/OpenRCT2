@@ -37,6 +37,7 @@ enum class ObjectType : uint8_t
     FootpathSurface,
     FootpathRailings,
     Audio,
+    Pool,
 
     Count,
     None = 255
@@ -61,6 +62,7 @@ constexpr std::array ObjectTypes = {
     ObjectType::FootpathSurface,
     ObjectType::FootpathRailings,
     ObjectType::Audio,
+    ObjectType::Pool,
 };
 // Not using EnumValue to reduce header includes
 static_assert(ObjectTypes.size() == static_cast<uint8_t>(ObjectType::Count));

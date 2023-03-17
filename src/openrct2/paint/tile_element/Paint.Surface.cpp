@@ -1140,7 +1140,7 @@ void PaintSurface(PaintSession& session, uint8_t direction, uint16_t height, con
         }
 	else if(session.Flags&PaintSessionFlags::HideSurface)
 	{
-            imageId = imageId.WithTransparancy(FilterPaletteID::PaletteNull);
+            imageId = imageId.WithTransparency(FilterPaletteID::PaletteNull);
 	}
 
         if (OpenRCT2::TileInspector::IsElementSelected(elementPtr))

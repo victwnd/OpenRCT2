@@ -727,8 +727,8 @@ static void ViewportInteractionRemoveLargeScenery(TileElement* tileElement, cons
 
 static void ViewportInteractionRemovePool(TileElement* tileElement, const CoordsXY& mapCoords)
 {
-    rct_window* w;
-    w = window_find_by_class(WindowClass::Pool);
+    WindowBase* w;
+    w = WindowFindByClass(WindowClass::Pool);
     if (w != nullptr)
         pool_provisional_update();
 auto removeSceneryAction = PoolRemoveAction({ mapCoords.x, mapCoords.y, tileElement->GetBaseZ()});

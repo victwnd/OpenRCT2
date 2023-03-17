@@ -75,7 +75,7 @@ GameActions::Result PoolRemoveAction::QueryExecute(bool isExecuting) const
     if (!isExecuting&&!(gScreenFlags & SCREEN_FLAGS_SCENARIO_EDITOR) && !(GetFlags() & GAME_COMMAND_FLAG_GHOST) && !gCheatsSandboxMode)
     {
         // Check if the land is owned
-        if (!map_is_location_owned(_loc))
+        if (!MapIsLocationOwned(_loc))
         {
             res.Error = GameActions::Status::NoClearance;
             res.ErrorTitle = STR_CANT_REMOVE_THIS;
@@ -94,11 +94,11 @@ GameActions::Result PoolRemoveAction::QueryExecute(bool isExecuting) const
 
 	if(isExecuting)
 	{
-	res.Position.z = tile_element_height(res.Position);
+	res.Position.z = TileElementHeight(res.Position);
 
-	map_invalidate_tile_full(_loc);
+	MapInvalidateTileFull(_loc);
         pool_remove_edges(_loc,reinterpret_cast<TileElement*>(tileElement));
-	tile_element_remove(tileElement);
+	TileElementRemove(tileElement);
 	}
 
     return res;

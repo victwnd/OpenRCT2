@@ -289,58 +289,7 @@ static Widget window_top_toolbar_widgets[] = {
 
 static void ScenarioSelectCallback(const utf8* path);
 
-<<<<<<< HEAD
 class TopToolbar final : public Window
-=======
-static WindowEventList window_top_toolbar_events([](auto& events) {
-    events.mouse_up = &WindowTopToolbarMouseup;
-    events.mouse_down = &WindowTopToolbarMousedown;
-    events.dropdown = &WindowTopToolbarDropdown;
-    events.tool_update = &WindowTopToolbarToolUpdate;
-    events.tool_down = &WindowTopToolbarToolDown;
-    events.tool_drag = &WindowTopToolbarToolDrag;
-    events.tool_up = &WindowTopToolbarToolUp;
-    events.tool_abort = &WindowTopToolbarToolAbort;
-    events.invalidate = &WindowTopToolbarInvalidate;
-    events.paint = &WindowTopToolbarPaint;
-});
-
-static void TopToolbarInitViewMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarViewMenuDropdown(int16_t dropdownIndex);
-static void TopToolbarInitMapMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarMapMenuDropdown(int16_t dropdownIndex);
-static void TopToolbarInitFastforwardMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarFastforwardMenuDropdown(int16_t dropdownIndex);
-static void TopToolbarInitRotateMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarRotateMenuDropdown(int16_t dropdownIndex);
-static void TopToolbarInitCheatsMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarCheatsMenuDropdown(int16_t dropdownIndex);
-static void TopToolbarInitDebugMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarDebugMenuDropdown(int16_t dropdownIndex);
-static void TopToolbarInitNetworkMenu(rct_window* window, rct_widget* widget);
-static void TopToolbarNetworkMenuDropdown(int16_t dropdownIndex);
-
-static void ToggleFootpathWindow();
-static void TogglePoolWindow();
-static void ToggleLandWindow(rct_window* topToolbar, WidgetIndex widgetIndex);
-static void ToggleClearSceneryWindow(rct_window* topToolbar, WidgetIndex widgetIndex);
-static void ToggleWaterWindow(rct_window* topToolbar, WidgetIndex widgetIndex);
-
-static money64 SelectionLowerLand(uint8_t flags);
-static money64 SelectionRaiseLand(uint8_t flags);
-
-static ClearAction GetClearAction();
-
-static bool _landToolBlocked;
-static uint8_t _unkF64F0E;
-static int16_t _unkF64F0A;
-
-/**
- * Creates the main game top toolbar window.
- *  rct2: 0x0066B485 (part of 0x0066B3E8)
- */
-rct_window* WindowTopToolbarOpen()
->>>>>>> 7200178ce (Start pool implementaiton)
 {
 private:
     bool _landToolBlocked{ false };
@@ -381,7 +330,6 @@ private:
      */
     void ToggleFootpathWindow()
     {
-<<<<<<< HEAD
         if (WindowFindByClass(WindowClass::Footpath) == nullptr)
         {
             ContextOpenWindow(WindowClass::Footpath);
@@ -391,82 +339,6 @@ private:
             ToolCancel();
             WindowCloseByClass(WindowClass::Footpath);
         }
-=======
-        case WIDX_PAUSE:
-            if (network_get_mode() != NETWORK_MODE_CLIENT)
-            {
-                auto pauseToggleAction = PauseToggleAction();
-                GameActions::Execute(&pauseToggleAction);
-            }
-            break;
-        case WIDX_ZOOM_OUT:
-            if ((mainWindow = window_get_main()) != nullptr)
-                window_zoom_out(*mainWindow, false);
-            break;
-        case WIDX_ZOOM_IN:
-            if ((mainWindow = window_get_main()) != nullptr)
-                window_zoom_in(*mainWindow, false);
-            break;
-        case WIDX_CLEAR_SCENERY:
-            ToggleClearSceneryWindow(w, WIDX_CLEAR_SCENERY);
-            break;
-        case WIDX_LAND:
-            ToggleLandWindow(w, WIDX_LAND);
-            break;
-        case WIDX_WATER:
-            ToggleWaterWindow(w, WIDX_WATER);
-            break;
-        case WIDX_SCENERY:
-            if (!tool_set(*w, WIDX_SCENERY, Tool::Arrow))
-            {
-                input_set_flag(INPUT_FLAG_6, true);
-                context_open_window(WindowClass::Scenery);
-            }
-            break;
-        case WIDX_PATH:
-            ToggleFootpathWindow();
-            break;
-        case WIDX_POOL:
-            TogglePoolWindow();
-            break;
-        case WIDX_CONSTRUCT_RIDE:
-            context_open_window(WindowClass::ConstructRide);
-            break;
-        case WIDX_RIDES:
-            context_open_window(WindowClass::RideList);
-            break;
-        case WIDX_PARK:
-            context_open_window(WindowClass::ParkInformation);
-            break;
-        case WIDX_STAFF:
-            context_open_window(WindowClass::StaffList);
-            break;
-        case WIDX_GUESTS:
-            context_open_window(WindowClass::GuestList);
-            break;
-        case WIDX_FINANCES:
-            context_open_window(WindowClass::Finances);
-            break;
-        case WIDX_RESEARCH:
-            context_open_window(WindowClass::Research);
-            break;
-        case WIDX_NEWS:
-            context_open_window(WindowClass::RecentNews);
-            break;
-        case WIDX_MUTE:
-            OpenRCT2::Audio::ToggleAllSounds();
-            break;
-        case WIDX_CHAT:
-            if (chat_available())
-            {
-                chat_toggle();
-            }
-            else
-            {
-                context_show_error(STR_CHAT_UNAVAILABLE, STR_NONE, {});
-            }
-            break;
->>>>>>> 7200178ce (Start pool implementaiton)
     }
 
     /**
@@ -528,6 +400,18 @@ private:
             ToolSet(*this, widgetIndex, Tool::WaterDown);
             InputSetFlag(INPUT_FLAG_6, true);
             ContextOpenWindow(WindowClass::Water);
+        }
+    }
+    static void TogglePoolWindow()
+    {
+        if (WindowFindByClass(WindowClass::Pool) == nullptr)
+        {
+            ContextOpenWindow(WindowClass::Pool);
+        }
+        else
+        {
+            ToolCancel();
+            WindowCloseByClass(WindowClass::Pool);
         }
     }
 
@@ -1661,412 +1545,10 @@ private:
                 }
                 break;
             }
-<<<<<<< HEAD
             default:
-=======
-            break;
-        case WIDX_CHEATS:
-            TopToolbarCheatsMenuDropdown(dropdownIndex);
-            break;
-        case WIDX_VIEW_MENU:
-            TopToolbarViewMenuDropdown(dropdownIndex);
-            break;
-        case WIDX_MAP:
-            TopToolbarMapMenuDropdown(dropdownIndex);
-            break;
-        case WIDX_FASTFORWARD:
-            TopToolbarFastforwardMenuDropdown(dropdownIndex);
-            break;
-        case WIDX_ROTATE:
-            TopToolbarRotateMenuDropdown(dropdownIndex);
-            break;
-        case WIDX_DEBUG:
-            TopToolbarDebugMenuDropdown(dropdownIndex);
-            break;
-        case WIDX_NETWORK:
-            TopToolbarNetworkMenuDropdown(dropdownIndex);
-            break;
-    }
-}
-
-/**
- *
- *  rct2: 0x0066C810
- */
-static void WindowTopToolbarInvalidate(rct_window* w)
-{
-    int32_t x, widgetIndex, widgetWidth, firstAlignment;
-    rct_widget* widget;
-
-    // Enable / disable buttons
-    window_top_toolbar_widgets[WIDX_PAUSE].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_FILE_MENU].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_ZOOM_OUT].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_ZOOM_IN].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_ROTATE].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_VIEW_MENU].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_MAP].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_MUTE].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_CHAT].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_LAND].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_WATER].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_SCENERY].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_PATH].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_CONSTRUCT_RIDE].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_RIDES].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_POOL].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_PARK].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_STAFF].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_GUESTS].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_CLEAR_SCENERY].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_FINANCES].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_RESEARCH].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_FASTFORWARD].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_CHEATS].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_DEBUG].type = gConfigGeneral.debugging_tools ? WindowWidgetType::TrnBtn
-                                                                                 : WindowWidgetType::Empty;
-    window_top_toolbar_widgets[WIDX_NEWS].type = WindowWidgetType::TrnBtn;
-    window_top_toolbar_widgets[WIDX_NETWORK].type = WindowWidgetType::TrnBtn;
-
-    if (!gConfigInterface.toolbar_show_mute)
-        window_top_toolbar_widgets[WIDX_MUTE].type = WindowWidgetType::Empty;
-
-    if (!gConfigInterface.toolbar_show_chat)
-        window_top_toolbar_widgets[WIDX_CHAT].type = WindowWidgetType::Empty;
-
-    if (!gConfigInterface.toolbar_show_research)
-        window_top_toolbar_widgets[WIDX_RESEARCH].type = WindowWidgetType::Empty;
-
-    if (!gConfigInterface.toolbar_show_cheats)
-        window_top_toolbar_widgets[WIDX_CHEATS].type = WindowWidgetType::Empty;
-
-    if (!gConfigInterface.toolbar_show_news)
-        window_top_toolbar_widgets[WIDX_NEWS].type = WindowWidgetType::Empty;
-
-    if (!gConfigInterface.toolbar_show_zoom)
-    {
-        window_top_toolbar_widgets[WIDX_ZOOM_IN].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_ZOOM_OUT].type = WindowWidgetType::Empty;
-    }
-
-    if (gScreenFlags & SCREEN_FLAGS_SCENARIO_EDITOR || gScreenFlags & SCREEN_FLAGS_TRACK_MANAGER)
-    {
-        window_top_toolbar_widgets[WIDX_PAUSE].type = WindowWidgetType::Empty;
-    }
-
-    if ((gParkFlags & PARK_FLAGS_NO_MONEY) || !gConfigInterface.toolbar_show_finances)
-        window_top_toolbar_widgets[WIDX_FINANCES].type = WindowWidgetType::Empty;
-
-    if (gScreenFlags & SCREEN_FLAGS_EDITOR)
-    {
-        window_top_toolbar_widgets[WIDX_PARK].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_STAFF].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_GUESTS].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_FINANCES].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_RESEARCH].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_NEWS].type = WindowWidgetType::Empty;
-        window_top_toolbar_widgets[WIDX_NETWORK].type = WindowWidgetType::Empty;
-
-        if (gEditorStep != EditorStep::LandscapeEditor)
-        {
-            window_top_toolbar_widgets[WIDX_LAND].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_WATER].type = WindowWidgetType::Empty;
-        }
-
-        if (gEditorStep != EditorStep::RollercoasterDesigner)
-        {
-            window_top_toolbar_widgets[WIDX_RIDES].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_CONSTRUCT_RIDE].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_FASTFORWARD].type = WindowWidgetType::Empty;
-        }
-
-        if (gEditorStep != EditorStep::LandscapeEditor && gEditorStep != EditorStep::RollercoasterDesigner)
-        {
-            window_top_toolbar_widgets[WIDX_MAP].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_SCENERY].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_PATH].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_POOL].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_CLEAR_SCENERY].type = WindowWidgetType::Empty;
-
-            window_top_toolbar_widgets[WIDX_ZOOM_OUT].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_ZOOM_IN].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_ROTATE].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_VIEW_MENU].type = WindowWidgetType::Empty;
-        }
-    }
-
-    switch (network_get_mode())
-    {
-        case NETWORK_MODE_NONE:
-            window_top_toolbar_widgets[WIDX_NETWORK].type = WindowWidgetType::Empty;
-            window_top_toolbar_widgets[WIDX_CHAT].type = WindowWidgetType::Empty;
-            break;
-        case NETWORK_MODE_CLIENT:
-            window_top_toolbar_widgets[WIDX_PAUSE].type = WindowWidgetType::Empty;
-            [[fallthrough]];
-        case NETWORK_MODE_SERVER:
-            window_top_toolbar_widgets[WIDX_FASTFORWARD].type = WindowWidgetType::Empty;
-            break;
-    }
-
-    // Align left hand side toolbar buttons
-    firstAlignment = 1;
-    x = 0;
-    for (size_t i = 0; i < std::size(left_aligned_widgets_order); ++i)
-    {
-        widgetIndex = left_aligned_widgets_order[i];
-        widget = &window_top_toolbar_widgets[widgetIndex];
-        if (widget->type == WindowWidgetType::Empty && widgetIndex != WIDX_SEPARATOR)
-            continue;
-
-        if (firstAlignment && widgetIndex == WIDX_SEPARATOR)
-            continue;
-
-        widgetWidth = widget->width();
-        widget->left = x;
-        x += widgetWidth;
-        widget->right = x;
-        x += 1;
-        firstAlignment = 0;
-    }
-
-    // Align right hand side toolbar buttons
-    int32_t screenWidth = context_get_width();
-    firstAlignment = 1;
-    x = std::max(640, screenWidth);
-    for (size_t i = 0; i < std::size(right_aligned_widgets_order); ++i)
-    {
-        widgetIndex = right_aligned_widgets_order[i];
-        widget = &window_top_toolbar_widgets[widgetIndex];
-        if (widget->type == WindowWidgetType::Empty && widgetIndex != WIDX_SEPARATOR)
-            continue;
-
-        if (firstAlignment && widgetIndex == WIDX_SEPARATOR)
-            continue;
-
-        widgetWidth = widget->width();
-        x -= 1;
-        widget->right = x;
-        x -= widgetWidth;
-        widget->left = x;
-        firstAlignment = 0;
-    }
-
-    // Footpath button pressed down
-    if (window_find_by_class(WindowClass::Footpath) == nullptr)
-        w->pressed_widgets &= ~(1ULL << WIDX_PATH);
-    else
-        w->pressed_widgets |= (1ULL << WIDX_PATH);
-
-    // Pool button pressed down
-    if (window_find_by_class(WindowClass::Pool) == nullptr)
-        w->pressed_widgets &= ~(1ULL << WIDX_POOL);
-    else
-        w->pressed_widgets |= (1ULL << WIDX_POOL);
-
-    if (gGamePaused & GAME_PAUSED_NORMAL)
-        w->pressed_widgets |= (1ULL << WIDX_PAUSE);
-    else
-        w->pressed_widgets &= ~(1ULL << WIDX_PAUSE);
-
-    if (!OpenRCT2::Audio::gGameSoundsOff)
-        window_top_toolbar_widgets[WIDX_MUTE].image = IMAGE_TYPE_REMAP | SPR_G2_TOOLBAR_MUTE;
-    else
-        window_top_toolbar_widgets[WIDX_MUTE].image = IMAGE_TYPE_REMAP | SPR_G2_TOOLBAR_UNMUTE;
-
-    // Set map button to the right image.
-    if (window_top_toolbar_widgets[WIDX_MAP].type != WindowWidgetType::Empty)
-    {
-        static constexpr uint32_t _imageIdByRotation[] = {
-            SPR_G2_MAP_NORTH,
-            SPR_G2_MAP_WEST,
-            SPR_G2_MAP_SOUTH,
-            SPR_G2_MAP_EAST,
-        };
-
-        uint32_t mapImageId = _imageIdByRotation[get_current_rotation()];
-        window_top_toolbar_widgets[WIDX_MAP].image = IMAGE_TYPE_REMAP | mapImageId;
-    }
-
-    // Zoomed out/in disable. Not sure where this code is in the original.
-    const auto* mainWindow = window_get_main();
-    if (mainWindow == nullptr || mainWindow->viewport == nullptr)
-    {
-        log_error("mainWindow or mainWindow->viewport is null!");
-        return;
-    }
-
-    if (mainWindow->viewport->zoom == ZoomLevel::min())
-    {
-        w->disabled_widgets |= (1ULL << WIDX_ZOOM_IN);
-    }
-    else if (mainWindow->viewport->zoom >= ZoomLevel::max())
-    {
-        w->disabled_widgets |= (1ULL << WIDX_ZOOM_OUT);
-    }
-    else
-    {
-        w->disabled_widgets &= ~((1ULL << WIDX_ZOOM_IN) | (1ULL << WIDX_ZOOM_OUT));
-    }
-}
-
-/**
- *
- *  rct2: 0x0066C8EC
- */
-static void WindowTopToolbarPaint(rct_window* w, rct_drawpixelinfo* dpi)
-{
-    int32_t imgId;
-
-    WindowDrawWidgets(*w, dpi);
-
-    ScreenCoordsXY screenPos{};
-    // Draw staff button image (setting masks to the staff colours)
-    if (window_top_toolbar_widgets[WIDX_STAFF].type != WindowWidgetType::Empty)
-    {
-        screenPos = { w->windowPos.x + window_top_toolbar_widgets[WIDX_STAFF].left,
-                      w->windowPos.y + window_top_toolbar_widgets[WIDX_STAFF].top };
-        imgId = SPR_TOOLBAR_STAFF;
-        if (WidgetIsPressed(*w, WIDX_STAFF))
-            imgId++;
-        gfx_draw_sprite(dpi, ImageId(imgId, gStaffHandymanColour, gStaffMechanicColour), screenPos);
-    }
-
-    // Draw fast forward button
-    if (window_top_toolbar_widgets[WIDX_FASTFORWARD].type != WindowWidgetType::Empty)
-    {
-        screenPos = { w->windowPos.x + window_top_toolbar_widgets[WIDX_FASTFORWARD].left + 0,
-                      w->windowPos.y + window_top_toolbar_widgets[WIDX_FASTFORWARD].top + 0 };
-        if (WidgetIsPressed(*w, WIDX_FASTFORWARD))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_G2_FASTFORWARD), screenPos + ScreenCoordsXY{ 6, 3 });
-
-        for (int32_t i = 0; i < gGameSpeed && gGameSpeed <= 4; i++)
-        {
-            gfx_draw_sprite(dpi, ImageId(SPR_G2_SPEED_ARROW), screenPos + ScreenCoordsXY{ 5 + i * 5, 15 });
-        }
-        for (int32_t i = 0; i < 3 && i < gGameSpeed - 4 && gGameSpeed >= 5; i++)
-        {
-            gfx_draw_sprite(dpi, ImageId(SPR_G2_HYPER_ARROW), screenPos + ScreenCoordsXY{ 5 + i * 6, 15 });
-        }
-    }
-
-    // Draw cheats button
-    if (window_top_toolbar_widgets[WIDX_CHEATS].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_CHEATS].left - 1,
-                              window_top_toolbar_widgets[WIDX_CHEATS].top - 1 };
-        if (WidgetIsPressed(*w, WIDX_CHEATS))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_G2_SANDBOX), screenPos);
-
-        // Draw an overlay if clearance checks are disabled
-        if (gCheatsDisableClearanceChecks)
-        {
-            DrawTextBasic(
-                dpi, screenPos + ScreenCoordsXY{ 26, 2 }, STR_OVERLAY_CLEARANCE_CHECKS_DISABLED, {},
-                { COLOUR_DARK_ORANGE | COLOUR_FLAG_OUTLINE, TextAlignment::RIGHT });
-        }
-    }
-
-    // Draw chat button
-    if (window_top_toolbar_widgets[WIDX_CHAT].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_CHAT].left, window_top_toolbar_widgets[WIDX_CHAT].top - 2 };
-        if (WidgetIsPressed(*w, WIDX_CHAT))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_G2_CHAT), screenPos);
-    }
-
-    // Draw debug button
-    if (window_top_toolbar_widgets[WIDX_DEBUG].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_DEBUG].left, window_top_toolbar_widgets[WIDX_DEBUG].top - 1 };
-        if (WidgetIsPressed(*w, WIDX_DEBUG))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_TAB_GEARS_0), screenPos);
-    }
-
-    // Draw research button
-    if (window_top_toolbar_widgets[WIDX_RESEARCH].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_RESEARCH].left - 1,
-                              window_top_toolbar_widgets[WIDX_RESEARCH].top };
-        if (WidgetIsPressed(*w, WIDX_RESEARCH))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_TAB_FINANCES_RESEARCH_0), screenPos);
-    }
-
-    // Draw finances button
-    if (window_top_toolbar_widgets[WIDX_FINANCES].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_FINANCES].left + 3,
-                              window_top_toolbar_widgets[WIDX_FINANCES].top + 1 };
-        if (WidgetIsPressed(*w, WIDX_FINANCES))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_FINANCE), screenPos);
-    }
-
-    // Draw news button
-    if (window_top_toolbar_widgets[WIDX_NEWS].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_NEWS].left + 3, window_top_toolbar_widgets[WIDX_NEWS].top + 0 };
-        if (WidgetIsPressed(*w, WIDX_NEWS))
-            screenPos.y++;
-        gfx_draw_sprite(dpi, ImageId(SPR_G2_TAB_NEWS), screenPos);
-    }
-
-    // Draw network button
-    if (window_top_toolbar_widgets[WIDX_NETWORK].type != WindowWidgetType::Empty)
-    {
-        screenPos = w->windowPos
-            + ScreenCoordsXY{ window_top_toolbar_widgets[WIDX_NETWORK].left + 3,
-                              window_top_toolbar_widgets[WIDX_NETWORK].top + 0 };
-        if (WidgetIsPressed(*w, WIDX_NETWORK))
-            screenPos.y++;
-
-        // Draw (de)sync icon.
-        imgId = (network_is_desynchronised() ? SPR_G2_MULTIPLAYER_DESYNC : SPR_G2_MULTIPLAYER_SYNC);
-        gfx_draw_sprite(dpi, ImageId(imgId), screenPos + ScreenCoordsXY{ 3, 11 });
-
-        // Draw number of players.
-        auto ft = Formatter();
-        ft.Add<int32_t>(network_get_num_visible_players());
-        DrawTextBasic(
-            dpi, screenPos + ScreenCoordsXY{ 23, 1 }, STR_COMMA16, ft,
-            { COLOUR_WHITE | COLOUR_FLAG_OUTLINE, TextAlignment::RIGHT });
-    }
-}
-
-/**
- *
- *  rct2: 0x006E3158
- */
-static void RepaintSceneryToolDown(const ScreenCoordsXY& windowPos, WidgetIndex widgetIndex)
-{
-    auto flags = EnumsToFlags(
-        ViewportInteractionItem::Scenery, ViewportInteractionItem::Wall, ViewportInteractionItem::LargeScenery,
-        ViewportInteractionItem::Banner);
-    auto info = get_map_coordinates_from_pos(windowPos, flags);
-    switch (info.SpriteType)
-    {
-        case ViewportInteractionItem::Scenery:
-        {
-            auto* sceneryEntry = info.Element->AsSmallScenery()->GetEntry();
-
-            // If can't repaint
-            if (!sceneryEntry->HasFlag(SMALL_SCENERY_FLAG_HAS_PRIMARY_COLOUR | SMALL_SCENERY_FLAG_HAS_GLASS))
->>>>>>> 7200178ce (Start pool implementaiton)
                 return;
         }
     }
-
     void SceneryEyedropperToolDown(const ScreenCoordsXY& screenCoords, WidgetIndex widgetIndex)
     {
         auto flag = EnumsToFlags(
@@ -2091,42 +1573,9 @@ static void RepaintSceneryToolDown(const ScreenCoordsXY& windowPos, WidgetIndex 
             }
             case ViewportInteractionItem::Wall:
             {
-<<<<<<< HEAD
                 auto entryIndex = info.Element->AsWall()->GetEntryIndex();
                 auto* sceneryEntry = OpenRCT2::ObjectManager::GetObjectEntry<WallSceneryEntry>(entryIndex);
                 if (sceneryEntry != nullptr)
-=======
-                WindowScenerySetSelectedItem(
-                    { SCENERY_TYPE_PATH_ITEM, entryIndex }, std::nullopt, std::nullopt, std::nullopt, std::nullopt);
-            }
-            break;
-        }
-        default:
-            break;
-    }
-}
-
-static void Sub6E1F34UpdateScreenCoordsAndButtonsPressed(bool canRaiseItem, ScreenCoordsXY& screenPos)
-{
-    if (!canRaiseItem && !gCheatsDisableSupportLimits)
-    {
-        gSceneryCtrlPressed = false;
-        gSceneryShiftPressed = false;
-    }
-    else
-    {
-        if (!gSceneryCtrlPressed)
-        {
-            if (InputTestPlaceObjectModifier(PLACE_OBJECT_MODIFIER_COPY_Z))
-            {
-                // CTRL pressed
-                constexpr auto flags = EnumsToFlags(
-                    ViewportInteractionItem::Terrain, ViewportInteractionItem::Ride, ViewportInteractionItem::Scenery,
-                    ViewportInteractionItem::Footpath, ViewportInteractionItem::Wall, ViewportInteractionItem::LargeScenery,ViewportInteractionItem::Pool);
-                auto info = get_map_coordinates_from_pos(screenPos, flags);
-
-                if (info.SpriteType != ViewportInteractionItem::None)
->>>>>>> 7200178ce (Start pool implementaiton)
                 {
                     WindowScenerySetSelectedItem(
                         { SCENERY_TYPE_WALL, entryIndex }, info.Element->AsWall()->GetPrimaryColour(),
@@ -2195,7 +1644,7 @@ static void Sub6E1F34UpdateScreenCoordsAndButtonsPressed(bool canRaiseItem, Scre
                     constexpr auto flag = EnumsToFlags(
                         ViewportInteractionItem::Terrain, ViewportInteractionItem::Ride, ViewportInteractionItem::Scenery,
                         ViewportInteractionItem::Footpath, ViewportInteractionItem::Wall,
-                        ViewportInteractionItem::LargeScenery);
+                        ViewportInteractionItem::LargeScenery, ViewportInteractionItem::Pool);
                     auto info = GetMapCoordinatesFromPos(screenPos, flag);
 
                     if (info.SpriteType != ViewportInteractionItem::None)
@@ -3070,6 +2519,9 @@ public:
             case WIDX_WATER:
                 ToggleWaterWindow(WIDX_WATER);
                 break;
+            case WIDX_POOL:
+                TogglePoolWindow();
+                break;
             case WIDX_SCENERY:
                 if (!ToolSet(*this, WIDX_SCENERY, Tool::Arrow))
                 {
@@ -3556,6 +3008,7 @@ public:
         widgets[WIDX_PATH].type = WindowWidgetType::TrnBtn;
         widgets[WIDX_CONSTRUCT_RIDE].type = WindowWidgetType::TrnBtn;
         widgets[WIDX_RIDES].type = WindowWidgetType::TrnBtn;
+        widgets[WIDX_POOL].type = WindowWidgetType::TrnBtn;
         widgets[WIDX_PARK].type = WindowWidgetType::TrnBtn;
         widgets[WIDX_STAFF].type = WindowWidgetType::TrnBtn;
         widgets[WIDX_GUESTS].type = WindowWidgetType::TrnBtn;
@@ -3625,6 +3078,7 @@ public:
                 widgets[WIDX_MAP].type = WindowWidgetType::Empty;
                 widgets[WIDX_SCENERY].type = WindowWidgetType::Empty;
                 widgets[WIDX_PATH].type = WindowWidgetType::Empty;
+                widgets[WIDX_POOL].type = WindowWidgetType::Empty;
                 widgets[WIDX_CLEAR_SCENERY].type = WindowWidgetType::Empty;
 
                 widgets[WIDX_ZOOM_OUT].type = WindowWidgetType::Empty;
@@ -3696,6 +3150,12 @@ public:
             pressed_widgets &= ~(1uLL << WIDX_PATH);
         else
             pressed_widgets |= (1uLL << WIDX_PATH);
+
+        // Pool button pressed down
+        if (WindowFindByClass(WindowClass::Pool) == nullptr)
+            pressed_widgets &= ~(1ULL << WIDX_POOL);
+        else
+            pressed_widgets |= (1ULL << WIDX_POOL);
 
         if (gGamePaused & GAME_PAUSED_NORMAL)
             pressed_widgets |= (1uLL << WIDX_PAUSE);
@@ -4169,28 +3629,7 @@ void TopToolbar::MapMenuDropdown(int16_t dropdownIndex)
     }
 }
 
-<<<<<<< HEAD
 void TopToolbar::InitFastforwardMenu(Widget& widget)
-=======
-static void TogglePoolWindow()
-{
-    if (window_find_by_class(WindowClass::Pool) == nullptr)
-    {
-        context_open_window(WindowClass::Pool);
-    }
-    else
-    {
-        tool_cancel();
-        window_close_by_class(WindowClass::Pool);
-    }
-}
-
-/**
- *
- *  rct2: 0x0066CD54
- */
-static void ToggleLandWindow(rct_window* topToolbar, WidgetIndex widgetIndex)
->>>>>>> 7200178ce (Start pool implementaiton)
 {
     int32_t num_items = 4;
     gDropdownItems[0].Format = STR_TOGGLE_OPTION;
