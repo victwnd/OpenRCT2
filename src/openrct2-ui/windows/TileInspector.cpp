@@ -172,20 +172,20 @@ enum WindowTileInspectorWidgetIdx
     WIDX_BANNER_CHECK_BLOCK_SW,
     WIDX_BANNER_CHECK_BLOCK_NW,
     
-    // Path
+    // Pool
     WIDX_POOL_SPINNER_HEIGHT = PAGE_WIDGETS,
     WIDX_POOL_SPINNER_HEIGHT_INCREASE,
     WIDX_POOL_SPINNER_HEIGHT_DECREASE,
     WIDX_POOL_CHECK_BROKEN,
     WIDX_POOL_CHECK_SLOPED,
-    WIDX_POOL_CHECK_EDGE_NE, // Note: This is NOT named after the world orientation, but after the way
-    WIDX_POOL_CHECK_EDGE_E,  // it looks in the window (top corner is north). Their order is important,
-    WIDX_POOL_CHECK_EDGE_SE, // as this is the same order paths use for their corners / edges.
-    WIDX_POOL_CHECK_EDGE_S,  //           N
-    WIDX_POOL_CHECK_EDGE_SW, //      NW-------NE
-    WIDX_POOL_CHECK_EDGE_W,  //   W ------------- E
-    WIDX_POOL_CHECK_EDGE_NW, //      SW-------SE
-    WIDX_POOL_CHECK_EDGE_N,  //           S
+    WIDX_POOL_CHECK_EDGE_NE, 
+    WIDX_POOL_CHECK_EDGE_E,
+    WIDX_POOL_CHECK_EDGE_SE,
+    WIDX_POOL_CHECK_EDGE_S,
+    WIDX_POOL_CHECK_EDGE_SW,
+    WIDX_POOL_CHECK_EDGE_W,
+    WIDX_POOL_CHECK_EDGE_NW,
+    WIDX_POOL_CHECK_EDGE_N,
 };
 
 static_assert(WC_TILE_INSPECTOR__WIDX_BUTTON_ROTATE == WIDX_BUTTON_ROTATE);
@@ -2077,6 +2077,10 @@ private:
                 case TileElementType::Banner:
                     p = TileInspectorPage::Banner;
                     break;
+
+                case TileElementType::Pool:
+                    p = TileInspectorPage::Pool;
+                    break;
             }
         }
 
@@ -2443,7 +2447,7 @@ private:
                 SetCheckboxValue(
                  WIDX_POOL_CHECK_EDGE_W, tileElement->AsPool()->GetCorners() & (1 << ((2 - GetCurrentRotation()) & 3)));
                 SetCheckboxValue(
-                 WIDX_POOL_CHECK_EDGE_N, tileElement->AsPool()->GetCorners() & (1 << ((3 - GetCurrentRotation()) & 3)));  
+                 WIDX_POOL_CHECK_EDGE_N, tileElement->AsPool()->GetCorners() & (1 << ((3 - GetCurrentRotation()) & 3)));
           break;
             default:
                 break; // Nothing.

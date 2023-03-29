@@ -121,7 +121,6 @@ poolElement->SetPoolEntryIndex(_type);
 
 	if(poolElement->IsWater()!=_isWater||poolElement->GetEdgeStyle()!=_edgeStyle)
 	{
-        pool_remove_edges(_loc,reinterpret_cast<TileElement*>(poolElement));
 	poolElement->SetIsWater(_isWater);
 	poolElement->SetEdgeStyle(_edgeStyle);
         pool_connect_edges(_loc,reinterpret_cast<TileElement*>(poolElement));

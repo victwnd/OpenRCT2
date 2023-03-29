@@ -185,8 +185,55 @@ return neighbour->AsPool()->IsWater()==pool->AsPool()->IsWater();
 }
 
 
+
+
+
+
+static constexpr const uint8_t waterSpriteMap[] ={0,1,2,16,4,5,17,20,8,21,10,24,25,28,31,46,159,151,156,16,60,59,95,20,81,105,80,24,117,139,144,46,160,63,152,96,153,62,17,20,66,132,65,142,98,147,31,46,97,96,97,96,95,20,95,20,85,142,85,142,144,46,144,46,157,72,69,120,149,71,99,145,154,101,68,138,25,28,31,46,111,112,119,120,115,116,137,145,113,143,121,138,117,139,144,46,100,88,99,145,100,88,99,145,98,147,31,46,98,147,31,46,137,145,137,145,137,145,137,145,144,46,144,46,144,46,144,46,158,155,78,104,75,74,135,141,150,21,77,24,102,28,148,46,106,106,104,104,94,94,141,141,105,105,24,24,139,139,46,46,126,128,127,146,134,136,135,141,130,132,131,142,140,147,148,46,146,146,146,146,141,141,141,141,142,142,142,142,46,46,46,46,103,101,91,138,102,28,148,46,103,101,91,138,102,28,148,46,143,143,138,138,139,139,46,46,143,143,138,138,139,139,46,46,140,147,148,46,140,147,148,46,140,147,148,46,140,147,148,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46};
+
+
+
+static constexpr const uint8_t solidSpriteMap[] ={162,193,194,176,191,161,177,161,192,175,161,161,178,161,161,161,162,189,186,176,191,161,169,161,192,174,161,161,178,161,161,161,162,193,190,171,183,161,177,161,192,175,161,161,170,161,161,161,162,189,182,171,183,161,169,161,192,174,161,161,170,161,161,161,162,193,194,176,187,161,172,161,184,167,161,161,178,161,161,161,162,189,186,176,187,161,165,161,184,163,161,161,178,161,161,161,162,193,190,171,179,161,172,161,184,167,161,161,170,161,161,161,162,189,182,171,179,161,165,161,184,163,161,161,170,161,161,161,162,185,194,168,191,161,177,161,188,175,161,161,173,161,161,161,162,181,186,168,191,161,169,161,188,174,161,161,173,161,161,161,162,185,190,164,183,161,177,161,188,175,161,161,166,161,161,161,162,181,182,164,183,161,169,161,188,174,161,161,166,161,161,161,162,185,194,168,187,161,172,161,180,167,161,161,173,161,161,161,162,181,186,168,187,161,165,161,180,163,161,161,173,161,161,161,162,185,190,164,179,161,172,161,180,167,161,161,166,161,161,161,162,181,182,164,179,161,165,161,180,163,161,161,166,161,161,161};
+
+
+static void pool_update_sprite(const CoordsXY& poolPos, TileElement* tileElement)
+{
+auto z=tileElement->GetBaseZ();
+uint8_t edges=0;
+	for(int direction=0;direction<8;direction++)
+	{
+	TileElement* neighbour=map_get_pool_element({poolPos+CoordsDirectionDelta[direction],z});
+		if((neighbour&&pool_should_connect_neighbour(tileElement,neighbour))||(!neighbour&&!tileElement->AsPool()->IsWater()))
+		{
+		edges|=1<<direction;
+		}
+	}
+
+	if(tileElement->AsPool()->IsWater())tileElement->AsPool()->SetEdgesAndCorners(waterSpriteMap[edges]);
+	else tileElement->AsPool()->SetEdgesAndCorners(solidSpriteMap[edges]);
+}
+
+
+static void pool_update_neighbours(const CoordsXY& poolPos, TileElement* tileElement)
+{
+auto z=tileElement->GetBaseZ();
+
+	for(int direction=0;direction<8;direction++)
+	{
+	TileElement* neighbour=map_get_pool_element({poolPos+CoordsDirectionDelta[direction],z});
+		if(neighbour)
+		{
+		pool_update_sprite(poolPos+CoordsDirectionDelta[direction],neighbour);
+		}
+	}
+}
+
 void pool_remove_edges(const CoordsXY& poolPos, TileElement* tileElement)
 {
+pool_update_neighbours(poolPos,tileElement);
+
+
+/*
 //uint8_t masks[8]={0x9B,0x37,0x6E,0xCD,0xBF,0x7F,0xEF,0xDF};
 uint8_t masks[8]={0xFB,0xF7,0xFE,0xFD,0xBF,0x7F,0xEF,0xDF};
 
@@ -200,65 +247,15 @@ auto z=tileElement->GetBaseZ();
 
 
 tileElement->AsPool()->SetCorners(0);
+*/
 }
+
 
 void pool_connect_edges(const CoordsXY& poolPos, TileElement* tileElement)
 {
-auto z=tileElement->GetBaseZ();
+pool_update_sprite(poolPos,tileElement);
 
-TileElement* neighbours[8];
-
-//Set edges and corners
-uint8_t edges=0;
-	for(int direction=0;direction<4;direction++)
-	{
-	TileElement* neighbour=map_get_pool_element({poolPos+CoordsDirectionDelta[direction],z});
-		if(neighbour&&pool_should_connect_neighbour(tileElement,neighbour))
-		{
-		edges|=1<<direction;
-		neighbours[direction]=neighbour;
-		}
-		else neighbours[direction]=NULL;
-	}
-tileElement->AsPool()->SetEdges(edges);
-
-
-//Set corners
-uint8_t corners=0;
-	for(int direction=0;direction<4;direction++)
-	{
-	TileElement* neighbour=map_get_pool_element({poolPos+CoordsDirectionDelta[direction+4],z});
-		if(neighbour&&pool_should_connect_neighbour(tileElement,neighbour))
-		{
-		corners|=1<<direction;
-		neighbours[direction+4]=neighbour;
-		}
-		else neighbours[direction+4]=NULL;
-	}
-tileElement->AsPool()->SetCorners(corners);
-
-//Update orthogonal neighbours
-	for(int i=0;i<4;i++)
-	{
-		if(neighbours[i])
-		{
-		uint8_t neighbourEdgesAndCorners=neighbours[i]->AsPool()->GetEdgesAndCorners();
-		neighbourEdgesAndCorners|=1<<((i+2)&0x3);
-		//	if(corners&(1<<i))neighbourEdgesAndCorners|=0x10<<((i+1)&0x3);
-		//	if(corners&(1<<((i+3)&0x3)))neighbourEdgesAndCorners|=0x10<<((i+2)&0x3);
-		neighbours[i]->AsPool()->SetEdgesAndCorners(neighbourEdgesAndCorners);
-		}
-	}
-//Update diagonal neighbours
-	for(int i=4;i<8;i++)
-	{
-		if(neighbours[i])
-		{
-		uint8_t neighbourCorners=neighbours[i]->AsPool()->GetCorners();
-		neighbourCorners|=1<<((i+2)&0x3);
-		neighbours[i]->AsPool()->SetCorners(neighbourCorners);
-		}
-	}
+pool_update_neighbours(poolPos,tileElement);
 }
 //4 /\ 1
 //3 \/ 2    
