@@ -99,6 +99,8 @@ STR_0094    :Single Rail Roller Coaster
 STR_0095    :Alpine Coaster
 STR_0096    :Classic Wooden Roller Coaster
 STR_0097    :Hydraulic Launched Roller Coaster
+STR_0098    :Unknown Ride (60)
+STR_0099    :Unknown Ride (61)
 STR_0512    :A compact roller coaster with a spiral lift hill and smooth, twisting drops.
 STR_0513    :A looping roller coaster where the riders ride in a standing position
 STR_0514    :Trains suspended beneath the roller coaster track swing out to the side around corners

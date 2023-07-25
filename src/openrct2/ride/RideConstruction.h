@@ -51,6 +51,7 @@ extern uint8_t _currentTrackSlopeEnd;
 extern uint8_t _currentTrackBankEnd;
 extern uint8_t _currentTrackLiftHill;
 extern uint8_t _currentTrackAlternative;
+extern uint8_t _currentTrackType;
 extern track_type_t _selectedTrackType;
 
 extern uint8_t _previousTrackBankEnd;

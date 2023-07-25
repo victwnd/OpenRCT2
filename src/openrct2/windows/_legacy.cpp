@@ -77,7 +77,7 @@ money64 PlaceProvisionalTrackPiece(
     }
 
     auto trackPlaceAction = TrackPlaceAction(
-        rideIndex, trackType, ride->type, { trackPos, static_cast<uint8_t>(trackDirection) }, 0, 0, 0,
+        rideIndex, trackType, _currentTrackType, { trackPos, static_cast<uint8_t>(trackDirection) }, 0, 0, 0,
         liftHillAndAlternativeState, false);
     trackPlaceAction.SetFlags(GAME_COMMAND_FLAG_ALLOW_DURING_PAUSED | GAME_COMMAND_FLAG_NO_SPEND | GAME_COMMAND_FLAG_GHOST);
     // This command must not be sent over the network

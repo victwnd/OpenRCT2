@@ -3303,7 +3303,7 @@ private:
             | (1uLL << WIDX_SYNCHRONISE_WITH_ADJACENT_STATIONS_CHECKBOX));
 
         // Sometimes, only one of the alternatives support lift hill pieces. Make sure to check both.
-        bool hasAlternativeType = ride->GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE);
+        bool hasAlternativeType = ride->GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK);
         if (ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_LIFT_HILL)
             || (hasAlternativeType
                 && GetRideTypeDescriptor(ride->GetRideTypeDescriptor().AlternateType).SupportsTrackPiece(TRACK_LIFT_HILL)))

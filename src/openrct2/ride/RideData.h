@@ -207,6 +207,18 @@ struct RideOperatingSettings
     uint8_t OperatingSettingMultiplier = 1; // Used for the Ride window, cosmetic only.
 };
 
+struct RideAlternateTrack
+{
+    ride_type_t type;
+    uint32_t icon;
+};
+
+struct RideAlternateTrackList
+{
+    uint8_t count;
+    RideAlternateTrack list[4];
+};
+
 struct RatingsModifier
 {
     RatingsModifierType Type;
@@ -327,6 +339,7 @@ struct RideTypeDescriptor
     TrackColourPresetList ColourPresets;
     RideColourPreview ColourPreview;
     RideColourKey ColourKey;
+    RideAlternateTrackList AlternateTrackList = { 0, { { 0, 0 }, { 0, 0 }, { 0, 0 } } };
 
     // json name lookup
     std::string_view Name;
@@ -422,7 +435,7 @@ enum ride_type_flags : uint64_t
     RIDE_TYPE_FLAG_ALLOW_DOORS_ON_TRACK = (1uLL << 32),
     RIDE_TYPE_FLAG_MUSIC_ON_DEFAULT = (1uLL << 33),
     RIDE_TYPE_FLAG_ALLOW_MUSIC = (1uLL << 34),
-    RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE = (1uLL << 35), // Used by the Flying RC, Lay-down RC, Multi-dimension RC
+    RIDE_TYPE_FLAG_HAS_INVERTED_TRACK = (1uLL << 35), // Used by the Flying RC, Lay-down RC, Multi-dimension RC
     RIDE_TYPE_FLAG_PEEP_CHECK_GFORCES = (1uLL << 36),
     RIDE_TYPE_FLAG_HAS_ENTRANCE_EXIT = (1uLL << 37),
     RIDE_TYPE_FLAG_ALLOW_MORE_VEHICLES_THAN_STATION_FITS = (1uLL << 38),
@@ -449,6 +462,7 @@ enum ride_type_flags : uint64_t
     RIDE_TYPE_FLAG_IS_MAZE = (1uLL << 58),
     RIDE_TYPE_FLAG_IS_SPIRAL_SLIDE = (1uLL << 59),
     RIDE_TYPE_FLAG_ALLOW_REVERSED_TRAINS = (1uLL << 60),
+    RIDE_TYPE_FLAG_HAS_ALTERNATE_TRACK = (1uLL << 61),
 };
 
 // Set on ride types that have a main colour, additional colour and support colour.
@@ -551,6 +565,7 @@ constexpr RideTypeDescriptor DummyRTD =
     SET_FIELD(ColourPresets, DEFAULT_FLAT_RIDE_COLOUR_PRESET),
     SET_FIELD(ColourPreview, { static_cast<uint32_t>(SPR_NONE), static_cast<uint32_t>(SPR_NONE) }),
     SET_FIELD(ColourKey, RideColourKey::Ride),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(Name, "invalid"),
 	SET_FIELD(RatingsData,
     {

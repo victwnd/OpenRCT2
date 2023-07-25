@@ -68,6 +68,7 @@ uint8_t _currentTrackSlopeEnd;
 uint8_t _currentTrackBankEnd;
 uint8_t _currentTrackLiftHill;
 uint8_t _currentTrackAlternative;
+uint8_t _currentTrackType;
 track_type_t _selectedTrackType;
 
 uint8_t _previousTrackBankEnd;
@@ -664,7 +665,7 @@ void RideConstructionSetDefaultNextPiece()
 
             // Set whether track is covered
             _currentTrackAlternative &= ~RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {
@@ -681,7 +682,7 @@ void RideConstructionSetDefaultNextPiece()
             _currentTrackCurve = curve;
 
             // Set track banking
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (bank == TRACK_BANK_UPSIDE_DOWN)
                 {
@@ -710,7 +711,7 @@ void RideConstructionSetDefaultNextPiece()
 
             // Set whether track is covered
             _currentTrackAlternative &= ~RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {
@@ -727,7 +728,7 @@ void RideConstructionSetDefaultNextPiece()
             _currentTrackCurve = curve;
 
             // Set track banking
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (bank == TRACK_BANK_UPSIDE_DOWN)
                 {
@@ -1126,6 +1127,8 @@ int32_t RideInitialiseConstructionWindow(Ride& ride)
 
     if (ride.GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_START_CONSTRUCTION_INVERTED))
         _currentTrackAlternative |= RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
+
+    _currentTrackType = ride.type;
 
     _previousTrackBankEnd = 0;
     _previousTrackSlopeEnd = 0;

@@ -95,6 +95,9 @@ enum
     WIDX_ROTATE,
     WIDX_U_TRACK,
     WIDX_O_TRACK,
+    WIDX_TRACK_1,
+    WIDX_TRACK_2,
+    WIDX_TRACK_3,
     WIDX_SEAT_ROTATION_GROUPBOX,
     WIDX_SEAT_ROTATION_ANGLE_SPINNER,
     WIDX_SEAT_ROTATION_ANGLE_SPINNER_UP,
@@ -146,6 +149,9 @@ static Widget _rideConstructionWidgets[] = {
     MakeWidget        ({ 94, 338}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_ROTATE_ARROW),                        STR_ROTATE_90_TIP                                   ),
     MakeWidget        ({ 41, 132}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_RIDE_CONSTRUCTION_U_SHAPED_TRACK),    STR_RIDE_CONSTRUCTION_U_SHAPED_OPEN_TRACK_TIP       ),
     MakeWidget        ({144, 132}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_RIDE_CONSTRUCTION_O_SHAPED_TRACK),    STR_RIDE_CONSTRUCTION_O_SHAPED_ENCLOSED_TRACK_TIP   ),
+    MakeWidget        ({ 84, 132}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_RIDE_CONSTRUCTION_O_SHAPED_TRACK),    STR_RIDE_CONSTRUCTION_O_SHAPED_ENCLOSED_TRACK_TIP   ),
+    MakeWidget        ({108, 132}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_RIDE_CONSTRUCTION_O_SHAPED_TRACK),    STR_RIDE_CONSTRUCTION_O_SHAPED_ENCLOSED_TRACK_TIP   ),
+    MakeWidget        ({132, 132}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_RIDE_CONSTRUCTION_O_SHAPED_TRACK),    STR_RIDE_CONSTRUCTION_O_SHAPED_ENCLOSED_TRACK_TIP   ),
     MakeWidget        ({118, 120}, {     89,  41}, WindowWidgetType::Groupbox, WindowColour::Primary  , STR_RIDE_CONSTRUCTION_SEAT_ROT                                                                        ),
     MakeSpinnerWidgets({123, 138}, {     58,  12}, WindowWidgetType::Spinner,  WindowColour::Secondary, 0,                                                STR_RIDE_CONSTRUCTION_SELECT_SEAT_ROTATION_ANGLE_TIP),
     MakeWidget        ({161, 338}, {     24,  24}, WindowWidgetType::FlatBtn,  WindowColour::Secondary, ImageId(SPR_G2_SIMULATE),                         STR_SIMULATE_RIDE_TIP                               ),
@@ -179,10 +185,15 @@ static constexpr StringId RideConstructionSeatAngleRotationStrings[] = {
 
 static void WindowRideConstructionMouseUpDemolishNextPiece(const CoordsXYZD& piecePos, int32_t type);
 
+// TODO known bugs
+//  - Track type can be changed to one that does not have the current element
+//  If arbitrary ride type cheat is used, it keeps building previously selected track
+
 static int32_t RideGetAlternativeType(const Ride& ride)
 {
-    return (_currentTrackAlternative & RIDE_TYPE_ALTERNATIVE_TRACK_TYPE) ? ride.GetRideTypeDescriptor().AlternateType
-                                                                         : ride.type;
+    return (_currentTrackAlternative & RIDE_TYPE_ALTERNATIVE_TRACK_TYPE)
+        ? GetRideTypeDescriptor(_currentTrackType).AlternateType
+        : _currentTrackType;
 }
 
 /* move to ride.c */
@@ -233,6 +244,8 @@ public:
 
         if (currentRide->GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_START_CONSTRUCTION_INVERTED))
             _currentTrackAlternative |= RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
+
+        _currentTrackType = currentRide->type;
 
         _previousTrackBankEnd = 0;
         _previousTrackSlopeEnd = 0;
@@ -1366,6 +1379,24 @@ public:
                 _currentTrackPrice = MONEY64_UNDEFINED;
                 WindowRideConstructionUpdateActiveElements();
                 break;
+            case WIDX_TRACK_1:
+                RideConstructionInvalidateCurrentTrack();
+                _currentTrackType = currentRide->GetRideTypeDescriptor().AlternateTrackList.list[0].type;
+                _currentTrackPrice = MONEY64_UNDEFINED;
+                WindowRideConstructionUpdateActiveElements();
+                break;
+            case WIDX_TRACK_2:
+                RideConstructionInvalidateCurrentTrack();
+                _currentTrackType = currentRide->GetRideTypeDescriptor().AlternateTrackList.list[1].type;
+                _currentTrackPrice = MONEY64_UNDEFINED;
+                WindowRideConstructionUpdateActiveElements();
+                break;
+            case WIDX_TRACK_3:
+                RideConstructionInvalidateCurrentTrack();
+                _currentTrackType = currentRide->GetRideTypeDescriptor().AlternateTrackList.list[2].type;
+                _currentTrackPrice = MONEY64_UNDEFINED;
+                WindowRideConstructionUpdateActiveElements();
+                break;
             case WIDX_SEAT_ROTATION_ANGLE_SPINNER_UP:
                 if (_currentSeatRotationAngle < 15)
                 {
@@ -1814,6 +1845,9 @@ public:
         widgets[WIDX_BANK_RIGHT].type = WindowWidgetType::Empty;
         widgets[WIDX_U_TRACK].type = WindowWidgetType::Empty;
         widgets[WIDX_O_TRACK].type = WindowWidgetType::Empty;
+        widgets[WIDX_TRACK_1].type = WindowWidgetType::Empty;
+        widgets[WIDX_TRACK_2].type = WindowWidgetType::Empty;
+        widgets[WIDX_TRACK_3].type = WindowWidgetType::Empty;
 
         bool trackHasSpeedSetting = TrackTypeHasSpeedSetting(_selectedTrackType)
             || TrackTypeHasSpeedSetting(_currentTrackCurve & ~RideConstructionSpecialPieceSelected);
@@ -1896,6 +1930,32 @@ public:
             ResizeSpinner(WIDX_SPEED_SETTING_SPINNER, { 12, 138 }, { 85, SPINNER_HEIGHT });
 
             hold_down_widgets |= (1uLL << WIDX_SPEED_SETTING_SPINNER_UP) | (1uLL << WIDX_SPEED_SETTING_SPINNER_DOWN);
+        }
+
+        if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATE_TRACK))
+        {
+            if (_currentlyShowingBrakeOrBoosterSpeed)
+            {
+                widgets[WIDX_SPEED_SETTING_SPINNER].right = 96 - 17;
+                widgets[WIDX_SPEED_SETTING_SPINNER_UP].left = 84 - 17;
+                widgets[WIDX_SPEED_SETTING_SPINNER_UP].right = 95 - 17;
+                widgets[WIDX_SPEED_SETTING_SPINNER_DOWN].left = 72 - 17;
+                widgets[WIDX_SPEED_SETTING_SPINNER_DOWN].right = 83 - 17;
+            }
+            else
+            {
+                widgets[WIDX_BANK_LEFT].left = 10;
+                widgets[WIDX_BANK_LEFT].right = 33;
+                widgets[WIDX_BANK_STRAIGHT].left = 34;
+                widgets[WIDX_BANK_STRAIGHT].right = 57;
+                widgets[WIDX_BANK_RIGHT].left = 58;
+                widgets[WIDX_BANK_RIGHT].right = 81;
+            }
+            for (int i = 0; i < currentRide->GetRideTypeDescriptor().AlternateTrackList.count; i++)
+            {
+                widgets[WIDX_TRACK_1 + i].type = WindowWidgetType::FlatBtn;
+                widgets[WIDX_TRACK_1 + i].image = ImageId(currentRide->GetRideTypeDescriptor().AlternateTrackList.list[i].icon);
+            }
         }
 
         static constexpr int16_t bankingGroupboxRightNoSeatRotation = GW;
@@ -2072,6 +2132,15 @@ public:
             pressedWidgets |= (1uLL << widgetIndex);
         }
 
+        if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATE_TRACK))
+        {
+            for (int i = 0; i < currentRide->GetRideTypeDescriptor().AlternateTrackList.count; i++)
+            {
+                if (_currentTrackType == currentRide->GetRideTypeDescriptor().AlternateTrackList.list[i].type)
+                    pressedWidgets |= (1uLL << (WIDX_TRACK_1 + i));
+            }
+        }
+
         if (_currentTrackLiftHill & CONSTRUCTION_LIFT_HILL_SELECTED)
             pressedWidgets |= (1uLL << WIDX_CHAIN_LIFT);
 
@@ -2180,9 +2249,8 @@ private:
         {
             return;
         }
-
         auto trackPlaceAction = TrackPlaceAction(
-            rideIndex, trackType, currentRide->type, { trackPos, static_cast<uint8_t>(trackDirection) }, (properties)&0xFF,
+            rideIndex, trackType, _currentTrackType, { trackPos, static_cast<uint8_t>(trackDirection) }, (properties)&0xFF,
             (properties >> 8) & 0x0F, (properties >> 12) & 0x0F, liftHillAndAlternativeState, false);
         if (_rideConstructionState == RideConstructionState::Back)
         {
@@ -2593,7 +2661,7 @@ private:
         tempTrackTileElement.AsTrack()->SetHasChain((liftHillAndInvertedState & CONSTRUCTION_LIFT_HILL_SELECTED) != 0);
         tempTrackTileElement.SetLastForTile(true);
         tempTrackTileElement.AsTrack()->SetTrackType(trackType);
-        tempTrackTileElement.AsTrack()->SetRideType(currentRide->type);
+        tempTrackTileElement.AsTrack()->SetRideType(_currentTrackType);
         tempTrackTileElement.AsTrack()->SetHasCableLift(false);
         tempTrackTileElement.AsTrack()->SetInverted((liftHillAndInvertedState & CONSTRUCTION_INVERTED_TRACK_SELECTED) != 0);
         tempTrackTileElement.AsTrack()->SetColourScheme(RIDE_COLOUR_SCHEME_MAIN);

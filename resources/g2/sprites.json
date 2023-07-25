@@ -306,6 +306,21 @@
         "y_offset": 2
     },
     {
+        "path": "icons/bi_rail_track.png",
+        "x_offset": 5,
+        "y_offset": 3
+    },
+    {
+        "path": "icons/tri_rail_track.png",
+        "x_offset": 5,
+        "y_offset": 3
+    },
+    {
+        "path": "icons/quad_rail_track.png",
+        "x_offset": 5,
+        "y_offset": 3
+    },
+    {
         "path": "icons/colour_invisible.png"
     },
     {

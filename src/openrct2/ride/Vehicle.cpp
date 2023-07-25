@@ -7558,7 +7558,7 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
         ClearFlag(VehicleFlags::CarIsInverted);
         {
             int32_t rideType = ::GetRide(tileElement->AsTrack()->GetRideIndex())->type;
-            if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {
@@ -7936,7 +7936,7 @@ bool Vehicle::UpdateTrackMotionBackwardsGetNewTrack(uint16_t trackType, const Ri
 
         // Update VehicleFlags::CarIsInverted
         ClearFlag(VehicleFlags::CarIsInverted);
-        if (GetRideTypeDescriptor(curRide.type).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+        if (GetRideTypeDescriptor(curRide.type).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
         {
             if (tileElement->AsTrack()->IsInverted())
             {
@@ -8327,7 +8327,7 @@ Loc6DC476:
     {
         int32_t rideType = ::GetRide(tileElement->AsTrack()->GetRideIndex())->type;
         ClearFlag(VehicleFlags::CarIsInverted);
-        if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+        if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
         {
             if (tileElement->AsTrack()->IsInverted())
             {
@@ -8540,7 +8540,7 @@ Loc6DCA9A:
     {
         int32_t rideType = ::GetRide(tileElement->AsTrack()->GetRideIndex())->type;
         ClearFlag(VehicleFlags::CarIsInverted);
-        if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+        if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
         {
             if (tileElement->AsTrack()->IsInverted())
             {
