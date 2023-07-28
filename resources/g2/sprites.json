@@ -32255,5 +32255,65 @@
         "x_offset": -8,
         "y_offset": -34,
         "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_flat_1.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_flat_2.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_1.png",
+        "x_offset": -22,
+        "y_offset": -20,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_2.png",
+        "x_offset": -22,
+        "y_offset": -5,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_3.png",
+        "x_offset": -22,
+        "y_offset": -5,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_4.png",
+        "x_offset": -22,
+        "y_offset": -20,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_diag_1.png",
+        "x_offset": -32,
+        "y_offset": -13,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_diag_2.png",
+        "x_offset": -8,
+        "y_offset": -10,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_diag_3.png",
+        "x_offset": -32,
+        "y_offset": -13,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_gentle_diag_4.png",
+        "x_offset": -8,
+        "y_offset": -25,
+        "palette": "keep"
     }
 ]

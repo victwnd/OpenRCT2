@@ -17451,6 +17451,168 @@ namespace HydraulicLaunchedRC
         TrackLeftEighthBankToDiagUp25(session, ride, trackSequence, (direction + 3) & 3, height, trackElement);
     }
 
+    static void TrackCableLaunch(
+        PaintSession& session, const Ride& ride, uint8_t trackSequence, uint8_t direction, int32_t height,
+        const TrackElement& trackElement)
+    {
+        switch (direction)
+        {
+            case 0:
+            case 2:
+                PaintAddImageAsParentRotated(
+                    session, direction,
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + 0)),
+                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                break;
+            case 1:
+            case 3:
+                PaintAddImageAsParentRotated(
+                    session, direction,
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + 1)),
+                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                break;
+        }
+        if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
+        {
+            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+        }
+        PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
+        PaintUtilSetSegmentSupportHeight(
+            session, PaintUtilRotateSegments(SEGMENT_C4 | SEGMENT_CC | SEGMENT_D0, direction), 0xFFFF, 0);
+        PaintUtilSetGeneralSupportHeight(session, height + 32, 0x20);
+    }
+
+    static void TrackMagneticBrakeDown25(
+        PaintSession& session, const Ride& ride, uint8_t trackSequence, uint8_t direction, int32_t height,
+        const TrackElement& trackElement)
+    {
+        switch (direction)
+        {
+            case 0:
+                PaintAddImageAsParentRotated(
+                    session, direction,
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 2)),
+                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                break;
+            case 1:
+                PaintAddImageAsParentRotated(
+                    session, direction,
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 3)),
+                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                break;
+            case 2:
+                PaintAddImageAsParentRotated(
+                    session, direction,
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE)),
+                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                break;
+            case 3:
+                PaintAddImageAsParentRotated(
+                    session, direction,
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 1)),
+                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                break;
+        }
+        if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
+        {
+            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+        }
+        if (direction == 0 || direction == 3)
+        {
+            PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
+        }
+        else
+        {
+            PaintUtilPushTunnelRotated(session, direction, height + 8, TUNNEL_2);
+        }
+        PaintUtilSetSegmentSupportHeight(
+            session, PaintUtilRotateSegments(SEGMENT_C4 | SEGMENT_CC | SEGMENT_D0, direction), 0xFFFF, 0);
+        PaintUtilSetGeneralSupportHeight(session, height + 56, 0x20);
+    }
+
+    static void TrackMagneticBrakeDiagDown25(
+        PaintSession& session, const Ride& ride, uint8_t trackSequence, uint8_t direction, int32_t height,
+        const TrackElement& trackElement)
+    {
+        switch (trackSequence)
+        {
+            case 0:
+                switch (direction)
+                {
+                    case 3:
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex(
+                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 1)),
+                            { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
+                        break;
+                }
+                PaintUtilSetSegmentSupportHeight(
+                    session, PaintUtilRotateSegments(SEGMENT_BC | SEGMENT_C4 | SEGMENT_CC | SEGMENT_D4, direction), 0xFFFF, 0);
+                PaintUtilSetGeneralSupportHeight(session, height + 56, 0x20);
+                break;
+            case 1:
+                switch (direction)
+                {
+                    case 0:
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex(
+                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 2)),
+                            { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
+                        break;
+                }
+                PaintUtilSetSegmentSupportHeight(
+                    session, PaintUtilRotateSegments(SEGMENT_B4 | SEGMENT_C4 | SEGMENT_C8 | SEGMENT_CC, direction), 0xFFFF, 0);
+                PaintUtilSetGeneralSupportHeight(session, height + 56, 0x20);
+                break;
+            case 2:
+                switch (direction)
+                {
+                    case 2:
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex(
+                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL)),
+                            { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
+                        break;
+                }
+                PaintUtilSetSegmentSupportHeight(
+                    session, PaintUtilRotateSegments(SEGMENT_C0 | SEGMENT_C4 | SEGMENT_D0 | SEGMENT_D4, direction), 0xFFFF, 0);
+                PaintUtilSetGeneralSupportHeight(session, height + 56, 0x20);
+                break;
+            case 3:
+                switch (direction)
+                {
+                    case 0:
+                        MetalBSupportsPaintSetup(
+                            session, MetalSupportType::Tubes, 1, 8, height, session.SupportColours);
+                        break;
+                    case 1:
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex(
+                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 3)),
+                            { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
+                        MetalBSupportsPaintSetup(
+                            session, MetalSupportType::Tubes, 0, 8, height, session.SupportColours);
+                        break;
+                    case 2:
+                        MetalBSupportsPaintSetup(
+                            session, MetalSupportType::Tubes, 2, 8, height, session.SupportColours);
+                        break;
+                    case 3:
+                        MetalBSupportsPaintSetup(
+                            session, MetalSupportType::Tubes, 3, 8, height, session.SupportColours);
+                        break;
+                }
+                PaintUtilSetSegmentSupportHeight(
+                    session, PaintUtilRotateSegments(SEGMENT_B8 | SEGMENT_C4 | SEGMENT_C8 | SEGMENT_D0, direction), 0xFFFF, 0);
+                PaintUtilSetGeneralSupportHeight(session, height + 56, 0x20);
+                break;
+        }
+    }
+
     TRACK_PAINT_FUNCTION GetTrackPaintFunction(int32_t trackType)
     {
         switch (trackType)
@@ -17928,6 +18090,12 @@ namespace HydraulicLaunchedRC
                 return TrackLeftEighthBankToOrthogonalDown25;
             case TrackElemType::RightEighthBankToOrthogonalDown25:
                 return TrackRightEighthBankToOrthogonalDown25;
+            case TrackElemType::CableLaunch:
+                return TrackCableLaunch;
+            case TrackElemType::MagneticBrakeDown25:
+                return TrackMagneticBrakeDown25;
+            case TrackElemType::MagneticBrakeDiagDown25:
+                return TrackMagneticBrakeDiagDown25;
         }
         return nullptr;
     }

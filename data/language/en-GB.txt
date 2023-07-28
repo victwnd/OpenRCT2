@@ -3703,6 +3703,8 @@ STR_6593    :Remove park fences
 STR_6594    :Tile Inspector: Toggle wall slope
 STR_6595    :{WINDOW_COLOUR_2}Author: {BLACK}{STRING}
 STR_6596    :{WINDOW_COLOUR_2}Authors: {BLACK}{STRING}
+STR_6597    :Hydraulic Launch
+STR_6598    :Magnetic Brake
 
 #############
 # Scenarios #

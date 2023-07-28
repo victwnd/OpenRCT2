@@ -631,7 +631,12 @@ namespace TrackElemType
     constexpr track_type_t DiagBrakes = 337;
     constexpr track_type_t DiagBlockBrakes = 338;
 
-    constexpr track_type_t Count = 339;
+    constexpr track_type_t CableLaunch = 339;
+    constexpr track_type_t MagneticBrakeDown25 = 340;
+    constexpr track_type_t MagneticBrakeDiagDown25 = 341;
+
+    constexpr track_type_t Count = 342;
+
     constexpr track_type_t None = 65535;
 
 }; // namespace TrackElemType
