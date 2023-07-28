@@ -400,8 +400,8 @@
     <ClInclude Include="ride\coaster\meta\FlyingRollerCoaster.h" />
     <ClInclude Include="ride\coaster\meta\GigaCoaster.h" />
     <ClInclude Include="ride\coaster\meta\HeartlineTwisterCoaster.h" />
+    <ClInclude Include="ride\coaster\meta\HybridCoaster.h" />
     <ClInclude Include="ride\coaster\meta\HydraulicLaunchedRollerCoaster.h" />
-    <ClInclude Include="ride\coaster\meta\RollerCoaster.h" />
     <ClInclude Include="ride\coaster\meta\Hypercoaster.h" />
     <ClInclude Include="ride\coaster\meta\HyperTwister.h" />
     <ClInclude Include="ride\coaster\meta\InvertedHairpinCoaster.h" />
