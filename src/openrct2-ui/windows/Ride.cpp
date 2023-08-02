@@ -3435,6 +3435,13 @@ private:
         ft.Add<uint16_t>(static_cast<uint16_t>(ride->operation_option) * multiplier);
         switch (ride->mode)
         {
+            case RideMode::ContinuousCircuit:
+            [[fallthrough]] case RideMode::ContinuousCircuitBlockSectioned:
+                // If the ride type supports cable launches, then show the powered launch speed setting when in continuous
+                // circuit mode
+                if (!ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_CABLE_LAUNCH))
+                    break;
+                [[fallthrough]];
             case RideMode::PoweredLaunchPasstrough:
             case RideMode::PoweredLaunch:
             case RideMode::UpwardLaunch:
@@ -3533,7 +3540,14 @@ private:
             auto ft = Formatter();
             ft.Add<uint16_t>(ride->num_block_brakes + ride->num_stations);
             DrawTextBasic(
-                dpi, windowPos + ScreenCoordsXY{ 21, ride->mode == RideMode::PoweredLaunchBlockSectioned ? 89 : 61 },
+                dpi,
+                windowPos
+                    + ScreenCoordsXY{ 21,
+                                      ride->mode == RideMode::PoweredLaunchBlockSectioned
+                                              || (ride->mode == RideMode::ContinuousCircuitBlockSectioned
+                                                  && ride->GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_ALLOW_CABLE_LAUNCH))
+                                          ? 89
+                                          : 61 },
                 STR_BLOCK_SECTIONS, ft, COLOUR_BLACK);
         }
     }

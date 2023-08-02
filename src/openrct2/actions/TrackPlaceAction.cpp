@@ -139,7 +139,7 @@ GameActions::Result TrackPlaceAction::Query() const
                     STR_ONLY_ONE_ON_RIDE_PHOTO_PER_RIDE);
             }
         }
-        else if (_trackType == TrackElemType::CableLiftHill)
+        else if (_trackType == TrackElemType::CableLiftHill || _trackType == TrackElemType::CableLaunch)
         {
             if (ride->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT_HILL_COMPONENT_USED)
             {
@@ -664,6 +664,7 @@ GameActions::Result TrackPlaceAction::Execute() const
                 ride->lifecycle_flags |= RIDE_LIFECYCLE_ON_RIDE_PHOTO;
                 break;
             case TrackElemType::CableLiftHill:
+            case TrackElemType::CableLaunch:
                 ride->lifecycle_flags |= RIDE_LIFECYCLE_CABLE_LIFT_HILL_COMPONENT_USED;
                 ride->CableLiftLoc = originLocation;
                 break;

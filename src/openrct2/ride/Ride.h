@@ -463,6 +463,7 @@ enum
     RIDE_LIFECYCLE_FIXED_RATINGS = 1 << 20,        // When set, the ratings will not be updated (useful for hacked rides).
     RIDE_LIFECYCLE_RANDOM_SHOP_COLOURS = 1 << 21,
     RIDE_LIFECYCLE_REVERSED_TRAINS = 1 << 22,
+    RIDE_LIFECYCLE_CABLE_LAUNCH = 1 << 23,
 };
 
 // Constants used by the ride_type->flags property at 0x008

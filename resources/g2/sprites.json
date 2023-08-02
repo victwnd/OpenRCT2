@@ -32257,15 +32257,207 @@
         "palette": "keep"
     },
     {
-        "path": "track/intamin_quad/launch_flat_1.png",
+        "path": "track/intamin_quad/catch_car_a_1.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_a_2.png",
+        "x_offset": -5,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_a_3.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_a_4.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_b_1.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_b_2.png",
+        "x_offset": -5,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_b_3.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_b_4.png",
+        "x_offset": -5,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_c_1.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_c_2.png",
+        "x_offset": -5,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_c_3.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_c_4.png",
+        "x_offset": -5,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_d_1.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_d_2.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_d_3.png",
+        "x_offset": -6,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/catch_car_d_4.png",
+        "x_offset": -5,
+        "y_offset": -3,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_0_1.png",
+        "x_offset": -22,
+        "y_offset": -5,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_0_2.png",
         "x_offset": -22,
         "y_offset": -4,
         "palette": "keep"
     },
     {
-        "path": "track/intamin_quad/launch_flat_2.png",
+        "path": "track/intamin_quad/launch_1_1.png",
         "x_offset": -22,
         "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_1_2.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_2_1.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_2_2.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_3_1.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_3_2.png",
+        "x_offset": -22,
+        "y_offset": -4,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_0_1.png",
+        "x_offset": -12,
+        "y_offset": -2,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_0_2.png",
+        "x_offset": -17,
+        "y_offset": -1,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_1_1.png",
+        "x_offset": -12,
+        "y_offset": -1,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_1_2.png",
+        "x_offset": -17,
+        "y_offset": 0,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_2_1.png",
+        "x_offset": -12,
+        "y_offset": 0,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_2_2.png",
+        "x_offset": -16,
+        "y_offset": 1,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_3_1.png",
+        "x_offset": 0,
+        "y_offset": 0,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/launch_fin_3_2.png",
+        "x_offset": 0,
+        "y_offset": 0,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_1.png",
+        "x_offset": -22,
+        "y_offset": -5,
+        "palette": "keep"
+    },
+    {
+        "path": "track/intamin_quad/magnetic_brake_2.png",
+        "x_offset": -22,
+        "y_offset": -5,
         "palette": "keep"
     },
     {

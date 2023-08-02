@@ -42,6 +42,7 @@
 #include "../world/Scenery.h"
 #include "../world/Surface.h"
 #include "../world/Wall.h"
+#include "CableLaunch.h"
 #include "CableLift.h"
 #include "Ride.h"
 #include "RideData.h"
@@ -1799,7 +1800,10 @@ void Vehicle::Update()
 {
     if (IsCableLift())
     {
-        CableLiftUpdate();
+        if (HasFlag(VehicleFlags::CarIsCableLaunch))
+            CableLaunchUpdate();
+        else
+            CableLiftUpdate();
         return;
     }
 
@@ -2397,7 +2401,7 @@ void Vehicle::UpdateWaitingToDepart()
 
     SetState(Vehicle::Status::Departing);
 
-    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT)
+    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT || curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
         CoordsXYE track;
         int32_t zUnused;
@@ -4117,10 +4121,28 @@ void Vehicle::UpdateTravellingCableLift()
             }
         }
     }
-
-    if (velocity <= 439800)
+    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
-        acceleration = 4398;
+        Vehicle* catchCar = GetEntity<Vehicle>(curRide->cable_lift);
+
+        // Disconnect from catch car when the catch car reaches braking zone
+        auto trackType = GetTrackType();
+        if ((trackType == TrackElemType::CableLaunch && track_progress > 32)
+            || ((brake_speed >> 1) & CABLE_LAUNCH_IS_BRAKE_SECTION))
+        {
+            SetState(Vehicle::Status::Travelling, 1);
+            UpdateTrackMotion(nullptr);
+            lost_time_out = 0; // TODO what is this for?
+            return;
+        }
+        acceleration = (425 * catchCar->powered_acceleration) / 2;
+    }
+    else
+    {
+        if (velocity <= 439800)
+        {
+            acceleration = 4398;
+        }
     }
     int32_t curFlags = UpdateTrackMotion(nullptr);
 
@@ -6086,7 +6108,6 @@ void Vehicle::CheckAndApplyBlockSectionStopSite()
                 ApplyStopBlockBrake();
             else
                 ApplyNonStopBlockBrake();
-
             break;
         case TrackElemType::EndStation:
             if (trackElement->AsTrack()->IsBrakeClosed())
@@ -7464,7 +7485,7 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
         return false;
     }
 
-    if (trackType == TrackElemType::CableLiftHill && this == gCurrentVehicle)
+    if ((trackType == TrackElemType::CableLiftHill || trackType == TrackElemType::CableLaunch) && this == gCurrentVehicle)
     {
         _vehicleMotionTrackFlags |= VEHICLE_UPDATE_MOTION_TRACK_FLAG_11;
     }
@@ -7474,7 +7495,7 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
         if (next_vehicle_on_train.IsNull())
         {
             SetBrakeClosedMultiTile(*tileElement->AsTrack(), TrackLocation, true);
-            if (TrackTypeIsBlockBrakes(trackType) || trackType == TrackElemType::EndStation)
+            if (TrackTypeIsBlockBrakes(trackType) || trackType == TrackElemType::EndStation) //TODO here is where the block is opened after the train passes
             {
                 if (!(rideEntry.Cars[0].flags & CAR_ENTRY_FLAG_POWERED))
                 {
@@ -7688,11 +7709,9 @@ Loc6DAEB9:
                 << 16; //_vehicleVelocityF64E08 * 1.2;
         }
     }
-    else if (trackType == TrackElemType::CableLaunch) // TODO temporary
-    {
-        acceleration += 550000;
-    }
-    else if (trackType == TrackElemType::MagneticBrakeDown25 || trackType == TrackElemType::MagneticBrakeDiagDown25)
+    else if (
+        trackType == TrackElemType::MagneticBrakeFlat || trackType == TrackElemType::MagneticBrakeDown25
+        || trackType == TrackElemType::MagneticBrakeDiagDown25)
     {
         acceleration = -(_vehicleVelocityF64E08 * 5) >> 1;
     }

@@ -463,6 +463,7 @@ enum ride_type_flags : uint64_t
     RIDE_TYPE_FLAG_IS_SPIRAL_SLIDE = (1uLL << 59),
     RIDE_TYPE_FLAG_ALLOW_REVERSED_TRAINS = (1uLL << 60),
     RIDE_TYPE_FLAG_HAS_ALTERNATE_TRACK = (1uLL << 61),
+    RIDE_TYPE_FLAG_ALLOW_CABLE_LAUNCH = (1uLL << 62),
 };
 
 // Set on ride types that have a main colour, additional colour and support colour.
@@ -529,6 +530,7 @@ constexpr uint64_t AllRideModesAvailable = EnumsToFlags(
     RideMode::PoweredLaunchBlockSectioned);
 
 extern const CarEntry CableLiftVehicle;
+extern const CarEntry CableLaunchVehicles[4];
 
 extern const uint16_t RideFilmLength[3];
 

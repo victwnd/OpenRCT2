@@ -203,6 +203,9 @@ enum
     TRACK_DIAG_BRAKES,
     TRACK_DIAG_BLOCK_BRAKES,
 
+    TRACK_CABLE_LAUNCH,
+    TRACK_MAGNETIC_BRAKE,
+
     TRACK_GROUP_COUNT,
 };
 
@@ -632,10 +635,11 @@ namespace TrackElemType
     constexpr track_type_t DiagBlockBrakes = 338;
 
     constexpr track_type_t CableLaunch = 339;
-    constexpr track_type_t MagneticBrakeDown25 = 340;
-    constexpr track_type_t MagneticBrakeDiagDown25 = 341;
+    constexpr track_type_t MagneticBrakeFlat = 340;
+    constexpr track_type_t MagneticBrakeDown25 = 341;
+    constexpr track_type_t MagneticBrakeDiagDown25 = 342;
 
-    constexpr track_type_t Count = 342;
+    constexpr track_type_t Count = 343;
 
     constexpr track_type_t None = 65535;
 

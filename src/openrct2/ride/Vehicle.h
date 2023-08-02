@@ -101,7 +101,10 @@ struct Vehicle : EntityBase
         Operating1A,
         Stopping1B,
         UnloadingPassengers1C,
-        StoppedByBlockBrakes
+        StoppedByBlockBrakes,
+        WaitingForCableLaunch,
+        TravellingCableLaunch,
+        PreparingForCableLaunch
     };
 
     Type SubType;
@@ -226,6 +229,7 @@ struct Vehicle : EntityBase
     std::optional<EntityId> DodgemsCarWouldCollideAt(const CoordsXY& coords) const;
     int32_t UpdateTrackMotion(int32_t* outStation);
     int32_t CableLiftUpdateTrackMotion();
+    int32_t CableLaunchUpdateTrackMotion();
     GForces GetGForces() const;
     void SetMapToolbar() const;
     int32_t IsUsedInPairs() const;
@@ -294,6 +298,14 @@ private:
     void CableLiftUpdateDeparting();
     void CableLiftUpdateTravelling();
     void CableLiftUpdateArriving();
+    void CableLaunchUpdate();
+    bool CableLaunchUpdateTrackMotionForwards();
+    bool CableLaunchUpdateTrackMotionBackwards();
+    void CableLaunchUpdateMovingToEndOfStation();
+    void CableLaunchUpdateWaitingToDepart();
+    void CableLaunchUpdateDeparting();
+    void CableLaunchUpdateTravelling();
+    void CableLaunchUpdateArriving();
     void Sub6DBF3E();
     void UpdateMeasurements();
     void UpdateMovingToEndOfStation();
@@ -313,6 +325,7 @@ private:
     void FinishDeparting();
     void UpdateTravelling();
     void UpdateTravellingCableLift();
+    void UpdateTravellingCableLaunch();
     void UpdateTravellingBoat();
     void UpdateMotionBoatHire();
     void TryReconnectBoatToTrack(const CoordsXY& currentBoatLocation, const CoordsXY& trackCoords);
@@ -323,6 +336,7 @@ private:
     void UpdateArriving();
     void UpdateUnloadingPassengers();
     void UpdateWaitingForCableLift();
+    void UpdateWaitingForCableLaunch();
     void UpdateShowingFilm();
     void UpdateDoingCircusShow();
     void UpdateCrossings() const;
@@ -447,10 +461,11 @@ namespace VehicleFlags
     constexpr uint32_t ReverseInclineCompletedLap = (1 << 12); // Set when the vehicle travels backwards through the station for
                                                                // the first time
     constexpr uint32_t SpinningIsLocked = (1 << 13);           // After passing a rotation toggle track piece this will enable
-    constexpr uint32_t MoveSingleCar = (1 << 14); // OpenRCT2 Flag: Used to override UpdateMotion to move the position of
-                                                  // an individual car on a train
-    constexpr uint32_t Crashed = (1 << 15);       // Car displays as smoke plume
-    constexpr uint32_t CarIsReversed = (1 << 16); // Car is displayed running backwards
+    constexpr uint32_t MoveSingleCar = (1 << 14);    // OpenRCT2 Flag: Used to override UpdateMotion to move the position of
+                                                     // an individual car on a train
+    constexpr uint32_t Crashed = (1 << 15);          // Car displays as smoke plume
+    constexpr uint32_t CarIsReversed = (1 << 16);    // Car is displayed running backwards
+    constexpr uint32_t CarIsCableLaunch = (1 << 17); // Car is displayed running backwards
 } // namespace VehicleFlags
 
 enum

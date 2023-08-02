@@ -172,6 +172,26 @@ static void ride_remove_cable_lift(Ride& ride)
     }
 }
 
+static void ride_remove_cable_launch(Ride& ride)
+{
+    if (ride.lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+    {
+        ride.lifecycle_flags &= ~RIDE_LIFECYCLE_CABLE_LAUNCH;
+        auto spriteIndex = ride.cable_lift;
+        do
+        {
+            Vehicle* vehicle = GetEntity<Vehicle>(spriteIndex);
+            if (vehicle == nullptr)
+            {
+                return;
+            }
+            vehicle->Invalidate();
+            spriteIndex = vehicle->next_vehicle_on_train;
+            EntityRemove(vehicle);
+        } while (!spriteIndex.IsNull());
+    }
+}
+
 /**
  *
  *  rct2: 0x006DD506
@@ -236,6 +256,7 @@ void RideClearForConstruction(Ride& ride)
     }
 
     ride_remove_cable_lift(ride);
+    ride_remove_cable_launch(ride);
     ride.RemoveVehicles();
     RideClearBlockedTiles(ride);
 
