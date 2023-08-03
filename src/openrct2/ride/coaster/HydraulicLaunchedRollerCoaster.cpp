@@ -10950,9 +10950,14 @@ namespace HydraulicLaunchedRC
 
         if (trackElement.HasCableLift())
         {
+            int sprites[9] = { 3, 3, 3, 2, 1, 0, 0, 1, 2 };
+            int spriteIndex = sprites[trackElement.GetCableLaunchFinState()];
             PaintAddImageAsParentRotated(
-                session, direction, session.TrackColours.WithIndex(imageIds[direction][1]), { 0, 0, height },
-                { { 0, 6, height + 3 }, { 32, 20, 1 } });
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex),
+                { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 1 } });
+            PaintAddImageAsParentRotated(
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex + 8),
+                { 0, 0, height }, { { 0, 21, height + 5 }, { 32, 1, 2 } });
         }
         else
         {

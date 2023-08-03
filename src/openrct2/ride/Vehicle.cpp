@@ -2401,19 +2401,13 @@ void Vehicle::UpdateWaitingToDepart()
 
     SetState(Vehicle::Status::Departing);
 
-    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT || curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
-        CoordsXYE track;
-        int32_t zUnused;
-        int32_t direction;
-
-        uint8_t trackDirection = GetTrackDirection();
-        if (TrackBlockGetNextFromZero(TrackLocation, *curRide, trackDirection, &track, &zUnused, &direction, false))
+        auto trackType = GetTrackType();
+        TileElement* trackElement = MapGetTrackElementAtOfType(TrackLocation, trackType);
+        if (trackElement != nullptr && trackElement->AsTrack()->HasCableLift())
         {
-            if (track.element->AsTrack()->HasCableLift())
-            {
-                SetState(Vehicle::Status::WaitingForCableLift, sub_state);
-            }
+            SetState(Vehicle::Status::WaitingForCableLift, sub_state);
         }
     }
 
@@ -4066,7 +4060,7 @@ void Vehicle::UpdateWaitingForCableLift()
     if (cableLift->status != Vehicle::Status::WaitingForPassengers)
         return;
 
-    cableLift->SetState(Vehicle::Status::WaitingToDepart, sub_state);
+    cableLift->SetState(Vehicle::Status::WaitingToDepart, 0);
     cableLift->cable_lift_target = Id;
 }
 
@@ -4121,14 +4115,16 @@ void Vehicle::UpdateTravellingCableLift()
             }
         }
     }
+
     if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
         Vehicle* catchCar = GetEntity<Vehicle>(curRide->cable_lift);
 
         // Disconnect from catch car when the catch car reaches braking zone
         auto trackType = GetTrackType();
-        if ((trackType == TrackElemType::CableLaunch && track_progress > 32)
-            || ((brake_speed >> 1) & CABLE_LAUNCH_IS_BRAKE_SECTION))
+        if (trackType != TrackElemType::BlockBrakes
+            && ((trackType == TrackElemType::CableLaunch && track_progress > 32)
+                || ((brake_speed >> 1) & CABLE_LAUNCH_IS_BRAKE_SECTION)))
         {
             SetState(Vehicle::Status::Travelling, 1);
             UpdateTrackMotion(nullptr);
@@ -4144,8 +4140,8 @@ void Vehicle::UpdateTravellingCableLift()
             acceleration = 4398;
         }
     }
-    int32_t curFlags = UpdateTrackMotion(nullptr);
 
+    int32_t curFlags = UpdateTrackMotion(nullptr);
     if (curFlags & VEHICLE_UPDATE_MOTION_TRACK_FLAG_11)
     {
         SetState(Vehicle::Status::Travelling, 1);
@@ -4153,6 +4149,8 @@ void Vehicle::UpdateTravellingCableLift()
         return;
     }
 
+    // TODO figure out what the following code does because it doesn't seem like it should run for launches not starting from
+    // the station
     if (sub_state == 2)
         return;
 
@@ -6104,6 +6102,29 @@ void Vehicle::CheckAndApplyBlockSectionStopSite()
     {
         case TrackElemType::BlockBrakes:
         case TrackElemType::DiagBlockBrakes:
+
+            if (status == Vehicle::Status::TravellingCableLift)
+                return;
+
+            // Check if this brake is the start of a cable launch
+            if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+            {
+                if (trackElement != nullptr && trackElement->AsTrack()->HasCableLift())
+                {
+                    if (velocity > kBlockBrakeBaseSpeed)
+                    {
+                        velocity -= velocity >> 3;
+                        acceleration = 0;
+                    }
+                    if (track_progress >= 18)
+                    {
+                        velocity = 0;
+                        SetState(Vehicle::Status::WaitingForCableLift, sub_state);
+                    }
+                    return;
+                }
+            }
+
             if (curRide->IsBlockSectioned() && trackElement->AsTrack()->IsBrakeClosed())
                 ApplyStopBlockBrake();
             else
@@ -8087,6 +8108,10 @@ bool Vehicle::UpdateTrackMotionBackwards(const CarEntry* carEntry, const Ride& c
                 acceleration = _vehicleVelocityF64E08 * -16;
             }
         }
+        //    else if (trackType == TrackElemType::CableLaunch || trackType == TrackElemType::Flat)
+        //    {
+        //        acceleration =-350000-(_vehicleVelocityF64E08 * 3);
+        //    } TODO rethink how this is going to work
 
         if (trackType == TrackElemType::Booster)
         {
