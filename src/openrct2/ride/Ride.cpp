@@ -3927,7 +3927,7 @@ static ResultWithMessage RideCreateCableLift(RideId rideIndex, bool isApplying)
 }
 
 // TODO unify these with the cable lift version
-static ResultWithMessage RideInitialiseCableLaunchTrack(const Ride& ride, bool isApplying)
+ResultWithMessage RideInitialiseCableLaunchTrack(const Ride& ride, bool applyVehicle, bool applyTrack)
 {
     bool success = false;
     TileElement* cableLaunchTileElement = MapGetFirstElementAt(ride.CableLiftLoc);
@@ -3971,7 +3971,7 @@ static ResultWithMessage RideInitialiseCableLaunchTrack(const Ride& ride, bool i
     if (!success)
         return { false, STR_CABLE_LIFT_HILL_MUST_START_IMMEDIATELY_AFTER_STATION };
 
-    if (isApplying)
+    if (applyVehicle || applyTrack)
     {
         // 3 1      1
         // 4 1-2    1  +1
@@ -4013,53 +4013,56 @@ static ResultWithMessage RideInitialiseCableLaunchTrack(const Ride& ride, bool i
             return { false };
         catchCar->powered_acceleration = launchAccel;
 
-        // Set first tile of cable launch end piece
-        cableLaunchTileElement->AsTrack()->SetHasCableLift(true);
-        if (brakeTiles >= 2)
-            cableLaunchTileElement->AsTrack()->SetCableLaunchIsBrakeSection(true);
-        else
-            cableLaunchTileElement->AsTrack()->SetCableLaunchIsBrakeSection(false);
-        cableLaunchTileElement->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISED);
-
-        // Set second tile of cable launch end piece
-        auto type = cableLaunchTileElement->AsTrack()->GetTrackType();
-        uint8_t rotation = cableLaunchTileElement->GetDirection();
-        CoordsXY offsets = { -32, 0 };
-        CoordsXYZD elem = { ride.CableLiftLoc.x, ride.CableLiftLoc.y, ride.CableLiftLoc.z, rotation };
-        elem += offsets.Rotate(rotation);
-        TrackElement* trackElement = MapGetTrackElementAtOfTypeSeq(elem, type, 1);
-        if (trackElement != nullptr)
+        if (applyTrack)
         {
-            trackElement->SetCableLaunchIsBrakeSection(true);
-            trackElement->SetHasCableLift(true);
-            trackElement->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISED);
-        }
-
-        // Set remaining launch tiles
-        brakeTiles -= 2;
-        TrackCircuitIteratorBegin(&it, { ride.CableLiftLoc, cableLaunchTileElement });
-        while (TrackCircuitIteratorPrevious(&it))
-        {
-            TileElement* tileElement = it.current.element;
-            CoordsXYZ loc = { it.current.x, it.current.y, it.currentZ };
-            // Mark tile as launch track
-            tileElement->AsTrack()->SetHasCableLift(true);
-            if (brakeTiles > 0)
-            {
-                // Mark tile as cable lift brake piece
-                tileElement->AsTrack()->SetCableLaunchIsBrakeSection(true);
-                brakeTiles--;
-            }
+            // Set first tile of cable launch end piece
+            cableLaunchTileElement->AsTrack()->SetHasCableLift(true);
+            if (brakeTiles >= 2)
+                cableLaunchTileElement->AsTrack()->SetCableLaunchIsBrakeSection(true);
             else
-                tileElement->AsTrack()->SetCableLaunchIsBrakeSection(false);
+                cableLaunchTileElement->AsTrack()->SetCableLaunchIsBrakeSection(false);
+            cableLaunchTileElement->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISED);
 
-            if (tileElement->AsTrack()->GetTrackType() == TrackElemType::EndStation
-                || tileElement->AsTrack()->GetTrackType() == TrackElemType::BlockBrakes)
-                break;
+            // Set second tile of cable launch end piece
+            auto type = cableLaunchTileElement->AsTrack()->GetTrackType();
+            uint8_t rotation = cableLaunchTileElement->GetDirection();
+            CoordsXY offsets = { -32, 0 };
+            CoordsXYZD elem = { ride.CableLiftLoc.x, ride.CableLiftLoc.y, ride.CableLiftLoc.z, rotation };
+            elem += offsets.Rotate(rotation);
+            TrackElement* trackElement = MapGetTrackElementAtOfTypeSeq(elem, type, 1);
+            if (trackElement != nullptr)
+            {
+                trackElement->SetCableLaunchIsBrakeSection(true);
+                trackElement->SetHasCableLift(true);
+                trackElement->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISED);
+            }
 
-            // Set all fins to raised
-            tileElement->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISED);
-            MapInvalidateElement(loc, tileElement);
+            // Set remaining launch tiles
+            brakeTiles -= 2;
+            TrackCircuitIteratorBegin(&it, { ride.CableLiftLoc, cableLaunchTileElement });
+            while (TrackCircuitIteratorPrevious(&it))
+            {
+                TileElement* tileElement = it.current.element;
+                CoordsXYZ loc = { it.current.x, it.current.y, it.currentZ };
+                // Mark tile as launch track
+                tileElement->AsTrack()->SetHasCableLift(true);
+                if (brakeTiles > 0)
+                {
+                    // Mark tile as cable lift brake piece
+                    tileElement->AsTrack()->SetCableLaunchIsBrakeSection(true);
+                    brakeTiles--;
+                }
+                else
+                    tileElement->AsTrack()->SetCableLaunchIsBrakeSection(false);
+
+                if (tileElement->AsTrack()->GetTrackType() == TrackElemType::EndStation
+                    || tileElement->AsTrack()->GetTrackType() == TrackElemType::BlockBrakes)
+                    break;
+
+                // Set all fins to raised
+                tileElement->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISED);
+                MapInvalidateElement(loc, tileElement);
+            }
         }
     }
     return { true };
@@ -4088,7 +4091,7 @@ static ResultWithMessage RideCreateCableLaunch(RideId rideIndex, bool isApplying
         ride->lifecycle_flags |= RIDE_LIFECYCLE_CABLE_LAUNCH;
     }
 
-    auto cableLiftInitialiseResult = RideInitialiseCableLaunchTrack(*ride, isApplying);
+    auto cableLiftInitialiseResult = RideInitialiseCableLaunchTrack(*ride, isApplying, isApplying);
     if (!cableLiftInitialiseResult.Successful)
     {
         return { false, cableLiftInitialiseResult.Message };

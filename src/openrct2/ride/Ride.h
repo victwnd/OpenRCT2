@@ -1046,6 +1046,7 @@ TileElement* RideGetStationExitElement(const CoordsXYZ& elementPos);
 money64 RideGetRefundPrice(const Ride& ride);
 int32_t RideGetRandomColourPresetIndex(ride_type_t rideType);
 money64 RideGetCommonPrice(const Ride& forRide);
+ResultWithMessage RideInitialiseCableLaunchTrack(const Ride& ride, bool applyVehicle, bool applyTrack);
 
 void RideClearForConstruction(Ride& ride);
 void InvalidateTestResults(Ride& ride);
