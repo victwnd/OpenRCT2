@@ -3770,7 +3770,6 @@ static ResultWithMessage RideInitialiseCableLiftTrack(const Ride& ride, bool isA
             case TrackElemType::EndStation:
             case TrackElemType::BlockBrakes:
                 return { true };
-                break;
             default:
                 return { false, STR_CABLE_LIFT_HILL_MUST_START_IMMEDIATELY_AFTER_STATION };
         }
