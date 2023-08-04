@@ -2401,13 +2401,18 @@ void Vehicle::UpdateWaitingToDepart()
 
     SetState(Vehicle::Status::Departing);
 
-    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT || curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
-        auto trackType = GetTrackType();
-        TileElement* trackElement = MapGetTrackElementAtOfType(TrackLocation, trackType);
-        if (trackElement != nullptr && trackElement->AsTrack()->HasCableLift())
+        CoordsXYE track;
+        int32_t zUnused;
+        int32_t direction;
+        uint8_t trackDirection = GetTrackDirection();
+        if (TrackBlockGetNextFromZero(TrackLocation, *curRide, trackDirection, &track, &zUnused, &direction, false))
         {
-            SetState(Vehicle::Status::WaitingForCableLift, sub_state);
+            if (track.element->AsTrack()->HasCableLift())
+            {
+                SetState(Vehicle::Status::WaitingForCableLift, sub_state);
+            }
         }
     }
 
@@ -4140,8 +4145,8 @@ void Vehicle::UpdateTravellingCableLift()
             acceleration = 4398;
         }
     }
-
     int32_t curFlags = UpdateTrackMotion(nullptr);
+
     if (curFlags & VEHICLE_UPDATE_MOTION_TRACK_FLAG_11)
     {
         SetState(Vehicle::Status::Travelling, 1);
@@ -6107,9 +6112,14 @@ void Vehicle::CheckAndApplyBlockSectionStopSite()
                 return;
 
             // Check if this brake is the start of a cable launch
-            if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+            if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT || curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
             {
-                if (trackElement != nullptr && trackElement->AsTrack()->HasCableLift())
+                CoordsXYE track;
+                int32_t zUnused;
+                int32_t direction;
+                uint8_t trackDirection = GetTrackDirection();
+                if (TrackBlockGetNextFromZero(TrackLocation, *curRide, trackDirection, &track, &zUnused, &direction, false)
+                    && track.element != nullptr && track.element->AsTrack()->HasCableLift())
                 {
                     if (velocity > kBlockBrakeBaseSpeed)
                     {
