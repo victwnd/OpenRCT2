@@ -3788,11 +3788,6 @@ static ResultWithMessage RideCreateCableLift(RideId rideIndex, bool isApplying)
     if (ride == nullptr)
         return { false };
 
-    if (ride->mode != RideMode::ContinuousCircuitBlockSectioned && ride->mode != RideMode::ContinuousCircuit)
-    {
-        return { false, STR_CABLE_LIFT_UNABLE_TO_WORK_IN_THIS_OPERATING_MODE };
-    }
-
     if (ride->num_circuits > 1)
     {
         return { false, STR_MULTICIRCUIT_NOT_POSSIBLE_WITH_CABLE_LIFT_HILL };
