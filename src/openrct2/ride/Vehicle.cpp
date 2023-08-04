@@ -6119,7 +6119,8 @@ void Vehicle::CheckAndApplyBlockSectionStopSite()
                     if (track_progress >= 18)
                     {
                         velocity = 0;
-                        SetState(Vehicle::Status::WaitingForCableLift, sub_state);
+                        if (!curRide->IsBlockSectioned() || !trackElement->AsTrack()->IsBrakeClosed())
+                            SetState(Vehicle::Status::WaitingForCableLift, sub_state);
                     }
                     return;
                 }
