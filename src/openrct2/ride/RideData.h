@@ -226,6 +226,18 @@ struct RideLegacyBoosterSettings
                                    // multiplier.
 };
 
+struct RideAlternateTrack
+{
+    ride_type_t type;
+    uint32_t icon;
+};
+
+struct RideAlternateTrackList
+{
+    uint8_t count;
+    RideAlternateTrack list[4];
+};
+
 struct RatingsModifier
 {
     RatingsModifierType type;
@@ -368,6 +380,7 @@ struct RideTypeDescriptor
 
     RideRatingsDescriptor RatingsData{};
 
+    RideAlternateTrackList AlternateTrackList = { 0, { { 0, 0 }, { 0, 0 }, { 0, 0 } } };
     UpdateRotatingFunction UpdateRotating = UpdateRotatingDefault;
 
     LightFXAddLightsMagicVehicleFunction LightFXAddLightsMagicVehicle = nullptr;
@@ -454,7 +467,7 @@ enum ride_type_flags : uint64_t
     RIDE_TYPE_FLAG_ALLOW_DOORS_ON_TRACK = (1uLL << 32),
     RIDE_TYPE_FLAG_MUSIC_ON_DEFAULT = (1uLL << 33),
     RIDE_TYPE_FLAG_ALLOW_MUSIC = (1uLL << 34),
-    RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE = (1uLL << 35), // Used by the Flying RC, Lay-down RC, Multi-dimension RC
+    RIDE_TYPE_FLAG_HAS_INVERTED_TRACK = (1uLL << 35), // Used by the Flying RC, Lay-down RC, Multi-dimension RC
     RIDE_TYPE_FLAG_PEEP_CHECK_GFORCES = (1uLL << 36),
     RIDE_TYPE_FLAG_HAS_ENTRANCE_EXIT = (1uLL << 37),
     RIDE_TYPE_FLAG_ALLOW_MORE_VEHICLES_THAN_STATION_FITS = (1uLL << 38),
@@ -481,6 +494,8 @@ enum ride_type_flags : uint64_t
     RIDE_TYPE_FLAG_IS_MAZE = (1uLL << 58),
     RIDE_TYPE_FLAG_IS_SPIRAL_SLIDE = (1uLL << 59),
     RIDE_TYPE_FLAG_ALLOW_REVERSED_TRAINS = (1uLL << 60),
+    RIDE_TYPE_FLAG_HAS_ALTERNATE_TRACK = (1uLL << 61),
+    RIDE_TYPE_FLAG_ALLOW_CABLE_LAUNCH = (1uLL << 62),
 };
 
 // Set on ride types that have a main colour, additional colour and support colour.
@@ -547,6 +562,7 @@ constexpr uint64_t AllRideModesAvailable = EnumsToFlags(
     RideMode::PoweredLaunchBlockSectioned);
 
 extern const CarEntry CableLiftVehicle;
+extern const CarEntry CableLaunchVehicles[4];
 
 extern const uint16_t RideFilmLength[3];
 
@@ -595,6 +611,7 @@ constexpr RideTypeDescriptor DummyRTD =
             { RatingsModifierType::NoModifier, 0, 0, 0, 0 },
         },
     },
+    .AlternateTrackList = {0,{{0,static_cast<uint32_t>(SPR_NONE)}}},
     .UpdateRotating = UpdateRotatingDefault,
     .LightFXAddLightsMagicVehicle = nullptr,
     .StartRideMusic = OpenRCT2::RideAudio::DefaultStartRideMusicChannel,

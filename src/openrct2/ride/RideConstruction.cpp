@@ -68,6 +68,7 @@ TrackPitch _currentTrackPitchEnd;
 TrackRoll _currentTrackRollEnd;
 uint8_t _currentTrackLiftHill;
 uint8_t _currentTrackAlternative;
+uint8_t _currentTrackType;
 track_type_t _selectedTrackType;
 
 TrackRoll _previousTrackRollEnd;
@@ -169,6 +170,26 @@ static void ride_remove_cable_lift(Ride& ride)
     }
 }
 
+static void ride_remove_cable_launch(Ride& ride)
+{
+    if (ride.lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+    {
+        ride.lifecycle_flags &= ~RIDE_LIFECYCLE_CABLE_LAUNCH;
+        auto spriteIndex = ride.cable_lift;
+        do
+        {
+            Vehicle* vehicle = GetEntity<Vehicle>(spriteIndex);
+            if (vehicle == nullptr)
+            {
+                return;
+            }
+            vehicle->Invalidate();
+            spriteIndex = vehicle->next_vehicle_on_train;
+            EntityRemove(vehicle);
+        } while (!spriteIndex.IsNull());
+    }
+}
+
 /**
  *
  *  rct2: 0x006DD506
@@ -233,6 +254,7 @@ void RideClearForConstruction(Ride& ride)
     }
 
     ride_remove_cable_lift(ride);
+    ride_remove_cable_launch(ride);
     ride.RemoveVehicles();
     RideClearBlockedTiles(ride);
 
@@ -664,7 +686,7 @@ void RideConstructionSetDefaultNextPiece()
 
             // Set whether track is covered
             _currentTrackAlternative &= ~RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {
@@ -681,7 +703,7 @@ void RideConstructionSetDefaultNextPiece()
             _currentTrackCurve = curve;
 
             // Set track banking
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (bank == TrackRoll::UpsideDown)
                 {
@@ -713,7 +735,7 @@ void RideConstructionSetDefaultNextPiece()
 
             // Set whether track is covered
             _currentTrackAlternative &= ~RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {
@@ -730,7 +752,7 @@ void RideConstructionSetDefaultNextPiece()
             _currentTrackCurve = curve;
 
             // Set track banking
-            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (bank == TrackRoll::UpsideDown)
                 {
@@ -1130,6 +1152,8 @@ int32_t RideInitialiseConstructionWindow(Ride& ride)
 
     if (ride.GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_START_CONSTRUCTION_INVERTED))
         _currentTrackAlternative |= RIDE_TYPE_ALTERNATIVE_TRACK_TYPE;
+
+    _currentTrackType = ride.type;
 
     _previousTrackRollEnd = TrackRoll::None;
     _previousTrackPitchEnd = TrackPitch::None;

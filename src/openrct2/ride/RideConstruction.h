@@ -55,6 +55,7 @@ extern TrackPitch _currentTrackPitchEnd;
 extern TrackRoll _currentTrackRollEnd;
 extern uint8_t _currentTrackLiftHill;
 extern uint8_t _currentTrackAlternative;
+extern uint8_t _currentTrackType;
 extern track_type_t _selectedTrackType;
 
 extern TrackRoll _previousTrackRollEnd;

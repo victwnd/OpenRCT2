@@ -455,6 +455,7 @@ GameActions::Result TrackRemoveAction::Execute() const
                 ride->lifecycle_flags &= ~RIDE_LIFECYCLE_ON_RIDE_PHOTO;
                 break;
             case TrackElemType::CableLiftHill:
+            case TrackElemType::CableLaunch:
                 ride->lifecycle_flags &= ~RIDE_LIFECYCLE_CABLE_LIFT_HILL_COMPONENT_USED;
                 break;
             case TrackElemType::BlockBrakes:

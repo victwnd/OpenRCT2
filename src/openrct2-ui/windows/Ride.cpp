@@ -3399,7 +3399,7 @@ static_assert(std::size(RatingNames) == 6);
 
             // Sometimes, only one of the alternatives support lift hill pieces. Make sure to check both.
             const auto& rtd = ride->GetRideTypeDescriptor();
-            bool hasAlternativeType = rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE);
+            bool hasAlternativeType = rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK);
             if (rtd.TrackPaintFunctions.Regular.SupportsTrackPiece(TRACK_LIFT_HILL)
                 || (hasAlternativeType && rtd.InvertedTrackPaintFunctions.SupportsTrackPiece(TRACK_LIFT_HILL)))
             {
@@ -3574,6 +3574,21 @@ static_assert(std::size(RatingNames) == 6);
                     caption = STR_NUMBER_OF_ROTATIONS;
                     tooltip = STR_NUMBER_OF_ROTATIONS_TIP;
                     break;
+                case RideMode::ContinuousCircuit:
+                case RideMode::ContinuousCircuitBlockSectioned:
+                    // If the ride type supports cable launches, then show the powered launch speed setting when in continuous
+                    // circuit mode
+                    if (ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_CABLE_LAUNCH))
+                    {
+                        ft.Rewind();
+                        ft.Increment(18);
+                        ft.Add<uint16_t>((ride->launch_speed * 9) / 4);
+                        format = STR_RIDE_MODE_SPEED_VALUE;
+                        caption = STR_LAUNCH_SPEED;
+                        tooltip = STR_LAUNCH_SPEED_TIP;
+                        break;
+                    }
+                    [[fallthrough]];
                 default:
                     format = STR_MAX_PEOPLE_ON_RIDE_VALUE;
                     caption = STR_MAX_PEOPLE_ON_RIDE;

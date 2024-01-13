@@ -92,11 +92,11 @@ GameActions::Result TrackPlaceAction::Query() const
             GameActions::Status::InvalidParameters, STR_RIDE_CONSTRUCTION_CANT_CONSTRUCT_THIS_HERE, STR_ERR_VALUE_OUT_OF_RANGE);
     }
 
-    if (_rideType != ride->type && !GetGameState().Cheats.AllowArbitraryRideTypeChanges)
-    {
-        return GameActions::Result(
-            GameActions::Status::InvalidParameters, STR_RIDE_CONSTRUCTION_CANT_CONSTRUCT_THIS_HERE, STR_NONE);
-    }
+    // if (_rideType != ride->type && !gCheatsAllowArbitraryRideTypeChanges) TODO I don't think this is actually necessary
+    //{
+    //     return GameActions::Result(
+    //         GameActions::Status::InvalidParameters, STR_RIDE_CONSTRUCTION_CANT_CONSTRUCT_THIS_HERE, STR_NONE);
+    // }
 
     if (_rideType > RIDE_TYPE_COUNT)
     {
@@ -149,7 +149,7 @@ GameActions::Result TrackPlaceAction::Query() const
                     STR_ONLY_ONE_ON_RIDE_PHOTO_PER_RIDE);
             }
         }
-        else if (_trackType == TrackElemType::CableLiftHill)
+        else if (_trackType == TrackElemType::CableLiftHill || _trackType == TrackElemType::CableLaunch)
         {
             if (ride->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT_HILL_COMPONENT_USED)
             {
@@ -691,6 +691,7 @@ GameActions::Result TrackPlaceAction::Execute() const
                 ride->lifecycle_flags |= RIDE_LIFECYCLE_ON_RIDE_PHOTO;
                 break;
             case TrackElemType::CableLiftHill:
+            case TrackElemType::CableLaunch:
                 ride->lifecycle_flags |= RIDE_LIFECYCLE_CABLE_LIFT_HILL_COMPONENT_USED;
                 ride->CableLiftLoc = originLocation;
                 break;

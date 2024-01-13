@@ -197,6 +197,10 @@ GameActions::Result RideSetSettingAction::Execute() const
         case RideSetSetting::Operation:
             InvalidateTestResults(*ride);
             ride->operation_option = _value;
+            if (ride->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+            {
+                RideInitialiseCableLaunchTrack(*ride, true, false);
+            }
             break;
         case RideSetSetting::InspectionInterval:
 

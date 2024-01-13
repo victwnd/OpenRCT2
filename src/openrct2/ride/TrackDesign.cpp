@@ -237,7 +237,7 @@ ResultWithMessage TrackDesign::CreateTrackDesignTrack(TrackDesignState& tds, con
         if (element->HasChain())
             track.SetFlag(TrackDesignTrackElementFlag::hasChain);
 
-        if (ride.GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE) && element->IsInverted())
+        if (ride.GetRideTypeDescriptor().HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK) && element->IsInverted())
         {
             track.SetFlag(TrackDesignTrackElementFlag::isInverted);
         }

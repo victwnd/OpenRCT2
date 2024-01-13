@@ -99,6 +99,9 @@ STR_0094    :Single Rail Roller Coaster
 STR_0095    :Alpine Coaster
 STR_0096    :Classic Wooden Roller Coaster
 STR_0097    :Classic Stand-up Roller Coaster
+STR_0098    :Hydraulic Launched Roller Coaster
+STR_0099    :Unknown Ride (60)
+STR_0100    :Unknown Ride (61)
 STR_0512    :A compact roller coaster with a spiral lift hill and smooth, twisting drops.
 STR_0513    :A looping roller coaster where the riders ride in a standing position
 STR_0514    :Trains suspended beneath the roller coaster track swing out to the side around corners
@@ -182,7 +185,11 @@ STR_0603    :A wooden style roller coaster with a steel track, allowing for stee
 STR_0604    :Riders ride single file on a narrow monorail track, as they race through tight inversions and direction changes
 STR_0605    :Riders toboggan down a meandering steel track, braking to control their speed
 STR_0606    :An older-style wooden roller coaster with a fast and rough ride, with plenty of air-time, some lateral G’s, and designed to feel ‘out-of-control’
+<<<<<<< HEAD
 STR_0607    :An intense, older-style steel looping roller coaster where the riders ride in a standing position
+=======
+STR_0607    :Description TBD
+>>>>>>> 7f3ffccf8f (Start hydraulic launched coaster)
 STR_0767    :Guest {INT32}
 STR_0768    :Handyman {INT32}
 STR_0769    :Mechanic {INT32}
@@ -3668,6 +3675,7 @@ STR_6593    :Remove park fences
 STR_6594    :Tile Inspector: Toggle wall slope
 STR_6595    :{WINDOW_COLOUR_2}Author: {BLACK}{STRING}
 STR_6596    :{WINDOW_COLOUR_2}Authors: {BLACK}{STRING}
+<<<<<<< HEAD
 STR_6597    :Invalid parameter
 STR_6598    :Value out of range
 STR_6599    :Ghost element not found
@@ -3717,6 +3725,10 @@ STR_6642    :{STRING} ({COMMA32} / {COMMA32})
 STR_6643    :{STRING} ({COMMA32} / {COMMA32} KiB)
 STR_6644    :Touch enhancements
 STR_6645    :Makes some UI elements bigger so they are easier to click or tap.
+=======
+STR_6597    :Hydraulic Launch
+STR_6598    :Magnetic Brake
+>>>>>>> 7f3ffccf8f (Start hydraulic launched coaster)
 
 #############
 # Scenarios #

@@ -47,6 +47,7 @@
 #include "../world/Scenery.h"
 #include "../world/Surface.h"
 #include "../world/Wall.h"
+#include "CableLaunch.h"
 #include "CableLift.h"
 #include "Ride.h"
 #include "RideData.h"
@@ -1218,7 +1219,10 @@ void Vehicle::Update()
 {
     if (IsCableLift())
     {
-        CableLiftUpdate();
+        if (HasFlag(VehicleFlags::CarIsCableLaunch))
+            CableLaunchUpdate();
+        else
+            CableLiftUpdate();
         return;
     }
 
@@ -1816,7 +1820,7 @@ void Vehicle::UpdateWaitingToDepart()
 
     SetState(Vehicle::Status::Departing);
 
-    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT)
+    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT || curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
         CoordsXYE track;
         int32_t zUnused;
@@ -3481,7 +3485,7 @@ void Vehicle::UpdateWaitingForCableLift()
     if (cableLift->status != Vehicle::Status::WaitingForPassengers)
         return;
 
-    cableLift->SetState(Vehicle::Status::WaitingToDepart, sub_state);
+    cableLift->SetState(Vehicle::Status::WaitingToDepart, 0);
     cableLift->cable_lift_target = Id;
 }
 
@@ -3537,9 +3541,29 @@ void Vehicle::UpdateTravellingCableLift()
         }
     }
 
-    if (velocity <= 439800)
+    if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
     {
-        acceleration = 4398;
+        Vehicle* catchCar = GetEntity<Vehicle>(curRide->cable_lift);
+
+        // Disconnect from catch car when the catch car reaches braking zone
+        auto trackType = GetTrackType();
+        if (trackType != TrackElemType::BlockBrakes
+            && ((trackType == TrackElemType::CableLaunch && track_progress > 32)
+                || ((brake_speed >> 1) & CABLE_LAUNCH_IS_BRAKE_SECTION)))
+        {
+            SetState(Vehicle::Status::Travelling, 1);
+            UpdateTrackMotion(nullptr);
+            lost_time_out = 0; // TODO what is this for?
+            return;
+        }
+        acceleration = (425 * catchCar->powered_acceleration) / 2;
+    }
+    else
+    {
+        if (velocity <= 439800)
+        {
+            acceleration = 4398;
+        }
     }
     int32_t curFlags = UpdateTrackMotion(nullptr);
 
@@ -3550,6 +3574,8 @@ void Vehicle::UpdateTravellingCableLift()
         return;
     }
 
+    // TODO figure out what the following code does because it doesn't seem like it should run for launches not starting from
+    // the station
     if (sub_state == 2)
         return;
 
@@ -5505,6 +5531,35 @@ void Vehicle::CheckAndApplyBlockSectionStopSite()
     {
         case TrackElemType::BlockBrakes:
         case TrackElemType::DiagBlockBrakes:
+
+            if (status == Vehicle::Status::TravellingCableLift)
+                return;
+
+            // Check if this brake is the start of a cable launch
+            if (curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LIFT || curRide->lifecycle_flags & RIDE_LIFECYCLE_CABLE_LAUNCH)
+            {
+                CoordsXYE track;
+                int32_t zUnused;
+                int32_t direction;
+                uint8_t trackDirection = GetTrackDirection();
+                if (TrackBlockGetNextFromZero(TrackLocation, *curRide, trackDirection, &track, &zUnused, &direction, false)
+                    && track.element != nullptr && track.element->AsTrack()->HasCableLift())
+                {
+                    if (velocity > kBlockBrakeBaseSpeed)
+                    {
+                        velocity -= velocity >> 3;
+                        acceleration = 0;
+                    }
+                    if (track_progress >= 18)
+                    {
+                        velocity = 0;
+                        if (!curRide->IsBlockSectioned() || !trackElement->AsTrack()->IsBrakeClosed())
+                            SetState(Vehicle::Status::WaitingForCableLift, sub_state);
+                    }
+                    return;
+                }
+            }
+
             if (curRide->IsBlockSectioned() && trackElement->AsTrack()->IsBrakeClosed())
                 ApplyStopBlockBrake();
             else
@@ -6890,7 +6945,7 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
         return false;
     }
 
-    if (trackType == TrackElemType::CableLiftHill && this == gCurrentVehicle)
+    if ((trackType == TrackElemType::CableLiftHill || trackType == TrackElemType::CableLaunch) && this == gCurrentVehicle)
     {
         _vehicleMotionTrackFlags |= VEHICLE_UPDATE_MOTION_TRACK_FLAG_11;
     }
@@ -6899,7 +6954,8 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
     {
         if (next_vehicle_on_train.IsNull())
         {
-            SetBrakeClosedMultiTile(*tileElement->AsTrack(), TrackLocation, true);
+            SetBrakeClosedMultiTile(
+                *tileElement->AsTrack(), TrackLocation, true); // TODO here is where the block is opened after the train passes
             if (TrackTypeIsBlockBrakes(trackType) || trackType == TrackElemType::EndStation)
             {
                 if (!(rideEntry.Cars[0].flags & CAR_ENTRY_FLAG_POWERED))
@@ -6984,7 +7040,7 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
         ClearFlag(VehicleFlags::CarIsInverted);
         {
             int32_t rideType = ::GetRide(tileElement->AsTrack()->GetRideIndex())->type;
-            if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {
@@ -7112,6 +7168,17 @@ Loc6DAEB9:
         {
             acceleration = GetRideTypeDescriptor(curRide.type).LegacyBoosterSettings.BoosterAcceleration
                 << 16; //_vehicleVelocityF64E08 * 1.2;
+        }
+    }
+    else if (
+        trackType == TrackElemType::MagneticBrakeFlat || trackType == TrackElemType::MagneticBrakeDown25
+        || trackType == TrackElemType::MagneticBrakeDiagDown25)
+    {
+        if (_vehicleVelocityF64E08 < 550000)
+            acceleration -= 3 * _vehicleVelocityF64E08 / 2;
+        else
+        {
+            acceleration -= 825000;
         }
     }
     else if (rideEntry.flags & RIDE_ENTRY_FLAG_RIDER_CONTROLS_SPEED && num_peeps > 0)
@@ -7362,7 +7429,7 @@ bool Vehicle::UpdateTrackMotionBackwardsGetNewTrack(uint16_t trackType, const Ri
 
         // Update VehicleFlags::CarIsInverted
         ClearFlag(VehicleFlags::CarIsInverted);
-        if (GetRideTypeDescriptor(curRide.type).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+        if (GetRideTypeDescriptor(curRide.type).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
         {
             if (tileElement->AsTrack()->IsInverted())
             {
@@ -7486,6 +7553,10 @@ bool Vehicle::UpdateTrackMotionBackwards(const CarEntry* carEntry, const Ride& c
                 acceleration = _vehicleVelocityF64E08 * -16;
             }
         }
+        //    else if (trackType == TrackElemType::CableLaunch || trackType == TrackElemType::Flat)
+        //    {
+        //        acceleration =-350000-(_vehicleVelocityF64E08 * 3);
+        //    } TODO rethink how this is going to work
 
         if (trackType == TrackElemType::Booster)
         {
@@ -7854,7 +7925,7 @@ Loc6DC462:
             {
                 int32_t rideType = ::GetRide(tileElement->AsTrack()->GetRideIndex())->type;
                 ClearFlag(VehicleFlags::CarIsInverted);
-                if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+                if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
                 {
                     if (tileElement->AsTrack()->IsInverted())
                     {
@@ -8073,7 +8144,7 @@ Loc6DCA9A:
         {
             int32_t rideType = ::GetRide(tileElement->AsTrack()->GetRideIndex())->type;
             ClearFlag(VehicleFlags::CarIsInverted);
-            if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE))
+            if (GetRideTypeDescriptor(rideType).HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK))
             {
                 if (tileElement->AsTrack()->IsInverted())
                 {

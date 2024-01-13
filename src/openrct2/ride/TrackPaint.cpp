@@ -2024,7 +2024,7 @@ void PaintTrack(PaintSession& session, Direction direction, int32_t height, cons
         }
 
         const auto& rtd = GetRideTypeDescriptor(trackElement.GetRideType());
-        bool isInverted = trackElement.IsInverted() && rtd.HasFlag(RIDE_TYPE_FLAG_HAS_ALTERNATIVE_TRACK_TYPE);
+        bool isInverted = trackElement.IsInverted() && rtd.HasFlag(RIDE_TYPE_FLAG_HAS_INVERTED_TRACK);
         const auto trackDrawerEntry = getTrackDrawerEntry(rtd, isInverted, TrackElementIsCovered(trackType));
 
         if (trackDrawerEntry.Drawer != nullptr)
