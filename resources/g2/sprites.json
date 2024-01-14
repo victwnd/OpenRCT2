@@ -24925,6 +24925,16 @@
         "y_offset": 6
     },
     {
+        "path": "track/raptor/preview_track.png",
+        "x_offset": 9,
+        "y_offset": 3
+    },
+    {
+        "path": "track/raptor/preview_support.png",
+        "x_offset": 24,
+        "y_offset": 13
+    },
+    {
         "path": "track/intamin_quad/flat_1.png",
         "x_offset": -22,
         "y_offset": -4,
