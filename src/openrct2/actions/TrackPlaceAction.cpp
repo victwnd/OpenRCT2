@@ -89,11 +89,11 @@ GameActions::Result TrackPlaceAction::Query() const
             GameActions::Status::InvalidParameters, STR_RIDE_CONSTRUCTION_CANT_CONSTRUCT_THIS_HERE, STR_NONE);
     }
 
-    //if (_rideType != ride->type && !gCheatsAllowArbitraryRideTypeChanges) TODO I don't think this is actually necessary
+    // if (_rideType != ride->type && !gCheatsAllowArbitraryRideTypeChanges) TODO I don't think this is actually necessary
     //{
-    //    return GameActions::Result(
-    //        GameActions::Status::InvalidParameters, STR_RIDE_CONSTRUCTION_CANT_CONSTRUCT_THIS_HERE, STR_NONE);
-    //}
+    //     return GameActions::Result(
+    //         GameActions::Status::InvalidParameters, STR_RIDE_CONSTRUCTION_CANT_CONSTRUCT_THIS_HERE, STR_NONE);
+    // }
 
     if (_rideType > RIDE_TYPE_COUNT)
     {

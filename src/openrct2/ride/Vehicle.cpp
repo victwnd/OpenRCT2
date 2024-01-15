@@ -7527,7 +7527,8 @@ bool Vehicle::UpdateTrackMotionForwardsGetNewTrack(uint16_t trackType, const Rid
         if (next_vehicle_on_train.IsNull())
         {
             SetBrakeClosedMultiTile(*tileElement->AsTrack(), TrackLocation, true);
-            if (TrackTypeIsBlockBrakes(trackType) || trackType == TrackElemType::EndStation) //TODO here is where the block is opened after the train passes
+            if (TrackTypeIsBlockBrakes(trackType)
+                || trackType == TrackElemType::EndStation) // TODO here is where the block is opened after the train passes
             {
                 if (!(rideEntry.Cars[0].flags & CAR_ENTRY_FLAG_POWERED))
                 {

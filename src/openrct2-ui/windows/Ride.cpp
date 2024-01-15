@@ -3436,11 +3436,10 @@ private:
         switch (ride->mode)
         {
             case RideMode::ContinuousCircuit:
-            [[fallthrough]] case RideMode::ContinuousCircuitBlockSectioned:
-                // If the ride type supports cable launches, then show the powered launch speed setting when in continuous
-                // circuit mode
-                if (!ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_CABLE_LAUNCH))
-                    break;
+                [[fallthrough]] case RideMode::ContinuousCircuitBlockSectioned :
+                    // If the ride type supports cable launches, then show the powered launch speed setting when in continuous
+                    // circuit mode
+                    if (!ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_CABLE_LAUNCH)) break;
                 [[fallthrough]];
             case RideMode::PoweredLaunchPasstrough:
             case RideMode::PoweredLaunch:

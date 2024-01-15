@@ -31,7 +31,7 @@ Vehicle* CableLaunchSegmentCreate(
     {
         ride.cable_lift = current->Id;
     }
-    current->SubType = index==0 ? Vehicle::Type::Head : Vehicle::Type::Tail;
+    current->SubType = index == 0 ? Vehicle::Type::Head : Vehicle::Type::Tail;
     current->var_44 = var_44;
     current->remaining_distance = remaining_distance;
     current->SpriteData.Width = 10;
@@ -83,7 +83,6 @@ Vehicle* CableLaunchSegmentCreate(
     return current;
 }
 
-
 void Vehicle::CableLaunchUpdate()
 {
     switch (status)
@@ -106,8 +105,8 @@ void Vehicle::CableLaunchUpdate()
         case Vehicle::Status::Arriving:
             CableLaunchUpdateArriving();
             break;
-    //    case Vehicle::Status::PreparingForCableLaunch:
-    //        CableLaunchUpdatePreparingForCableLaunch();
+            //    case Vehicle::Status::PreparingForCableLaunch:
+            //        CableLaunchUpdatePreparingForCableLaunch();
             break;
         default:
             break;
@@ -116,7 +115,7 @@ void Vehicle::CableLaunchUpdate()
 
 void Vehicle::CableLaunchUpdateMovingToEndOfStation()
 {
-    if (velocity >= -300000)//TODO determine final speed
+    if (velocity >= -300000) // TODO determine final speed
     {
         acceleration = -2932;
     }
@@ -130,78 +129,79 @@ void Vehicle::CableLaunchUpdateMovingToEndOfStation()
     if (!(CableLaunchUpdateTrackMotion() & VEHICLE_UPDATE_MOTION_TRACK_FLAG_VEHICLE_AT_STATION))
         return;
 
-SetState(Vehicle::Status::Arriving, sub_state);
+    SetState(Vehicle::Status::Arriving, sub_state);
 }
 
 void Vehicle::CableLaunchUpdateArriving()
 {
-
-//Slow catch car down
+    // Slow catch car down
     if (velocity < -50000)
     {
-    acceleration = 10000;
+        acceleration = 10000;
     }
 
-//Continue moving until it is in the right position
+    // Continue moving until it is in the right position
 
-CableLiftUpdateTrackMotion();
+    CableLiftUpdateTrackMotion();
 
-   if(track_progress==3)
-   {
-   velocity=0;
-   acceleration=0;
-   SetState(Vehicle::Status::WaitingForPassengers, sub_state);
-   }
-//    sub_state++;
-//    if (sub_state >= 64)
-//        SetState(Vehicle::Status::MovingToEndOfStation, sub_state);
+    if (track_progress == 3)
+    {
+        velocity = 0;
+        acceleration = 0;
+        SetState(Vehicle::Status::WaitingForPassengers, sub_state);
+    }
+    //    sub_state++;
+    //    if (sub_state >= 64)
+    //        SetState(Vehicle::Status::MovingToEndOfStation, sub_state);
 }
 
-static void CableLaunchUpdateFinStateForTile(CoordsXYZ loc,TrackElement* tileElement,bool set_lowered)
+static void CableLaunchUpdateFinStateForTile(CoordsXYZ loc, TrackElement* tileElement, bool set_lowered)
 {
-       uint8_t state=tileElement->GetCableLaunchFinState();
-       uint8_t new_state=state;
-       //TODO misses tiles when train is going faster than 230mph - code should not allow tiles to be set in a state lower than the tile ahead
-       		switch(state)
-       		{
-       		case CABLE_LAUNCH_FIN_STATE_RAISING_0:
-       			new_state=CABLE_LAUNCH_FIN_STATE_RAISING_1;
-       		break;
-       		case CABLE_LAUNCH_FIN_STATE_RAISING_1:
-       			new_state=CABLE_LAUNCH_FIN_STATE_RAISING_2;
-       		break;
-       		case CABLE_LAUNCH_FIN_STATE_RAISING_2:
-       			new_state=CABLE_LAUNCH_FIN_STATE_RAISING_3;
-       		break;
-       		case CABLE_LAUNCH_FIN_STATE_RAISING_3:
-       			new_state=CABLE_LAUNCH_FIN_STATE_RAISED;
-       		break;
-       		case CABLE_LAUNCH_FIN_STATE_LOWERING_0:
-       			new_state=CABLE_LAUNCH_FIN_STATE_LOWERING_1;
-       		break;
-       		case CABLE_LAUNCH_FIN_STATE_LOWERING_1:
-       			new_state=CABLE_LAUNCH_FIN_STATE_LOWERING_2;
-       		break;
-       		case CABLE_LAUNCH_FIN_STATE_LOWERING_2:
-       			new_state=CABLE_LAUNCH_FIN_STATE_LOWERED;
-       		break;
-       		default:
-       		break;
-       		}
-       	if(set_lowered)new_state=CABLE_LAUNCH_FIN_STATE_LOWERING_0;
-       	if(new_state!=state)
-               {
-               tileElement->SetCableLaunchFinState(new_state);
-               MapInvalidateElement(loc, reinterpret_cast<TileElement*>(tileElement));
-               }
-
+    uint8_t state = tileElement->GetCableLaunchFinState();
+    uint8_t new_state = state;
+    // TODO misses tiles when train is going faster than 230mph - code should not allow tiles to be set in a state lower than
+    // the tile ahead
+    switch (state)
+    {
+        case CABLE_LAUNCH_FIN_STATE_RAISING_0:
+            new_state = CABLE_LAUNCH_FIN_STATE_RAISING_1;
+            break;
+        case CABLE_LAUNCH_FIN_STATE_RAISING_1:
+            new_state = CABLE_LAUNCH_FIN_STATE_RAISING_2;
+            break;
+        case CABLE_LAUNCH_FIN_STATE_RAISING_2:
+            new_state = CABLE_LAUNCH_FIN_STATE_RAISING_3;
+            break;
+        case CABLE_LAUNCH_FIN_STATE_RAISING_3:
+            new_state = CABLE_LAUNCH_FIN_STATE_RAISED;
+            break;
+        case CABLE_LAUNCH_FIN_STATE_LOWERING_0:
+            new_state = CABLE_LAUNCH_FIN_STATE_LOWERING_1;
+            break;
+        case CABLE_LAUNCH_FIN_STATE_LOWERING_1:
+            new_state = CABLE_LAUNCH_FIN_STATE_LOWERING_2;
+            break;
+        case CABLE_LAUNCH_FIN_STATE_LOWERING_2:
+            new_state = CABLE_LAUNCH_FIN_STATE_LOWERED;
+            break;
+        default:
+            break;
+    }
+    if (set_lowered)
+        new_state = CABLE_LAUNCH_FIN_STATE_LOWERING_0;
+    if (new_state != state)
+    {
+        tileElement->SetCableLaunchFinState(new_state);
+        MapInvalidateElement(loc, reinterpret_cast<TileElement*>(tileElement));
+    }
 }
 
-static void CableLaunchUpdateFinState(const Ride& ride,bool set_lowered)
+static void CableLaunchUpdateFinState(const Ride& ride, bool set_lowered)
 {
     TileElement* cableLaunchTileElement = MapGetFirstElementAt(ride.CableLiftLoc);
-    if (cableLaunchTileElement == nullptr)return;
-bool success=false;
+    if (cableLaunchTileElement == nullptr)
+        return;
+    bool success = false;
     do
     {
         if (cableLaunchTileElement->GetType() != TileElementType::Track)
@@ -213,80 +213,77 @@ bool success=false;
         break;
     } while (!(cableLaunchTileElement++)->IsLastForTile());
 
-    if (!success) return;
+    if (!success)
+        return;
 
+    // First launch tile
+    CableLaunchUpdateFinStateForTile(ride.CableLiftLoc, cableLaunchTileElement->AsTrack(), set_lowered);
 
+    // Second launch tile
+    auto type = cableLaunchTileElement->AsTrack()->GetTrackType();
+    uint8_t rotation = cableLaunchTileElement->GetDirection();
+    CoordsXY offsets = { -32, 0 };
+    CoordsXYZD elem = { ride.CableLiftLoc.x, ride.CableLiftLoc.y, ride.CableLiftLoc.z, rotation };
+    elem += offsets.Rotate(rotation);
+    TrackElement* trackElement = MapGetTrackElementAtOfTypeSeq(elem, type, 1);
+    if (trackElement != nullptr)
+    {
+        CableLaunchUpdateFinStateForTile({ elem.x, elem.y, elem.z }, trackElement, set_lowered);
+        // cableLaunchTileElement->AsTrack()->SetCableLaunchFinState(trackElement->GetCableLaunchFinState());
+    }
 
-   //First launch tile
-    CableLaunchUpdateFinStateForTile(ride.CableLiftLoc, cableLaunchTileElement->AsTrack(),set_lowered);
-
-   //Second launch tile
-   auto type = cableLaunchTileElement->AsTrack()->GetTrackType();
-   uint8_t rotation = cableLaunchTileElement->GetDirection();
-   CoordsXY offsets = { -32, 0};
-   CoordsXYZD elem = { ride.CableLiftLoc.x,ride.CableLiftLoc.y,ride.CableLiftLoc.z, rotation };
-   elem += offsets.Rotate(rotation);
-   TrackElement* trackElement = MapGetTrackElementAtOfTypeSeq(elem, type, 1);
-           if (trackElement != nullptr)
-           {
-           CableLaunchUpdateFinStateForTile({elem.x,elem.y,elem.z},trackElement,set_lowered);
-           //cableLaunchTileElement->AsTrack()->SetCableLaunchFinState(trackElement->GetCableLaunchFinState());
-   	   }
-
-    //Rest of the tiles
+    // Rest of the tiles
     success = false;
     TrackCircuitIterator it;
     TrackCircuitIteratorBegin(&it, { ride.CableLiftLoc, cableLaunchTileElement });
     while (TrackCircuitIteratorPrevious(&it) && !success)
     {
         TileElement* tileElement = it.current.element;
-	CoordsXYZ loc= {it.current.x,it.current.y,it.currentZ};
-       auto trackType = tileElement->AsTrack()->GetTrackType();
-       if (tileElement->AsTrack()->HasCableLift() && (trackType == TrackElemType::Flat || trackType == TrackElemType::EndStation|| trackType == TrackElemType::BlockBrakes))CableLaunchUpdateFinStateForTile(loc,tileElement->AsTrack(),set_lowered);
-	else break;
+        CoordsXYZ loc = { it.current.x, it.current.y, it.currentZ };
+        auto trackType = tileElement->AsTrack()->GetTrackType();
+        if (tileElement->AsTrack()->HasCableLift()
+            && (trackType == TrackElemType::Flat || trackType == TrackElemType::EndStation
+                || trackType == TrackElemType::BlockBrakes))
+            CableLaunchUpdateFinStateForTile(loc, tileElement->AsTrack(), set_lowered);
+        else
+            break;
     }
-
-
 }
 
 void Vehicle::CableLaunchUpdateWaitingToDepart()
 {
     auto curRide = GetRide();
 
-    if(sub_state==0)
+    if (sub_state == 0)
     {
-    CableLaunchUpdateFinState(*curRide,true);
+        CableLaunchUpdateFinState(*curRide, true);
     }
-    else if(sub_state%8==0)
+    else if (sub_state % 8 == 0)
     {
-    CableLaunchUpdateFinState(*curRide,false);
+        CableLaunchUpdateFinState(*curRide, false);
     }
     sub_state++;
 
     if (sub_state < 40)
         return;
 
-
     velocity = 0;
     acceleration = 0;
     SetState(Vehicle::Status::Departing, 0);
 }
-
-
 
 void Vehicle::CableLaunchUpdateDeparting()
 {
     sub_state++;
     if (sub_state < 16)
         return;
-    
 
     Vehicle* passengerVehicle = GetEntity<Vehicle>(cable_lift_target);
     if (passengerVehicle == nullptr)
     {
         return;
     }
-    
+
     SetState(Vehicle::Status::Travelling, 0);
     passengerVehicle->SetState(Vehicle::Status::TravellingCableLift, passengerVehicle->sub_state);
 }
@@ -299,91 +296,87 @@ void Vehicle::CableLaunchUpdateTravelling()
         return;
     }
 
-
-    if(sub_state%4==0)
+    if (sub_state % 4 == 0)
     {
-    auto curRide = GetRide();
-    CableLaunchUpdateFinState(*curRide,false);
-    	if(!(sub_state&0x80))sub_state=0;
+        auto curRide = GetRide();
+        CableLaunchUpdateFinState(*curRide, false);
+        if (!(sub_state & 0x80))
+            sub_state = 0;
     }
-    sub_state++; 
+    sub_state++;
 
+    // Get rearmost vehicle in train
+    Vehicle* rearVehicle = passengerVehicle;
+    Vehicle* nextVehicle = GetEntity<Vehicle>(rearVehicle->next_vehicle_on_train);
+    while (nextVehicle != nullptr)
+    {
+        rearVehicle = nextVehicle;
+        nextVehicle = GetEntity<Vehicle>(rearVehicle->next_vehicle_on_train);
+    }
 
-//Get rearmost vehicle in train
-    Vehicle* rearVehicle=passengerVehicle;
-    Vehicle* nextVehicle=GetEntity<Vehicle>(rearVehicle->next_vehicle_on_train);	
-	while(nextVehicle!=nullptr)
-        {
-	rearVehicle=nextVehicle;
-        nextVehicle=GetEntity<Vehicle>(rearVehicle->next_vehicle_on_train);	
-	}
-
-
-
-
-//If on the launch end piece and more than halfway through, then raise the first tile of brakes
+    // If on the launch end piece and more than halfway through, then raise the first tile of brakes
     TileElement* trackElement = MapGetTrackElementAtOfTypeSeq(rearVehicle->TrackLocation, rearVehicle->GetTrackType(), 0);
-	if(rearVehicle->GetTrackType()==TrackElemType::CableLaunch&&rearVehicle->track_progress>32)
-	{
-        trackElement->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISING_0);
-	}
-
-
-    //Get track element previous to the one it is currently on
-         if(trackElement!=nullptr)
-         {
-         TrackBeginEnd trackBeginEnd;
-             if(TrackBlockGetPrevious({rearVehicle->TrackLocation, trackElement }, &trackBeginEnd) && trackBeginEnd.begin_element!=nullptr&&trackBeginEnd.begin_element->AsTrack()->HasCableLift()&&trackBeginEnd.begin_element->AsTrack()->GetCableLaunchFinState()==CABLE_LAUNCH_FIN_STATE_LOWERED)
-             {
-             //TODO this seems to return the location of the first tile of the cable launch end piece, but the track element corresponding to the last tile, which is confusing
-             trackBeginEnd.begin_element->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISING_0);
-             }
-            }
-
-
-//Wait a few seconds before returning
-    if((sub_state&0x7F)==127)
+    if (rearVehicle->GetTrackType() == TrackElemType::CableLaunch && rearVehicle->track_progress > 32)
     {
-    SetState(Vehicle::Status::MovingToEndOfStation, 0);
-    return;
+        trackElement->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISING_0);
     }
 
+    // Get track element previous to the one it is currently on
+    if (trackElement != nullptr)
+    {
+        TrackBeginEnd trackBeginEnd;
+        if (TrackBlockGetPrevious({ rearVehicle->TrackLocation, trackElement }, &trackBeginEnd)
+            && trackBeginEnd.begin_element != nullptr && trackBeginEnd.begin_element->AsTrack()->HasCableLift()
+            && trackBeginEnd.begin_element->AsTrack()->GetCableLaunchFinState() == CABLE_LAUNCH_FIN_STATE_LOWERED)
+        {
+            // TODO this seems to return the location of the first tile of the cable launch end piece, but the track element
+            // corresponding to the last tile, which is confusing
+            trackBeginEnd.begin_element->AsTrack()->SetCableLaunchFinState(CABLE_LAUNCH_FIN_STATE_RAISING_0);
+        }
+    }
 
-//If the catch car has already stopped, don't run the motion update
-    if(sub_state&0x80)return;
+    // Wait a few seconds before returning
+    if ((sub_state & 0x7F) == 127)
+    {
+        SetState(Vehicle::Status::MovingToEndOfStation, 0);
+        return;
+    }
 
+    // If the catch car has already stopped, don't run the motion update
+    if (sub_state & 0x80)
+        return;
 
-//Update motion
-        if (passengerVehicle->status==Vehicle::Status::TravellingCableLift)
-	{
+    // Update motion
+    if (passengerVehicle->status == Vehicle::Status::TravellingCableLift)
+    {
         velocity = passengerVehicle->velocity;
         acceleration = 0;
-        }
-        else
+    }
+    else
+    {
+        int brake = std::min(velocity / 8, 127500);
+        velocity -= brake;
+        if (velocity < 16)
         {
-        int brake=std::min(velocity/8,127500);
-        velocity-=brake;
-		if(velocity < 16)
-		{
-		velocity=0;
-		acceleration=0;
-		sub_state|=0x80;
-		}
+            velocity = 0;
+            acceleration = 0;
+            sub_state |= 0x80;
         }
+    }
 
     if (passengerVehicle->HasFlag(VehicleFlags::TrainIsBroken))
         return;
 
-//If catch car has reached the end of the launch track, stop it completely
+    // If catch car has reached the end of the launch track, stop it completely
     if (CableLaunchUpdateTrackMotion() & VEHICLE_UPDATE_MOTION_TRACK_FLAG_1)
     {
-    velocity=0;
-    acceleration=0;
-    sub_state|=0x80;
+        velocity = 0;
+        acceleration = 0;
+        sub_state |= 0x80;
     }
 }
 
-//TODO unify with cable lift
+// TODO unify with cable lift
 
 bool Vehicle::CableLaunchUpdateTrackMotionForwards()
 {
@@ -483,7 +476,8 @@ bool Vehicle::CableLaunchUpdateTrackMotionBackwards()
             SetTrackDirection(output.begin_direction);
             SetTrackType(output.begin_element->AsTrack()->GetTrackType());
 
-            if (output.begin_element->AsTrack()->GetTrackType() == TrackElemType::EndStation || output.begin_element->AsTrack()->GetTrackType() == TrackElemType::BlockBrakes)
+            if (output.begin_element->AsTrack()->GetTrackType() == TrackElemType::EndStation
+                || output.begin_element->AsTrack()->GetTrackType() == TrackElemType::BlockBrakes)
             {
                 _vehicleMotionTrackFlags = VEHICLE_UPDATE_MOTION_TRACK_FLAG_VEHICLE_AT_STATION;
             }

@@ -46,8 +46,8 @@ namespace HydraulicLaunchedRC
             int sprites[9] = { 3, 3, 3, 2, 1, 0, 0, 1, 2 };
             int spriteIndex = sprites[trackElement.GetCableLaunchFinState()];
             PaintAddImageAsParentRotated(
-                session, direction, session.TrackColours.WithIndex(imageIds[direction][2] + 2 * spriteIndex),
-                { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 1 } });
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][2] + 2 * spriteIndex), { 0, 0, height },
+                { { 0, 6, height + 3 }, { 32, 20, 1 } });
             PaintAddImageAsParentRotated(
                 session, direction, session.TrackColours.WithIndex(imageIds[direction][2] + 2 * spriteIndex + 8),
                 { 0, 0, height }, { { 0, 21, height + 5 }, { 32, 1, 2 } });
@@ -66,7 +66,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
 
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -100,8 +101,7 @@ namespace HydraulicLaunchedRC
                     session, direction, session.TrackColours.WithIndex(imageIds[direction][2] + 2 * spriteIndex),
                     { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 1 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex(imageIds[direction][2] + 2 * spriteIndex + 8),
+                    session, direction, session.TrackColours.WithIndex(imageIds[direction][2] + 2 * spriteIndex + 8),
                     { 0, 0, height }, { { 0, 21, height + 5 }, { 32, 1, 2 } });
             }
             else
@@ -117,11 +117,10 @@ namespace HydraulicLaunchedRC
                 session, direction, session.TrackColours.WithIndex(imageIds[direction][0]), { 0, 0, height },
                 { { 0, 6, height + 3 }, { 32, 20, 1 } });
         }
-        //PaintAddImageAsParentRotated(
-        //    session, direction, GetStationColourScheme(session, trackElement).WithIndex(imageIds[direction][2]), { 0, 0, height - 2 },
-        //    { { 0, 2, height }, { 32, 28, 2 } });
-        DrawSupportsSideBySide(
-            session, direction, height, session.SupportColours, MetalSupportType::Tubes);
+        // PaintAddImageAsParentRotated(
+        //     session, direction, GetStationColourScheme(session, trackElement).WithIndex(imageIds[direction][2]), { 0, 0,
+        //     height - 2 }, { { 0, 2, height }, { 32, 28, 2 } });
+        DrawSupportsSideBySide(session, direction, height, session.SupportColours, MetalSupportType::Tubes);
         TrackPaintUtilDrawStation2(session, ride, direction, height, trackElement, 9, 11);
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_SQUARE_FLAT);
         PaintUtilSetSegmentSupportHeight(session, SEGMENTS_ALL, 0xFFFF, 0);
@@ -138,32 +137,29 @@ namespace HydraulicLaunchedRC
             {
                 case 0:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 8)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 8)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 1:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 9)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 9)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 10)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 10)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 11)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 11)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
             }
         }
         else
@@ -182,20 +178,19 @@ namespace HydraulicLaunchedRC
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE + 10)), { 0, 0, height },
-                        { { 0, 6, height }, { 32, 20, 3 } });
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE + 10)),
+                        { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE + 11)), { 0, 0, height },
-                        { { 0, 6, height }, { 32, 20, 3 } });
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE + 11)),
+                        { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
             }
         }
         if (direction == 0 || direction == 3)
@@ -221,26 +216,22 @@ namespace HydraulicLaunchedRC
             {
                 case 0:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 12)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 12)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 1:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 13)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 13)),
                         { 0, 0, height }, { { 0, 27, height }, { 32, 1, 98 } });
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 14)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 14)),
                         { 0, 0, height }, { { 0, 27, height }, { 32, 1, 98 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 15)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 15)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
@@ -304,32 +295,29 @@ namespace HydraulicLaunchedRC
             {
                 case 0:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 0)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 0)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 1:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 1)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 1)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 2)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 2)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 3)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 3)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
             }
         }
         else
@@ -359,7 +347,8 @@ namespace HydraulicLaunchedRC
             }
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
             }
         }
         if (direction == 0 || direction == 3)
@@ -385,34 +374,28 @@ namespace HydraulicLaunchedRC
             {
                 case 0:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 0)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 0)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 1:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 1)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 1)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 2)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 2)),
                         { 0, 0, height }, { { 0, 27, height }, { 32, 1, 66 } });
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 3)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 3)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 4)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 4)),
                         { 0, 0, height }, { { 0, 27, height }, { 32, 1, 66 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 5)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 5)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
@@ -482,34 +465,28 @@ namespace HydraulicLaunchedRC
             {
                 case 0:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 6)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 6)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 1:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 7)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 7)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 8)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 8)),
                         { 0, 0, height }, { { 0, 27, height }, { 32, 1, 66 } });
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 9)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 9)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 10)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 10)),
                         { 0, 0, height }, { { 0, 27, height }, { 32, 1, 66 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 11)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP + 11)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
@@ -579,32 +556,29 @@ namespace HydraulicLaunchedRC
             {
                 case 0:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 4)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 4)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 1:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 5)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 5)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 2:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 6)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 6)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
                 case 3:
                     PaintAddImageAsParentRotated(
-                        session, direction,
-                        session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 7)),
+                        session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE + 7)),
                         { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                     break;
             }
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
             }
         }
         else
@@ -634,7 +608,8 @@ namespace HydraulicLaunchedRC
             }
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
             }
         }
         if (direction == 0 || direction == 3)
@@ -703,26 +678,22 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 8)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 8)),
                             { 0, 0, height }, { { 4, 6, height + 8 }, { 2, 20, 31 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 9)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 9)),
                             { 0, 0, height }, { { 24, 6, height + 8 }, { 2, 20, 31 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 10)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 10)),
                             { 0, 0, height }, { { 24, 6, height + 8 }, { 2, 20, 31 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 11)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 11)),
                             { 0, 0, height }, { { 4, 6, height + 8 }, { 2, 20, 31 } });
                         break;
                 }
@@ -754,26 +725,22 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 0)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 0)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 1)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 1)),
                             { 0, 0, height }, { { 24, 6, height }, { 2, 20, 55 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 2)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 2)),
                             { 0, 0, height }, { { 24, 6, height }, { 2, 20, 55 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 3)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 3)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
@@ -855,26 +822,22 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 6)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 6)),
                             { 0, 0, height }, { { 24, 6, height + 8 }, { 2, 20, 31 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 7)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 7)),
                             { 0, 0, height }, { { 0, 6, height + 8 }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 4)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 4)),
                             { 0, 0, height }, { { 0, 6, height + 8 }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 5)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_VERTICAL + 5)),
                             { 0, 0, height }, { { 24, 6, height + 8 }, { 2, 20, 31 } });
                         break;
                 }
@@ -903,29 +866,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 0)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 0)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 3)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 3)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 6)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 6)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 9)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 9)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -943,20 +907,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 1)),
-                            { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 1)), { 0, 0, height },
+                            { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 4)),
-                            { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 4)), { 0, 0, height },
+                            { { 0, 0, height }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 7)),
-                            { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 7)), { 0, 0, height },
+                            { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -975,20 +939,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 2)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 2)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 5)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 5)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 8)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_CURVE + 8)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -997,7 +961,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -1056,7 +1021,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -1201,7 +1167,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -1238,20 +1205,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 0)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 0)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 4)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 4)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 8)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 8)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -1260,7 +1227,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -1275,20 +1243,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 1)),
-                            { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 1)), { 0, 0, height },
+                            { { 0, 0, height }, { 32, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 5)),
-                            { 0, 0, height }, { { 0, 0, height }, { 34, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 5)), { 0, 0, height },
+                            { { 0, 0, height }, { 34, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 9)),
-                            { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 9)), { 0, 0, height },
+                            { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -1310,14 +1278,14 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 2)),
-                            { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 2)), { 0, 0, height },
+                            { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 6)),
-                            { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 6)), { 0, 0, height },
+                            { { 16, 16, height }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -1348,16 +1316,17 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 3)),
-                            { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 3)), { 0, 0, height },
+                            { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 7)),
-                            { 0, 0, height }, { { 0, 16, height }, { 16, 18, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 7)), { 0, 0, height },
+                            { { 0, 16, height }, { 16, 18, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
                         break;
@@ -1375,7 +1344,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 15)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -1422,7 +1392,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -1529,7 +1500,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 27)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 18, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -1537,7 +1509,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE + 31)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -1666,7 +1639,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -1674,15 +1648,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_FLAT_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -1692,7 +1669,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -1700,15 +1678,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_FLAT_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalASupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -1733,8 +1714,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 11)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 11)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -1763,8 +1743,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 8)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 8)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -1793,8 +1772,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 10)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 10)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -1822,24 +1800,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 9, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 1)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -1849,7 +1830,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 9, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -1857,15 +1839,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -1890,8 +1875,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 7)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 7)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -1920,8 +1904,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 4)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 4)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -1950,8 +1933,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 6)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 6)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -1979,24 +1961,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 6, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 5)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 5)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2006,7 +1991,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 6, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2014,15 +2000,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_DIAGONAL + 5)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2047,8 +2036,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 3)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 3)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2077,8 +2065,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 0)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 0)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2107,8 +2094,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 2)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 2)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2136,24 +2122,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height + 2, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height + 2,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 1)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height + 2, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height + 2,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2163,7 +2152,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 2, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 2, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2171,15 +2161,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 2, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 2, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 2, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 2, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 2, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 2, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2204,8 +2197,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 9)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 9)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2234,8 +2226,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 10)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 10)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2264,8 +2255,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 8)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 8)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2293,24 +2283,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 11)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 11)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2320,7 +2313,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2328,15 +2322,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_DIAGONAL + 11)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2361,8 +2358,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 5)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 5)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2390,8 +2386,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 6)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 6)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2419,8 +2414,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 4)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 4)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2447,24 +2441,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 4, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 7)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 7)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2474,7 +2471,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 4, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2482,15 +2480,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_DIAGONAL + 7)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2516,8 +2517,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 1)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2546,8 +2546,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 2)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 2)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2576,8 +2575,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 0)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 0)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2605,24 +2603,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 3)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_GENTLE_DIAGONAL + 3)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2632,7 +2633,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2640,15 +2642,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_DIAGONAL + 3)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2673,8 +2678,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 11)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 11)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2703,8 +2707,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 8)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 8)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2733,8 +2736,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 10)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 10)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2762,24 +2764,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 38, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 38, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 9)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 9)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 36, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 36, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 38, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 38, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 36, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 36, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2789,7 +2794,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 38, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 38, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2797,15 +2803,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_DIAGONAL + 9)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 36, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 36, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 38, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 38, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 36, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 36, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2830,8 +2839,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 3)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 3)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2860,8 +2868,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 0)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 0)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2890,8 +2897,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 2)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 2)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -2919,24 +2925,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 1)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2946,7 +2955,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -2954,15 +2964,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -2987,8 +3000,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 7)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 7)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3017,8 +3029,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 4)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 4)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3047,8 +3058,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 6)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 6)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3076,24 +3086,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 21, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 5)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 5)),
                                 { -16, -16, height }, { { 0, 0, height }, { 16, 16, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 21, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 21, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 21, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3103,7 +3116,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 21, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -3111,15 +3125,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_DIAGONAL + 5)),
                                 { -16, -16, height }, { { 0, 0, height }, { 16, 16, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 21, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 21, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 21, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 21, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3144,8 +3161,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 9)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 9)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3174,8 +3190,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 10)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 10)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3204,8 +3219,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 8)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 8)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3233,24 +3247,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 24, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 24, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 11)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 11)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 28, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 28, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 24, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 24, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 28, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 28, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3260,7 +3277,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 24, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 24, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -3268,15 +3286,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_DIAGONAL + 11)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 28, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 28, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 24, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 24, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 28, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 28, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3301,8 +3322,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 5)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 5)),
                                 { -16, -16, height }, { { 0, 0, height }, { 16, 16, 3 } });
                             break;
                     }
@@ -3331,8 +3351,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 6)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 6)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3361,8 +3380,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 4)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 4)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3390,24 +3408,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 17, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 7)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 7)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 17, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 17, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 17, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3417,7 +3438,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 17, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -3425,15 +3447,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_DIAGONAL + 7)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 17, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 17, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 17, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 17, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3458,8 +3483,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 1)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 1)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3488,8 +3512,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 2)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 2)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3518,8 +3541,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 0)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 0)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             break;
                     }
@@ -3547,24 +3569,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 3)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_STEEP_DIAGONAL + 3)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3574,7 +3599,8 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
@@ -3582,15 +3608,18 @@ namespace HydraulicLaunchedRC
                                 session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_DIAGONAL + 3)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -3609,40 +3638,35 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 0)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 0)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 1)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 1)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 2)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 2)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 3)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 3)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 4)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 4)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 5)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 5)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
@@ -3658,40 +3682,35 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 6)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 6)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 7)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 7)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 8)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 8)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 9)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 9)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 10)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 10)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 11)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 11)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
@@ -3721,40 +3740,35 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 12)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 12)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 13)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 13)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 14)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 14)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 15)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 15)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 16)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 16)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 17)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 17)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -3777,40 +3791,35 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 18)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 18)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 19)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 19)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 20)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 20)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 21)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 21)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 22)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 22)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 23)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 23)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -3833,40 +3842,35 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 24)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 24)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 25)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 25)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 26)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 26)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 27)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 27)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 28)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 28)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 29)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 29)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -3889,40 +3893,35 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 30)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 30)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 31)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 31)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 32)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 32)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 33)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 33)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 34)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 34)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 35)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 35)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -3973,32 +3972,29 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 36)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 36)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 37)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 37)),
                     { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 38)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 38)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 39)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION + 39)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
@@ -4025,8 +4021,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 4)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 4)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4040,13 +4035,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 0)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 0)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 1)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 1)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4060,8 +4053,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 3)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 3)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4079,19 +4071,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 2)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 2)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4113,8 +4106,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 9)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 9)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4128,8 +4120,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 5)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 5)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4143,13 +4134,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 7)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 7)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 8)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 8)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4167,19 +4156,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 6)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 6)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4201,8 +4191,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 6)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 6)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4216,13 +4205,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 7)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 7)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 8)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 8)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4236,8 +4223,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 5)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 5)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4255,19 +4241,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 9)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 9)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4289,8 +4276,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 2)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 2)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4304,8 +4290,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 3)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 3)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4319,13 +4304,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 0)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 0)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 1)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 1)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4343,19 +4326,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 4)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 4)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4377,8 +4361,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 14)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 14)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4392,13 +4375,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 10)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 10)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 11)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 11)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4412,8 +4393,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 13)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 13)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4431,19 +4411,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 12)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 12)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4465,8 +4446,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 19)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 19)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4480,8 +4460,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 15)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 15)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4495,13 +4474,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 17)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 17)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 18)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 18)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4519,19 +4496,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 16)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 16)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4553,8 +4531,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 24)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 24)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4568,13 +4545,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 20)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 20)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 21)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 21)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4588,8 +4563,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 23)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 23)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4607,19 +4581,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 22)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 22)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4641,8 +4616,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 29)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 29)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4656,8 +4630,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 25)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 25)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4671,13 +4644,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 27)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 27)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 28)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 28)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4695,19 +4666,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 26)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 26)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4729,8 +4701,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 26)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 26)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4743,13 +4714,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 27)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 27)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 28)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 28)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4762,8 +4731,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 25)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 25)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4780,19 +4748,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 29)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 29)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4815,8 +4784,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 22)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 22)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4829,8 +4797,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 23)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 23)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4843,13 +4810,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 20)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 20)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 21)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 21)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4866,19 +4831,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 24)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 24)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4901,8 +4867,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 16)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 16)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4916,13 +4881,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 17)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 17)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 18)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 18)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -4936,8 +4899,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 15)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 15)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -4955,19 +4917,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 19)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 19)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -4989,8 +4952,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 12)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 12)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -5004,8 +4966,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 13)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 13)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -5019,13 +4980,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 10)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 10)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 11)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 11)),
                             { -16, -16, height }, { { -16, -16, height + 35 }, { 32, 32, 0 } });
                         break;
                 }
@@ -5043,19 +5002,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 14)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 14)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -5077,8 +5037,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 33)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 33)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -5092,8 +5051,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 30)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 30)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -5107,8 +5065,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 32)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 32)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -5126,19 +5083,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 31)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 31)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -5160,8 +5118,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 31)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 31)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -5175,8 +5132,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 32)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 32)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -5190,8 +5146,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 30)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 30)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -5209,19 +5164,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 33)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BANK_TRANSITION_DIAGONAL + 33)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -5269,7 +5225,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -5345,7 +5302,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -5408,7 +5366,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -5557,7 +5516,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -5616,7 +5576,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -5707,7 +5668,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE_BANKED + 3)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -5731,7 +5693,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE_BANKED + 15)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -5778,7 +5741,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -5885,7 +5849,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE_BANKED + 27)),
                             { 0, 0, height }, { { 0, 16, height + 27 }, { 16, 18, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -5893,7 +5858,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CURVE_BANKED + 31)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -5956,7 +5922,8 @@ namespace HydraulicLaunchedRC
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -5999,7 +5966,8 @@ namespace HydraulicLaunchedRC
                             { 6, 0, height }, { 20, 32, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -6050,7 +6018,8 @@ namespace HydraulicLaunchedRC
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -6167,7 +6136,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -6312,7 +6282,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -6363,7 +6334,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -6508,7 +6480,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 switch (direction)
                 {
                     case 0:
@@ -6549,42 +6522,34 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 0)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 0)),
                     { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 1)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 1)),
                     { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 2)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 2)),
                     { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 3)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 3)),
                     { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 4)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 4)),
                     { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 5)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 5)),
                     { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 6)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 6)),
                     { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 7)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 7)),
                     { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
         }
@@ -6601,43 +6566,41 @@ namespace HydraulicLaunchedRC
         {
             case 0:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 8)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 8)),
                     { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 9)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 9)),
                     { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
             case 1:
                 PaintAddImageAsParentRotated(
                     session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 10)),
-                    { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 10)), { 0, 0, height },
+                    { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
                     session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 11)),
-                    { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 11)), { 0, 0, height },
+                    { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
                     session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 12)),
-                    { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 12)), { 0, 0, height },
+                    { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
                     session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 13)),
-                    { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 13)), { 0, 0, height },
+                    { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
             case 3:
                 PaintAddImageAsParentRotated(
                     session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 14)),
-                    { 0, 0, height }, { { 2, 2, height }, { 28, 28, 3 } });
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 14)), { 0, 0, height },
+                    { { 2, 2, height }, { 28, 28, 3 } });
                 PaintAddImageAsParentRotated(
                     session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 15)),
-                    { 0, 0, height }, { { 2, 2, height + 99 }, { 28, 28, 1 } });
+                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_STEEP_SMALL_CURVE + 15)), { 0, 0, height },
+                    { { 2, 2, height + 99 }, { 28, 28, 1 } });
                 break;
         }
         TrackPaintUtilRightQuarterTurn1TileTunnel(session, direction, height, -8, TUNNEL_1, +56, TUNNEL_2);
@@ -6814,7 +6777,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -6866,7 +6830,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -6918,7 +6883,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -6970,7 +6936,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7046,7 +7013,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7094,7 +7062,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7142,7 +7111,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7190,7 +7160,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7266,7 +7237,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7314,7 +7286,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7380,7 +7353,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7432,7 +7406,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7484,7 +7459,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7536,7 +7512,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -7591,33 +7568,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 0)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 0)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 2)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 2)),
                             { 0, 6, height }, { { 0, 27, height }, { 32, 1, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 4)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 4)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 6)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 6)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -7638,33 +7612,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 1)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 1)),
                             { 6, 0, height }, { 20, 32, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 3)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 3)),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 5)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 5)),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 7)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 7)),
                             { 6, 0, height }, { 20, 32, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -7693,33 +7664,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 8)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 8)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 10)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 10)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 12)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 12)),
                             { 0, 6, height }, { { 0, 27, height }, { 32, 1, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 14)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 14)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -7740,8 +7708,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 9)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 9)),
                             { 6, 0, height }, { 20, 32, 3 });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
@@ -7749,8 +7716,7 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 11)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 11)),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
@@ -7758,8 +7724,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 13)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 13)),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 10, height, session.SupportColours);
@@ -7767,8 +7732,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 15)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_SMALL_CURVE_BANKED + 15)),
                             { 6, 0, height }, { 20, 32, 3 });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
@@ -7818,33 +7782,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 0)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 0)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 5)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 5)),
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 10)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 10)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 15)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 15)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -7862,29 +7823,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 1)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 1)),
                             { 0, 0, height }, { 32, 16, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 6)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 6)),
                             { 0, 0, height }, { { 30, 30, height }, { 1, 1, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 11)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 11)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 16)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 16)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                 }
@@ -7901,29 +7858,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 2)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 2)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 7)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 7)),
                             { 0, 0, height }, { { 30, 30, height }, { 1, 1, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 12)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 12)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 17)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 17)),
                             { 0, 0, height }, { 16, 16, 3 });
                         break;
                 }
@@ -7940,29 +7893,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 3)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 3)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 8)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 8)),
                             { 0, 0, height }, { { 30, 30, height }, { 1, 1, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 13)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 13)),
                             { 0, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 18)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 18)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 32, 3 } });
                         break;
                 }
@@ -7979,33 +7928,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 4)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 4)),
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 9)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 9)),
                             { 0, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 14)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 14)),
                             { 0, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 19)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 19)),
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -8034,33 +7980,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 20)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 20)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 25)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 25)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 30)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 30)),
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 35)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 35)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -8078,29 +8021,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 21)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 21)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 26)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 26)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 31)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 31)),
                             { 0, 0, height }, { { 30, 30, height }, { 1, 1, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 36)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 36)),
                             { 0, 0, height }, { 32, 16, 3 });
                         break;
                 }
@@ -8117,29 +8056,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 22)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 22)),
                             { 0, 0, height }, { 16, 16, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 27)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 27)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 32)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 32)),
                             { 0, 0, height }, { { 30, 30, height }, { 1, 1, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 37)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 37)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                 }
@@ -8156,29 +8091,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 23)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 23)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 28)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 28)),
                             { 0, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 33)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 33)),
                             { 0, 0, height }, { { 30, 30, height }, { 1, 1, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 38)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 38)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 32, 3 } });
                         break;
                 }
@@ -8195,33 +8126,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 24)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 24)),
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 29)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 29)),
                             { 0, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 34)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 34)),
                             { 0, 0, height }, { { 27, 0, height }, { 1, 32, 34 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 39)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_MEDIUM_CURVE_BANKED + 39)),
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 switch (direction)
                 {
                     case 0:
@@ -8265,30 +8193,27 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 0)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 0)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 4)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 4)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 3)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 3)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 7)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 7)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -8302,30 +8227,28 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 1)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 1)),
                             { 0, 0, height }, { 32, 26, 3 });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 5)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 5)),
                             { 0, 0, height }, { 32, 26, 3 });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 1, height - 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 1, height - 1,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 2)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 2)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 6)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 6)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         break;
                 }
@@ -8341,31 +8264,29 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 2)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 2)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 6)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 6)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 1)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 1)),
                             { 0, 0, height }, { 32, 26, 3 });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 5)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 5)),
                             { 0, 0, height }, { 32, 26, 3 });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 1, height - 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 1, height - 1,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -8380,30 +8301,27 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 3)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 3)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 7)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 7)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 0)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 0)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 4)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 4)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 switch (direction)
                 {
                     case 1:
@@ -8431,30 +8349,27 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 8)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 8)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 12)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 12)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 11)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 11)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 15)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 15)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -8468,30 +8383,28 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 9)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 9)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 13)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 13)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 10)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 10)),
                             { 0, 0, height }, { 32, 26, 3 });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 14)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 14)),
                             { 0, 0, height }, { 32, 26, 3 });
                         break;
                 }
@@ -8507,31 +8420,29 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 10)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 10)),
                             { 0, 0, height }, { 32, 26, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 14)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 14)),
                             { 0, 0, height }, { 32, 26, 3 });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 9)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 9)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 13)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 13)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 26, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -8546,30 +8457,27 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 11)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 11)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 15)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 15)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 8)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 8)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 12)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_S_BEND + 12)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 switch (direction)
                 {
                     case 1:
@@ -8598,24 +8506,24 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 0)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 0)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 1)),
-                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 1)), { 0, 0, height },
+                            { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 4)),
-                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 4)), { 0, 0, height },
+                            { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 7)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 7)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -8624,7 +8532,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -8643,20 +8552,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 2)),
-                            { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 2)), { 0, 0, height },
+                            { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 5)),
-                            { 0, 0, height }, { { 0, 0, height + 27 }, { 16, 16, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 5)), { 0, 0, height },
+                            { { 0, 0, height + 27 }, { 16, 16, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 8)),
-                            { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 8)), { 0, 0, height },
+                            { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -8675,20 +8584,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 3)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 3)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 6)),
-                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 6)), { 0, 0, height },
+                            { { 27, 0, height }, { 1, 32, 26 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 9)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 9)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 10)),
@@ -8701,7 +8610,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height + 8 }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -8728,27 +8638,28 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 0)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 0)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 1)),
-                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 1)), { 0, 0, height },
+                            { { 27, 0, height }, { 1, 32, 26 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 4)),
-                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 4)), { 0, 0, height },
+                            { { 27, 0, height }, { 1, 32, 26 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 7)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 7)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 switch (direction)
                 {
                     case 0:
@@ -8778,20 +8689,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 2)),
-                            { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 2)), { 0, 0, height },
+                            { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 5)),
-                            { 0, 0, height }, { { 0, 0, height + 27 }, { 16, 16, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 5)), { 0, 0, height },
+                            { { 0, 0, height + 27 }, { 16, 16, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 8)),
-                            { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 8)), { 0, 0, height },
+                            { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -8810,27 +8721,28 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 3)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 3)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 6)),
-                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 6)), { 0, 0, height },
+                            { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 9)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 9)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_HELIX + 10)),
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height + 8, TUNNEL_0);
@@ -8881,7 +8793,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -8958,7 +8871,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
                 switch (direction)
                 {
                     case 0:
@@ -9005,7 +8919,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -9087,7 +9002,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height + 8 }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height + 8, TUNNEL_0);
@@ -9138,18 +9054,18 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 0)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 0)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 1)),
-                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 1)), { 0, 0, height },
+                            { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 6)),
-                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 6)), { 0, 0, height },
+                            { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -9164,7 +9080,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -9183,14 +9100,14 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 2)),
-                            { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 2)), { 0, 0, height },
+                            { { 0, 0, height }, { 32, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 7)),
-                            { 0, 0, height }, { { 0, 0, height + 27 }, { 32, 16, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 7)), { 0, 0, height },
+                            { { 0, 0, height + 27 }, { 32, 16, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -9218,14 +9135,14 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 3)),
-                            { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 3)), { 0, 0, height },
+                            { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 8)),
-                            { 0, 0, height }, { { 16, 16, height + 27 }, { 16, 16, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 8)), { 0, 0, height },
+                            { { 16, 16, height + 27 }, { 16, 16, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -9253,14 +9170,14 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 4)),
-                            { 0, 0, height }, { { 16, 0, height }, { 16, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 4)), { 0, 0, height },
+                            { { 16, 0, height }, { 16, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 9)),
-                            { 0, 0, height }, { { 0, 0, height + 27 }, { 16, 32, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 9)), { 0, 0, height },
+                            { { 0, 0, height + 27 }, { 16, 32, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -9288,8 +9205,8 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 5)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 5)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -9314,7 +9231,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height + 8 }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -9341,18 +9259,18 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 0)),
-                            { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 0)), { 0, 0, height },
+                            { { 6, 0, height }, { 20, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 1)),
-                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 1)), { 0, 0, height },
+                            { { 27, 0, height }, { 1, 32, 26 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 6)),
-                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 26 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 6)), { 0, 0, height },
+                            { { 27, 0, height }, { 1, 32, 26 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -9361,7 +9279,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 switch (direction)
                 {
                     case 0:
@@ -9391,14 +9310,14 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 2)),
-                            { 0, 0, height }, { { 0, 0, height }, { 16, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 2)), { 0, 0, height },
+                            { { 0, 0, height }, { 16, 32, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 7)),
-                            { 0, 0, height }, { { 0, 0, height + 27 }, { 16, 32, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 7)), { 0, 0, height },
+                            { { 0, 0, height + 27 }, { 16, 32, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -9426,14 +9345,14 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 3)),
-                            { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 3)), { 0, 0, height },
+                            { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 8)),
-                            { 0, 0, height }, { { 16, 16, height + 27 }, { 16, 16, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 8)), { 0, 0, height },
+                            { { 16, 16, height + 27 }, { 16, 16, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -9461,14 +9380,14 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 4)),
-                            { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 4)), { 0, 0, height },
+                            { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 9)),
-                            { 0, 0, height }, { { 0, 0, height + 27 }, { 32, 16, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 9)), { 0, 0, height },
+                            { { 0, 0, height + 27 }, { 32, 16, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -9496,8 +9415,8 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 5)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HELIX + 5)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -9516,7 +9435,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height + 8, TUNNEL_0);
@@ -9566,7 +9486,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 27, height }, { 32, 1, 26 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -9770,7 +9691,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -9983,26 +9905,28 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 0)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 0)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 1)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 1)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height + 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height + 1,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 6)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 6)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 7)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 7)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height + 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height + 1,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -10014,7 +9938,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 13)),
                             { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height + 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height + 1,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -10044,22 +9969,22 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 2)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 2)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 3)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 3)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 8)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 8)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 9)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 9)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -10095,12 +10020,12 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 4)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 4)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 5)),
-                            { 0, 0, height }, { { 0, 6, height + 44 }, { 32, 20, 0 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 5)), { 0, 0, height },
+                            { { 0, 6, height + 44 }, { 32, 20, 0 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -10181,7 +10106,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 31)),
                             { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height + 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height + 1,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -10193,7 +10119,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 37)),
                             { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height + 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height + 1,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -10205,7 +10132,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BARREL_ROLL + 43)),
                             { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 4, height + 1, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 4, height + 1,
+                            session.SupportColours);
                         break;
                 }
                 if (direction == 0 || direction == 3)
@@ -10354,30 +10282,28 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 0)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 0)),
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 4)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 4)),
                             { 0, 6, height }, { 32, 20, 11 });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 8)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 8)),
                             { 0, 6, height }, { 32, 20, 9 });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 12)),
-                            { 0, 6, height }, { 32, 20, 7 });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 12)), { 0, 6, height },
+                            { 32, 20, 7 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -10391,24 +10317,21 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 1)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 1)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 20, height, session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 5)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 5)),
                             { 0, 14, height }, { { 28, 6, height }, { 3, 20, 63 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 15, height, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 9)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 9)),
                             { 0, 6, height }, { { 28, 6, height }, { 3, 20, 63 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 16, height, session.SupportColours);
@@ -10416,8 +10339,8 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 13)),
-                            { 0, 6, height }, { 32, 20, 3 });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 13)), { 0, 6, height },
+                            { 32, 20, 3 });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 16, height, session.SupportColours);
                         break;
@@ -10430,14 +10353,12 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 2)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 2)),
                             { 16, 0, height }, { 2, 16, 119 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 6)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 6)),
                             { 12, 0, height }, { { 12, 0, height }, { 3, 16, 119 } });
                         break;
                     case 2:
@@ -10465,14 +10386,12 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 3)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 3)),
                             { 0, 0, height + 32 }, { 32, 16, 3 });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 7)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_HALF_LOOP + 7)),
                             { 0, 0, height + 32 }, { 32, 16, 3 });
                         break;
                     case 2:
@@ -10527,7 +10446,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
@@ -10544,8 +10464,10 @@ namespace HydraulicLaunchedRC
             case 0:
                 PaintAddImageAsParentRotated(
                     session, direction, ImageId(SPR_STATION_BASE_D, COLOUR_BLACK), { 0, 0, height }, { 32, 32, 1 });
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height, session.SupportColours);
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height, session.SupportColours);
                 PaintAddImageAsParentRotated(
                     session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_FLAT + 0)),
                     { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 0 } });
@@ -10553,8 +10475,10 @@ namespace HydraulicLaunchedRC
             case 1:
                 PaintAddImageAsParentRotated(
                     session, direction, ImageId(SPR_STATION_BASE_D, COLOUR_BLACK), { 0, 0, height }, { 32, 32, 1 });
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height, session.SupportColours);
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height, session.SupportColours);
                 PaintAddImageAsParentRotated(
                     session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_FLAT + 1)),
                     { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 0 } });
@@ -10562,8 +10486,10 @@ namespace HydraulicLaunchedRC
             case 2:
                 PaintAddImageAsParentRotated(
                     session, direction, ImageId(SPR_STATION_BASE_D, COLOUR_BLACK), { 0, 0, height }, { 32, 32, 1 });
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height, session.SupportColours);
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height, session.SupportColours);
                 PaintAddImageAsParentRotated(
                     session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_FLAT + 0)),
                     { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 0 } });
@@ -10571,8 +10497,10 @@ namespace HydraulicLaunchedRC
             case 3:
                 PaintAddImageAsParentRotated(
                     session, direction, ImageId(SPR_STATION_BASE_D, COLOUR_BLACK), { 0, 0, height }, { 32, 32, 1 });
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height, session.SupportColours);
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height, session.SupportColours);
                 PaintAddImageAsParentRotated(
                     session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_FLAT + 1)),
                     { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 0 } });
@@ -10953,8 +10881,8 @@ namespace HydraulicLaunchedRC
             int sprites[9] = { 3, 3, 3, 2, 1, 0, 0, 1, 2 };
             int spriteIndex = sprites[trackElement.GetCableLaunchFinState()];
             PaintAddImageAsParentRotated(
-                session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex),
-                { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 1 } });
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex), { 0, 0, height },
+                { { 0, 6, height + 3 }, { 32, 20, 1 } });
             PaintAddImageAsParentRotated(
                 session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex + 8),
                 { 0, 0, height }, { { 0, 21, height + 5 }, { 32, 1, 2 } });
@@ -10967,14 +10895,14 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
             session, PaintUtilRotateSegments(SEGMENT_C4 | SEGMENT_CC | SEGMENT_D0, direction), 0xFFFF, 0);
         PaintUtilSetGeneralSupportHeight(session, height + 32, 0x20);
     }
-
 
     static void TrackLeftCorkscrewUp(
         PaintSession& session, const Ride& ride, uint8_t trackSequence, uint8_t direction, int32_t height,
@@ -10987,31 +10915,28 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 0)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 0)),
                             { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 3)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 3)),
                             { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 6)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 6)),
                             { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 9)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 9)),
                             { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                 }
 
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
 
                 if (direction == 0 || direction == 3)
                 {
@@ -11027,27 +10952,24 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 1)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 1)),
                             { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 4)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 4)),
                             { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 7)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 7)),
                             { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 10)),
-                            { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 10)), { 0, 0, height },
+                            { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(session, SEGMENTS_ALL, 0xFFFF, 0);
@@ -11058,27 +10980,24 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 2)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 2)),
                             { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 5)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 5)),
                             { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
-                            session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 8)),
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 8)),
                             { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 11)),
-                            { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 11)), { 0, 0, height },
+                            { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                 }
 
@@ -11114,29 +11033,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 12)),
-                            { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 12)), { 0, 0, height },
+                            { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 15)),
-                            { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 15)), { 0, 0, height },
+                            { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 18)),
-                            { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 18)), { 0, 0, height },
+                            { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 21)),
-                            { 0, 0, height }, { { 0, 6, height + 4 }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 21)), { 0, 0, height },
+                            { { 0, 6, height + 4 }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -11152,26 +11072,26 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 13)),
-                            { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 13)), { 0, 0, height },
+                            { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 16)),
-                            { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 16)), { 0, 0, height },
+                            { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 19)),
-                            { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 19)), { 0, 0, height },
+                            { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 22)),
-                            { 0, 0, height }, { { 6, 6, height + 10 }, { 20, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 22)), { 0, 0, height },
+                            { { 6, 6, height + 10 }, { 20, 20, 3 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(session, SEGMENTS_ALL, 0xFFFF, 0);
@@ -11183,26 +11103,26 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 14)),
-                            { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 14)), { 0, 0, height },
+                            { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 17)),
-                            { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 17)), { 0, 0, height },
+                            { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 20)),
-                            { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 20)), { 0, 0, height },
+                            { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 23)),
-                            { 0, 0, height }, { { 6, 0, height + 24 }, { 20, 32, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CORKSCREW + 23)), { 0, 0, height },
+                            { { 6, 0, height + 24 }, { 20, 32, 3 } });
                         break;
                 }
 
@@ -11275,7 +11195,8 @@ namespace HydraulicLaunchedRC
                         break;
                 }
 
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
 
                 if (direction == 0 || direction == 3)
                 {
@@ -11295,7 +11216,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 1)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 34, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 34, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -11303,7 +11225,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 6)),
                             { 0, 0, height }, { { 0, 29, height }, { 26, 1, 32 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 22, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 22, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -11311,7 +11234,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 11)),
                             { 0, 0, height }, { { 0, 6, height }, { 20, 20, 3 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 24, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 24, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -11319,7 +11243,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 16)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 16, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 16, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -11378,7 +11303,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 3)),
                             { 0, 0, height }, { { 2, 2, height + 50 }, { 28, 28, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -11386,7 +11312,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 8)),
                             { 0, 0, height }, { { 2, 2, height + 50 }, { 28, 28, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -11394,7 +11321,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 13)),
                             { 0, 0, height }, { { 2, 2, height + 50 }, { 24, 28, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -11402,7 +11330,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 18)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                 }
 
@@ -11491,7 +11420,8 @@ namespace HydraulicLaunchedRC
                         break;
                 }
 
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
 
                 if (direction == 0 || direction == 3)
                 {
@@ -11511,7 +11441,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 21)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 16, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 16, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -11519,7 +11450,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 26)),
                             { 0, 0, height }, { { 0, 6, height }, { 20, 20, 3 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 24, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 24, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -11527,7 +11459,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 31)),
                             { 0, 0, height }, { { 0, 29, height }, { 26, 1, 32 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 22, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 22, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -11535,7 +11468,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 36)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 34, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 34, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -11594,7 +11528,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 23)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -11602,7 +11537,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 28)),
                             { 0, 0, height }, { { 2, 2, height + 50 }, { 24, 28, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -11610,7 +11546,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 33)),
                             { 0, 0, height }, { { 2, 2, height + 50 }, { 28, 28, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -11618,7 +11555,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_CORKSCREW + 38)),
                             { 0, 0, height }, { { 2, 2, height + 50 }, { 28, 28, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 56, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 56,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetGeneralSupportHeight(session, height + 64, 0x20);
@@ -11720,7 +11658,8 @@ namespace HydraulicLaunchedRC
                         break;
                 }
 
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
 
                 if (direction == 0 || direction == 3)
                 {
@@ -11775,7 +11714,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 2)),
                             { 0, 0, height }, { { 0, 0, height + 2 }, { 32, 32, 0 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 14, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 14, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -11783,7 +11723,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 7)),
                             { 0, 0, height }, { { 29, 0, height }, { 1, 32, 96 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 16, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 16, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -11791,7 +11732,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 12)),
                             { 0, 0, height }, { { 31, 0, height }, { 1, 32, 96 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 18, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 18, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -11799,7 +11741,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 17)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 32, 0 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 14, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 14, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -11917,7 +11860,8 @@ namespace HydraulicLaunchedRC
                         break;
                 }
 
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 7, height, session.SupportColours);
 
                 if (direction == 0 || direction == 3)
                 {
@@ -11972,7 +11916,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 22)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 32, 0 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 14, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 14, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -11980,7 +11925,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 27)),
                             { 0, 0, height }, { { 30, 0, height }, { 0, 32, 96 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 18, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 18, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -11988,7 +11934,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 32)),
                             { 0, 0, height }, { { 29, 0, height }, { 0, 32, 96 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 16, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 16, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -11996,7 +11943,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MEDIUM_HALF_LOOP + 37)),
                             { 0, 0, height }, { { 0, 0, height + 2 }, { 32, 32, 0 } });
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 14, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 14, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -12105,32 +12053,32 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 0)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 0)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 1)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 1)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 4)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 4)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 5)),
-                            { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 5)), { 0, 0, height },
+                            { { 0, 31, height }, { 32, 1, 32 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 8)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 8)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                         break;
@@ -12158,20 +12106,20 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 2)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 2)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 1 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 6)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 6)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 9)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 9)), { 0, 0, height },
+                            { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -12193,14 +12141,14 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 3)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 3)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 1 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 7)),
-                            { 0, 0, height }, { { 0, 6, height + 28 }, { 32, 20, 1 } });
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_ZERO_G_ROLL + 7)), { 0, 0, height },
+                            { { 0, 6, height + 28 }, { 32, 20, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -12545,7 +12493,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 4)),
                             { 0, 0, height }, { { 0, 26, height }, { 26, 0, 20 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -12553,7 +12502,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 8)),
                             { 0, 0, height }, { { 0, 26, height }, { 26, 0, 20 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -12565,7 +12515,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 14)),
                             { 0, 0, height }, { { 0, 6, height + 40 }, { 32, 20, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -12573,7 +12524,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 19)),
                             { 0, 0, height }, { { 0, 18, height }, { 32, 10, 20 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                 }
                 switch (direction)
@@ -12728,7 +12680,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 24)),
                             { 0, 0, height }, { { 0, 18, height }, { 32, 10, 20 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -12740,7 +12693,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 30)),
                             { 0, 0, height }, { { 0, 6, height + 40 }, { 32, 20, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -12748,7 +12702,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 34)),
                             { 0, 0, height }, { { 0, 26, height }, { 26, 0, 20 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -12756,7 +12711,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_ZERO_G_ROLL + 39)),
                             { 0, 0, height }, { { 0, 26, height }, { 26, 0, 20 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                 }
                 switch (direction)
@@ -12941,7 +12897,8 @@ namespace HydraulicLaunchedRC
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -13040,7 +12997,8 @@ namespace HydraulicLaunchedRC
                             { 0, 6, height }, { 32, 20, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
@@ -13183,7 +13141,8 @@ namespace HydraulicLaunchedRC
                             { 6, 0, height }, { 20, 32, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -13282,7 +13241,8 @@ namespace HydraulicLaunchedRC
                             { 6, 0, height }, { 20, 32, 3 });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
                 switch (direction)
                 {
                     case 0:
@@ -13333,7 +13293,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -13426,7 +13387,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 3)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 28, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 28, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -13434,7 +13396,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 10)),
                             { 0, 0, height }, { { 0, 0, height + 200 }, { 32, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 28, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 28, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -13442,7 +13405,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 17)),
                             { 0, 0, height }, { { 0, 16, height + 200 }, { 32, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -13450,7 +13414,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 24)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 28, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 28, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -13603,7 +13568,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -13696,7 +13662,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 31)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 28, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 28, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -13704,7 +13671,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 38)),
                             { 0, 0, height }, { { 0, 16, height + 200 }, { 32, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 28, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height + 28,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -13712,7 +13680,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 45)),
                             { 0, 0, height }, { { 0, 0, height + 200 }, { 32, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 28, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 28, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -13720,7 +13689,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_LARGE_HALF_LOOP + 52)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 28, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 28, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -14003,7 +13973,8 @@ namespace HydraulicLaunchedRC
                         { 0, 0, height }, { { 0, 2, height }, { 32, 27, 4 } });
                     break;
             }
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 16, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 16, height, session.SupportColours);
         }
         else
         {
@@ -14042,7 +14013,8 @@ namespace HydraulicLaunchedRC
                         { 0, 0, height }, { { 0, 2, height }, { 32, 27, 4 } });
                     break;
             }
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 16, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 16, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -14085,8 +14057,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 15)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 15)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14098,8 +14069,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 15)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 15)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14116,8 +14086,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 12)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 12)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14129,8 +14098,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 12)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 12)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14147,8 +14115,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 14)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 14)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14160,8 +14127,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 14)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 14)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14177,24 +14143,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 7, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 13)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 13)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 7, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 7, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 7, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14204,24 +14173,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 7, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 13)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 13)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 7, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 7, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 7, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 7, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14246,8 +14218,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 19)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 19)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14259,8 +14230,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 19)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 19)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14277,8 +14247,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 16)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 16)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14290,8 +14259,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 16)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 16)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14308,8 +14276,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 18)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 18)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14321,8 +14288,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 18)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 18)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14338,24 +14304,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 20, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 17)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 17)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 20, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 20, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 20, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14365,24 +14334,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 20, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 17)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 17)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 20, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 20, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 20, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 20, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14407,8 +14379,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 17)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 17)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14420,8 +14391,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 17)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 17)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14438,8 +14408,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 18)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 18)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14451,8 +14420,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 18)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 18)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14469,8 +14437,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 16)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 16)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14482,8 +14449,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 16)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 16)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14499,24 +14465,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 19)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 19)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14526,24 +14495,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 19)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 19)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 16, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 16, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14568,8 +14540,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 13)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 13)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14581,8 +14552,7 @@ namespace HydraulicLaunchedRC
                         case 3:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 13)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 13)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14599,8 +14569,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 14)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 14)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14612,8 +14581,7 @@ namespace HydraulicLaunchedRC
                         case 0:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 14)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 14)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14630,8 +14598,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 12)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 12)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14643,8 +14610,7 @@ namespace HydraulicLaunchedRC
                         case 2:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 12)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 12)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             break;
                     }
@@ -14660,24 +14626,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 5, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 15)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_LIFT_TRACK_SMALL_FLAT_TO_STEEP + 15)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 5, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 5, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 5, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14687,24 +14656,27 @@ namespace HydraulicLaunchedRC
                     {
                         case 0:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 5, height,
+                                session.SupportColours);
                             break;
                         case 1:
                             PaintAddImageAsParentRotated(
                                 session, direction,
-                                session.TrackColours.WithIndex(
-                                    (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 15)),
+                                session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_SMALL_FLAT_TO_STEEP + 15)),
                                 { -16, -16, height }, { { -16, -16, height }, { 32, 32, 4 } });
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 5, height,
+                                session.SupportColours);
                             break;
                         case 2:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 5, height,
+                                session.SupportColours);
                             break;
                         case 3:
                             MetalBSupportsPaintSetup(
-                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 5, height, session.SupportColours);
+                                session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 5, height,
+                                session.SupportColours);
                             break;
                     }
                 }
@@ -14765,7 +14737,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -14856,7 +14829,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 3)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -14880,7 +14854,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 15)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -14927,7 +14902,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -15034,7 +15010,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 27)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 18, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -15042,7 +15019,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 31)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15070,7 +15048,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 32)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -15078,7 +15057,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 36)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 18, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -15205,7 +15185,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
 
                 if (direction == 1 || direction == 2)
                 {
@@ -15234,7 +15215,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 48)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -15242,7 +15224,8 @@ namespace HydraulicLaunchedRC
                             session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE + 52)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -15369,7 +15352,8 @@ namespace HydraulicLaunchedRC
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 1)
                 {
                     PaintUtilPushTunnelRotated(session, direction + 1, height + 8, TUNNEL_2);
@@ -15427,8 +15411,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 4)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 4)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15442,13 +15425,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 0)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 0)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 1)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 1)),
                             { -16, -16, height }, { { -16, -16, height + 48 }, { 32, 32, 0 } });
                         break;
                 }
@@ -15462,8 +15443,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 3)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 3)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15481,19 +15461,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 2)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 2)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15515,8 +15496,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 9)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 9)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15530,8 +15510,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 5)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 5)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15545,13 +15524,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 7)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 7)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 8)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 8)),
                             { -16, -16, height }, { { -16, -16, height + 48 }, { 32, 32, 0 } });
                         break;
                 }
@@ -15569,19 +15546,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 6)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 6)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15603,8 +15581,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 14)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 14)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15618,13 +15595,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 10)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 10)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 11)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 11)),
                             { -16, -16, height }, { { -16, -16, height + 48 }, { 32, 32, 0 } });
                         break;
                 }
@@ -15638,8 +15613,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 13)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 13)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15657,19 +15631,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 12)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 12)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15691,8 +15666,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 19)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 19)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15706,8 +15680,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 15)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 15)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15721,13 +15694,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 17)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 17)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 18)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 18)),
                             { -16, -16, height }, { { -16, -16, height + 48 }, { 32, 32, 0 } });
                         break;
                 }
@@ -15745,19 +15716,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 16)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 16)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 9, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 9, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 9, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15807,8 +15779,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 23)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 23)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15822,8 +15793,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 20)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 20)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -15837,8 +15807,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 22)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 22)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15856,19 +15825,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 21)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 21)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15890,8 +15860,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 27)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 27)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15905,8 +15874,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 24)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 24)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15920,8 +15888,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 26)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 26)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -15939,19 +15906,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 25)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 25)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -15973,8 +15941,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 31)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 31)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -15988,8 +15955,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 28)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 28)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16003,8 +15969,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 30)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 30)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16022,19 +15987,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 29)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 29)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16056,8 +16022,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 35)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 35)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16071,8 +16036,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 32)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 32)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16086,8 +16050,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 34)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 34)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16105,19 +16068,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 33)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 33)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16167,8 +16131,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 39)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 39)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16182,8 +16145,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 36)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 36)),
                             { -16, -16, height }, { { -16, -16, height + 48 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16197,8 +16159,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 38)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 38)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16211,24 +16172,26 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 11, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 11, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 37)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 37)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 11, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 11, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 11, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 11, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 11, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16250,8 +16213,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 43)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 43)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16265,8 +16227,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 40)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 40)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16280,8 +16241,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 42)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 42)),
                             { -16, -16, height }, { { -16, -16, height + 48 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16294,24 +16254,26 @@ namespace HydraulicLaunchedRC
                 {
                     case 0:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 11, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 11, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 41)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 41)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 11, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 11, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 11, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 11, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 11, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16347,8 +16309,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 48)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 48)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16362,13 +16323,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 44)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 44)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 45)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 45)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16382,8 +16341,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 47)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 47)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16401,19 +16359,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 46)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 46)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16435,8 +16394,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 53)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 53)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16450,8 +16408,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 49)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 49)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16465,13 +16422,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 51)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 51)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 52)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 52)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16489,19 +16444,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 50)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 50)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 4, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 4, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 4, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16523,8 +16479,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 58)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 58)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16538,13 +16493,11 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 54)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 54)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 55)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 55)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16558,8 +16511,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 57)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 57)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16577,19 +16529,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 56)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 56)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16611,8 +16564,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 63)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 63)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16626,8 +16578,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 59)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 59)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -16641,13 +16592,11 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 61)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 61)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 62)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 62)),
                             { -16, -16, height }, { { -16, -16, height + 27 }, { 32, 32, 0 } });
                         break;
                 }
@@ -16665,19 +16614,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 60)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 60)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 6, height, session.SupportColours);
                         break;
                     case 2:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 6, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 6, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16727,33 +16677,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 64)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 64)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 68)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 68)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 72)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 72)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 76)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 76)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -16768,29 +16715,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 65)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 65)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 69)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 69)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 73)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 73)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 77)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 77)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                 }
@@ -16807,29 +16750,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 66)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 66)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 70)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 70)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 40, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 74)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 74)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 78)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 78)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         break;
                 }
@@ -16849,17 +16788,16 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 67)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 67)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 71)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 71)),
                             { 0, 0, height }, { { 0, 0, height + 48 }, { 32, 32, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
@@ -16867,8 +16805,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 75)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 75)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
@@ -16876,11 +16813,11 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 79)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 79)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -16905,33 +16842,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 80)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 80)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 84)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 84)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 88)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 88)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 92)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 92)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TUNNEL_1);
@@ -16946,29 +16880,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 81)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 81)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 85)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 85)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 89)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 89)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 93)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 93)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
                         break;
                 }
@@ -16985,29 +16915,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 82)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 82)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 86)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 86)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 90)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 90)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 40, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 94)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 94)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                 }
@@ -17027,8 +16953,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 83)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 83)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
@@ -17036,8 +16961,7 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 87)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 87)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
@@ -17045,20 +16969,20 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 91)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 91)),
                             { 0, 0, height }, { { 0, 0, height + 48 }, { 32, 32, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 95)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 95)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -17083,26 +17007,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 96)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 96)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 100)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 100)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 104)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 104)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
@@ -17110,8 +17033,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 108)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 108)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
@@ -17130,29 +17052,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 97)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 97)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 101)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 101)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 105)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 105)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 109)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 109)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
                         break;
                 }
@@ -17172,29 +17090,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 98)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 98)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 102)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 102)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 106)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 106)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 110)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 110)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
                         break;
                 }
@@ -17211,33 +17125,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 99)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 99)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 103)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 103)),
                             { 0, 0, height }, { { 0, 31, height }, { 32, 1, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 107)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 107)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 111)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 111)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 1 || direction == 2)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height + 8, TUNNEL_2);
@@ -17261,26 +17172,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 112)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 112)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 116)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 116)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 120)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 120)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
@@ -17288,8 +17198,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 124)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 124)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
@@ -17308,29 +17217,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 113)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 113)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 117)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 117)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 121)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 121)),
                             { 0, 0, height }, { { 0, 0, height + 32 }, { 32, 32, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 125)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 125)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
                         break;
                 }
@@ -17350,29 +17255,25 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 114)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 114)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 118)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 118)),
                             { 0, 0, height }, { { 31, 0, height }, { 1, 32, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 122)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 122)),
                             { 0, 0, height }, { { 31, 0, height }, { 1, 32, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 126)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 126)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 32, 3 } });
                         break;
                 }
@@ -17389,33 +17290,30 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 115)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 115)),
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 119)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 119)),
                             { 0, 0, height }, { { 31, 0, height }, { 1, 32, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 123)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 123)),
                             { 0, 0, height }, { { 31, 0, height }, { 1, 32, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 127)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_GENTLE_LARGE_CURVE_BANKED + 127)),
                             { 0, 0, height }, { { 6, 0, height }, { 20, 32, 3 } });
                         break;
                 }
-                MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                MetalASupportsPaintSetup(
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
                 if (direction == 0 || direction == 1)
                 {
                     PaintUtilPushTunnelRotated(session, direction + 1, height + 8, TUNNEL_2);
@@ -17469,8 +17367,7 @@ namespace HydraulicLaunchedRC
         int spriteIndex = sprites[trackElement.GetCableLaunchFinState()];
         PaintAddImageAsParentRotated(
             session, direction,
-            session.TrackColours.WithIndex(
-                SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + (direction & 1) + 2 * spriteIndex),
+            session.TrackColours.WithIndex(SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + (direction & 1) + 2 * spriteIndex),
             { 0, 0, height }, { { 0, 6, height + 3 }, { 32, 20, 1 } });
         PaintAddImageAsParentRotated(
             session, direction,
@@ -17479,7 +17376,8 @@ namespace HydraulicLaunchedRC
             { 0, 0, height }, { { 0, 21, height + 5 }, { 32, 1, 2 } });
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
@@ -17496,21 +17394,20 @@ namespace HydraulicLaunchedRC
             case 0:
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 0)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 0)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 1:
             case 3:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 1)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE + 1)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TUNNEL_0);
         PaintUtilSetSegmentSupportHeight(
@@ -17538,8 +17435,7 @@ namespace HydraulicLaunchedRC
                 break;
             case 2:
                 PaintAddImageAsParentRotated(
-                    session, direction,
-                    session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_GENTLE)),
+                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_GENTLE)),
                     { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
                 break;
             case 3:
@@ -17551,7 +17447,8 @@ namespace HydraulicLaunchedRC
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -17578,8 +17475,7 @@ namespace HydraulicLaunchedRC
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 1)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 1)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -17593,8 +17489,7 @@ namespace HydraulicLaunchedRC
                     case 0:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 2)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 2)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -17608,8 +17503,7 @@ namespace HydraulicLaunchedRC
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         break;
                 }
@@ -17627,19 +17521,20 @@ namespace HydraulicLaunchedRC
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
-                            session.TrackColours.WithIndex(
-                                (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 3)),
+                            session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_MAGNETIC_BRAKE_DIAGONAL + 3)),
                             { -16, -16, height }, { { -16, -16, height }, { 32, 32, 3 } });
                         MetalBSupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
                         break;
                     case 2:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session.SupportColours);
                         break;
                     case 3:
                         MetalBSupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session.SupportColours);
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
