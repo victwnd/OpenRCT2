@@ -3435,12 +3435,6 @@ private:
         ft.Add<uint16_t>(static_cast<uint16_t>(ride->operation_option) * multiplier);
         switch (ride->mode)
         {
-            case RideMode::ContinuousCircuit:
-                [[fallthrough]] case RideMode::ContinuousCircuitBlockSectioned :
-                    // If the ride type supports cable launches, then show the powered launch speed setting when in continuous
-                    // circuit mode
-                    if (!ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_CABLE_LAUNCH)) break;
-                [[fallthrough]];
             case RideMode::PoweredLaunchPasstrough:
             case RideMode::PoweredLaunch:
             case RideMode::UpwardLaunch:
@@ -3485,6 +3479,21 @@ private:
                 caption = STR_NUMBER_OF_ROTATIONS;
                 tooltip = STR_NUMBER_OF_ROTATIONS_TIP;
                 break;
+            case RideMode::ContinuousCircuit:
+            case RideMode::ContinuousCircuitBlockSectioned:
+                // If the ride type supports cable launches, then show the powered launch speed setting when in continuous
+                // circuit mode
+                if (ride->GetRideTypeDescriptor().SupportsTrackPiece(TRACK_CABLE_LAUNCH))
+                {
+                    ft.Rewind();
+                    ft.Increment(18);
+                    ft.Add<uint16_t>((ride->launch_speed * 9) / 4);
+                    format = STR_RIDE_MODE_SPEED_VALUE;
+                    caption = STR_LAUNCH_SPEED;
+                    tooltip = STR_LAUNCH_SPEED_TIP;
+                    break;
+                }
+                [[fallthrough]];
             default:
                 format = STR_MAX_PEOPLE_ON_RIDE_VALUE;
                 caption = STR_MAX_PEOPLE_ON_RIDE;
