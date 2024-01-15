@@ -107,7 +107,7 @@ void Vehicle::CableLaunchUpdate()
             break;
             //    case Vehicle::Status::PreparingForCableLaunch:
             //        CableLaunchUpdatePreparingForCableLaunch();
-            break;
+            // break;
         default:
             break;
     }
