@@ -79,6 +79,7 @@ constexpr RideTypeDescriptor GhostTrainRTD =
             { RatingsModifierType::RequirementLength,     0xB40000,         2, 2, 2 },
         },
     }),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(UpdateRotating, UpdateRotatingDefault),
     SET_FIELD(LightFXAddLightsMagicVehicle, LightFxAddLightsMagicVehicle_MineTrainCoaster),
     SET_FIELD(StartRideMusic, OpenRCT2::RideAudio::DefaultStartRideMusicChannel),

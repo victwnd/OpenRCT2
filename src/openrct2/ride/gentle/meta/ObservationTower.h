@@ -67,6 +67,7 @@ constexpr RideTypeDescriptor ObservationTowerRTD =
             { RatingsModifierType::RequirementUnsheltered, 5, 4, 1, 1 },
         },
     }),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(UpdateRotating, UpdateRotatingDefault),
     SET_FIELD(LightFXAddLightsMagicVehicle, LightFxAddLightsMagicVehicle_ObservationTower),
 };

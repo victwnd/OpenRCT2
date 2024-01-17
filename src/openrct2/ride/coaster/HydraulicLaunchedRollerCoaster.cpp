@@ -18611,7 +18611,6 @@ namespace HydraulicLaunchedRC
             default:
                 return GetTrackPaintFunctionGigaRC(trackType);
         }
-        return nullptr;
     }
 
     static void TrackAlt2Brakes(
@@ -19020,7 +19019,6 @@ namespace HydraulicLaunchedRC
             default:
                 return GetTrackPaintFunctionMiniRC(trackType);
         }
-        return nullptr;
     }
 
 } // namespace HydraulicLaunchedRC

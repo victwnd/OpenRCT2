@@ -61,6 +61,7 @@ constexpr RideTypeDescriptor EnterpriseRTD =
             { RatingsModifierType::BonusScenery,         0, 19521, 0, 0 },
         },
     }),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(UpdateRotating, UpdateRotatingEnterprise),
     SET_FIELD(LightFXAddLightsMagicVehicle, nullptr),
     SET_FIELD(StartRideMusic, OpenRCT2::RideAudio::DefaultStartRideMusicChannel),

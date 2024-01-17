@@ -389,6 +389,7 @@
     <ClInclude Include="rct2\T6Exporter.h" />
     <ClInclude Include="ReplayManager.h" />
     <ClInclude Include="ride\CableLift.h" />
+    <ClInclude Include="ride\CableLaunch.h" />
     <ClInclude Include="ride\coaster\BolligerMabillardTrack.hpp" />
     <ClInclude Include="ride\coaster\meta\AirPoweredVerticalCoaster.h" />
     <ClInclude Include="ride\coaster\meta\AlpineCoaster.h" />
@@ -893,6 +894,7 @@
     <ClCompile Include="rct2\T6Importer.cpp" />
     <ClCompile Include="ReplayManager.cpp" />
     <ClCompile Include="ride\CableLift.cpp" />
+    <ClCompile Include="ride\CableLaunch.cpp" />
     <ClCompile Include="ride\CarEntry.cpp" />
     <ClCompile Include="ride\coaster\AirPoweredVerticalCoaster.cpp" />
     <ClCompile Include="ride\coaster\AlpineCoaster.cpp" />
@@ -904,7 +906,7 @@
     <ClCompile Include="ride\coaster\GigaCoaster.cpp" />
     <ClCompile Include="ride\coaster\HeartlineTwisterCoaster.cpp" />
     <ClCompile Include="ride\coaster\HybridCoaster.cpp" />
-    <ClInclude Include="ride\coaster\HydraulicLaunchedRollerCoaster.cpp" />
+    <ClCompile Include="ride\coaster\HydraulicLaunchedRollerCoaster.cpp" />
     <ClCompile Include="ride\coaster\InvertedHairpinCoaster.cpp" />
     <ClCompile Include="ride\coaster\InvertedImpulseCoaster.cpp" />
     <ClCompile Include="ride\coaster\InvertedRollerCoaster.cpp" />

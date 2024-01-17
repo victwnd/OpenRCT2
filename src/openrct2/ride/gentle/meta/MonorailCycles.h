@@ -76,6 +76,7 @@ constexpr RideTypeDescriptor MonorailCyclesRTD =
             { RatingsModifierType::RequirementLength,     0x8C0000,         2, 2, 2 },
         },
     }),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(UpdateRotating, UpdateRotatingDefault),
     SET_FIELD(LightFXAddLightsMagicVehicle, LightFxAddLightsMagicVehicle_BoatHire),
 };

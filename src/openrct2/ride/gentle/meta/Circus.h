@@ -59,6 +59,7 @@ constexpr RideTypeDescriptor CircusRTD =
         false,
         { { RatingsModifierType::NoModifier, 0, 0, 0, 0 } }
     }),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(UpdateRotating, UpdateRotatingDefault),
     SET_FIELD(LightFXAddLightsMagicVehicle, nullptr),
     SET_FIELD(StartRideMusic, OpenRCT2::RideAudio::CircusStartRideMusicChannel),

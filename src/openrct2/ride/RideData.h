@@ -339,13 +339,13 @@ struct RideTypeDescriptor
     TrackColourPresetList ColourPresets;
     RideColourPreview ColourPreview;
     RideColourKey ColourKey;
-    RideAlternateTrackList AlternateTrackList = { 0, { { 0, 0 }, { 0, 0 }, { 0, 0 } } };
 
     // json name lookup
     std::string_view Name;
 
     RideRatingsDescriptor RatingsData;
 
+    RideAlternateTrackList AlternateTrackList = { 0, { { 0, 0 }, { 0, 0 }, { 0, 0 } } };
     UpdateRotatingFunction UpdateRotating = UpdateRotatingDefault;
 
     LightFXAddLightsMagicVehicleFunction LightFXAddLightsMagicVehicle = nullptr;
@@ -567,7 +567,6 @@ constexpr RideTypeDescriptor DummyRTD =
     SET_FIELD(ColourPresets, DEFAULT_FLAT_RIDE_COLOUR_PRESET),
     SET_FIELD(ColourPreview, { static_cast<uint32_t>(SPR_NONE), static_cast<uint32_t>(SPR_NONE) }),
     SET_FIELD(ColourKey, RideColourKey::Ride),
-    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(Name, "invalid"),
 	SET_FIELD(RatingsData,
     {
@@ -580,6 +579,7 @@ constexpr RideTypeDescriptor DummyRTD =
             { RatingsModifierType::NoModifier, 0, 0, 0, 0 },
         },
     }),
+    SET_FIELD(AlternateTrackList, {0,{{0,static_cast<uint32_t>(SPR_NONE)}}}),
     SET_FIELD(UpdateRotating, UpdateRotatingDefault),
     SET_FIELD(LightFXAddLightsMagicVehicle, nullptr),
     SET_FIELD(StartRideMusic, OpenRCT2::RideAudio::DefaultStartRideMusicChannel),
