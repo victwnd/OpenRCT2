@@ -7746,7 +7746,12 @@ Loc6DAEB9:
         trackType == TrackElemType::MagneticBrakeFlat || trackType == TrackElemType::MagneticBrakeDown25
         || trackType == TrackElemType::MagneticBrakeDiagDown25)
     {
-        acceleration = -(_vehicleVelocityF64E08 * 5) >> 1;
+        if (_vehicleVelocityF64E08 < 550000)
+            acceleration -= 3 * _vehicleVelocityF64E08 / 2;
+        else
+        {
+            acceleration -= 825000;
+        }
     }
     else if (rideEntry.flags & RIDE_ENTRY_FLAG_RIDER_CONTROLS_SPEED && num_peeps > 0)
     {
