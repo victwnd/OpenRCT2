@@ -87,13 +87,13 @@ namespace HydraulicLaunchedRC
         const TrackElement& trackElement)
     {
         static constexpr uint32_t imageIds[4][3] = {
-            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BRAKE + 0), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0),
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0),
               SPR_STATION_BASE_B_SW_NE },
-            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BRAKE + 1), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1),
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1),
               SPR_STATION_BASE_B_NW_SE },
-            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BRAKE + 0), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0),
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0),
               SPR_STATION_BASE_B_SW_NE },
-            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BRAKE + 1), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1),
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1),
               SPR_STATION_BASE_B_NW_SE },
         };
 
@@ -11813,24 +11813,34 @@ namespace HydraulicLaunchedRC
         PaintSession& session, const Ride& ride, uint8_t trackSequence, uint8_t direction, int32_t height,
         const TrackElement& trackElement)
     {
-        switch (direction)
+        static constexpr uint32_t imageIds[4][4] = {
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + 0) },
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + 1) },
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + 0) },
+            { (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1), (SPR_G2_HYDRAULIC_LAUNCHED_TRACK_CABLE_LAUNCH + 1) }
+        };
+
+        if (trackElement.HasCableLift())
         {
-            case 0:
-            case 2:
-                PaintAddImageAsParentRotated(
-                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 0)),
-                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
-                break;
-            case 1:
-            case 3:
-                PaintAddImageAsParentRotated(
-                    session, direction, session.TrackColours.WithIndex((SPR_G2_HYDRAULIC_LAUNCHED_TRACK_BLOCK_BRAKE + 1)),
-                    { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
-                break;
+            int sprites[9] = { 3, 3, 3, 2, 1, 0, 0, 1, 2 };
+            int spriteIndex = sprites[trackElement.GetCableLaunchFinState()];
+            PaintAddImageAsParentRotated(
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex), { 0, 0, height },
+                { { 0, 6, height + 3 }, { 32, 20, 1 } });
+            PaintAddImageAsParentRotated(
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][1] + 2 * spriteIndex + 8),
+                { 0, 0, height }, { { 0, 21, height + 5 }, { 32, 1, 2 } });
+        }
+        else
+        {
+            PaintAddImageAsParentRotated(
+                session, direction, session.TrackColours.WithIndex(imageIds[direction][0]), { 0, 0, height },
+                { { 0, 6, height + 3 }, { 32, 20, 1 } });
         }
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
-            MetalASupportsPaintSetup(session, kSupportType, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+            MetalASupportsPaintSetup(
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
         }
         PaintUtilPushTunnelRotated(session, direction, height, TunnelType::StandardFlat);
         PaintUtilSetSegmentSupportHeight(
