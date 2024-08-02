@@ -12869,21 +12869,33 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 32)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 33),
+                            { 0, 0, height }, { { 8, 27, height }, { 24, 1, 48 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 40)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 41),
+                            { 0, 0, height }, { { 0, 31, height }, { 32, 1, 40 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 48)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 49),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 56)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 57),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 32 } });
                         break;
                 }
                 MetalASupportsPaintSetup(
@@ -12903,21 +12915,33 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 34)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 35),
+                            { 0, 0, height }, { { 0, 16, height +48 }, { 32, 16, 1 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 42)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 43),
+                            { 0, 0, height }, { { 0, 16, height +48}, { 32, 16, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 50)),
                             { 0, 0, height }, { { 0, 0, height }, { 34, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 51),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 58)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 59),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 32 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -12937,21 +12961,33 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 36)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 37)),
+                            { 0, 0, height }, { { 0, 0, height + 48 }, { 16, 16, 1 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 44)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 45)),
+                            { 0, 0, height }, { { 16, 0, height + 48 }, { 16, 16, 1 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 52)),
-                            { 0, 0, height }, { { 4, 4, height }, { 28, 28, 3 } });
+                            { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 53)),
+                            { 0, 0, height }, { { 16, 16, height  +48 }, { 16, 16, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 60)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 61)),
+                            { 0, 0, height }, { { 0, 16, height + 48}, { 16, 16, 1 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -12982,6 +13018,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 38)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 39),
+                            { 0, 0, height }, { { 16, 0, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
                         break;
@@ -12989,6 +13028,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 46)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 47),
+                            { 0, 0, height }, { { 0, 0, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
                         break;
@@ -12996,6 +13038,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 54)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 18, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 55),
+                            { 0, 0, height }, { { 0, 16, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
                             session.SupportColours);
@@ -13004,6 +13049,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 62)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 63),
+                            { 0, 0, height }, { { 16, 16, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
                             session.SupportColours);
@@ -13035,6 +13083,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 64)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 65)),
+                            { 0, 0, height }, { { 0, 16, height + 48}, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
                             session.SupportColours);
@@ -13043,6 +13094,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 72)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 18, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 73)),
+                            { 0, 0, height }, { { 16, 16, height +48 }, { 16, 18, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
                             session.SupportColours);
@@ -13051,6 +13105,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 80)),
                             { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 81)),
+                            { 0, 0, height }, { { 16, 0, height +56 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
                         break;
@@ -13058,6 +13115,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 88)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 89)),
+                            { 0, 0, height }, { { 0, 0, height + 48 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
                         break;
@@ -13079,21 +13139,33 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 66)),
                             { 0, 0, height }, { { 16, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 67)),
+                            { 0, 0, height }, { { 16, 16, height +48}, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 74)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 75)),
+                            { 0, 0, height }, { { 0, 16, height +48 }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 82)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 83)),
+                            { 0, 0, height }, { { 0, 0, height +48}, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 90)),
-                            { 0, 0, height }, { { 16, 0, height }, { 16, 16, 3 } });
+                            { 0, 0, height }, { { 16, 0, height}, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 91)),
+                            { 0, 0, height }, { { 16, 0, height +48 }, { 16, 16, 3 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -13124,21 +13196,33 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 68)),
                             { 0, 0, height }, { { 0, 0, height }, { 32, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 69)),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 32 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 76)),
                             { 0, 0, height }, { { 0, 0, height }, { 34, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 77)),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 84)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 85)),
+                            { 0, 0, height }, { { 0, 16, height +56 }, { 32, 16, 1 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 92)),
                             { 0, 0, height }, { { 0, 16, height }, { 32, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 93)),
+                            { 0, 0, height }, { { 0, 16, height + 40}, { 32, 16, 1 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -13158,21 +13242,33 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 70)),
                             { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 71)),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 40 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 78)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            { 0, 0, height }, { { -8, 6, height }, { 40, 20, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 79)),
+                            { 0, 0, height }, { { 0, 27, height }, { 32, 1, 40 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 86)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3} });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 87)),
+                            { 0, 0, height }, { { 16, 27, height }, { 16, 1, 40 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 94)),
-                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3 } });
+                            { 0, 0, height }, { { 0, 6, height }, { 32, 20, 3} });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 95)),
+                            { 0, 0, height }, { { 0, 6, height + 40}, { 32, 20, 1 } });
                         break;
                 }
                 MetalASupportsPaintSetup(
@@ -13203,6 +13299,9 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 96)),
                             { 0, 0, height }, { { 0, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 97)),
+                            { 0, 0, height }, { { 0, 16, height + 56 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
                             session.SupportColours);
@@ -13211,7 +13310,10 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 104)), { 0, 0, height },
-                            { { 16, 16, height }, { 16, 16, 3 } });
+                            { { 16, 16, height }, { 18, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 105)),
+                            { 0, 0, height }, { { 16, 16, height +48 }, { 18, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
                             session.SupportColours);
@@ -13220,7 +13322,10 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 112)), { 0, 0, height },
-                            { { 16, 0, height }, { 16, 18, 3 } });
+                            { { 16, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 113)),
+                            { 0, 0, height }, { { 16, 0, height + 48}, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
                         break;
@@ -13229,6 +13334,9 @@ namespace PipelineRC
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 120)), { 0, 0, height },
                             { { 0, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 121)),
+                            { 0, 0, height }, { { 16, 16, height +48 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
                             session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
                         break;
@@ -13250,24 +13358,39 @@ namespace PipelineRC
                         PaintAddImageAsParentRotated(
                             session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 98)),
                             { 0, 0, height }, { { 0, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 99)),
+                            { 0, 0, height }, { { 0, 0, height +48 }, { 16, 16, 3 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 106)), { 0, 0, height },
                             { { 16, 0, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 107)), { 0, 0, height },
+                            { { 16, 0, height +48 }, { 16, 16, 3 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 114)), { 0, 0, height },
                             { { 16, 16, height }, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 115)), { 0, 0, height },
+                            { { 16, 16, height +48}, { 16, 16, 3 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 122)), { 0, 0, height },
-                            { { 0, 16, height }, { 16, 16, 3 } });
+                            { { 0, 16, height +48}, { 16, 16, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction,
+                            session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 123)), { 0, 0, height },
+                            { { 0, 16, height +48}, { 16, 16, 3 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -13299,24 +13422,36 @@ namespace PipelineRC
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 100)), { 0, 0, height },
                             { { 16, 0, height }, { 16, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 101)),
+                            { 0, 0, height }, { { 16, 0, height + 56}, { 16, 32, 1 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 108)), { 0, 0, height },
                             { { 0, 0, height }, { 16, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 109)),
+                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 32 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 116)), { 0, 0, height },
                             { { 0, 0, height }, { 16, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 117)),
+                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 32 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 124)), { 0, 0, height },
                             { { 16, 0, height }, { 16, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 125)),
+                            { 0, 0, height }, { { 16, 0, height +40 }, { 16, 32, 1 } });
                         break;
                 }
                 PaintUtilSetSegmentSupportHeight(
@@ -13337,24 +13472,36 @@ namespace PipelineRC
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 102)), { 0, 0, height },
                             { { 6, 0, height }, { 20, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 103)),
+                            { 0, 0, height }, { { 27, 16, height }, { 1, 16, 40 } });
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 110)), { 0, 0, height },
                             { { 6, 0, height }, { 20, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 111)),
+                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 40 } });
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 118)), { 0, 0, height },
                             { { 6, 0, height }, { 20, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 119)),
+                            { 0, 0, height }, { { 27, 0, height }, { 1, 32, 40 } });
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
                             session, direction,
                             session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 126)), { 0, 0, height },
                             { { 6, 0, height }, { 20, 32, 3 } });
+                        PaintAddImageAsParentRotated(
+                            session, direction, session.TrackColours.WithIndex((SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 127)),
+                            { 0, 0, height }, { { 6, 0, height + 40}, { 20, 30, 1 } });
                         break;
                 }
                 MetalASupportsPaintSetup(
