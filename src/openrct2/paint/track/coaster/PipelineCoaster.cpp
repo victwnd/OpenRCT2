@@ -74,7 +74,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
             }
         }
         else
@@ -103,7 +103,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
             }
         }
         PaintUtilPushTunnelRotated(session, direction, height, TunnelType::SquareFlat);
@@ -148,7 +148,7 @@ namespace PipelineRC
             session, direction, GetStationColourScheme(session, trackElement).WithIndex(imageIds[direction][2]),
             { 0, 0, height }, { { 0, 2, height }, { 32, 28, 2 } });
         DrawSupportsSideBySide(session, direction, height, session.SupportColours, MetalSupportType::Tubes);
-        TrackPaintUtilDrawNarrowStationPlatform(session, ride, direction, height, 15, trackElement);
+        TrackPaintUtilDrawNarrowStationPlatform(session, ride, direction, height, 13, trackElement);
         PaintUtilPushTunnelRotated(session, direction, height, TunnelType::SquareFlat);
         PaintUtilSetSegmentSupportHeight(session, kSegmentsAll, 0xFFFF, 0);
         PaintUtilSetGeneralSupportHeight(session, height + 32);
@@ -198,7 +198,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
             }
         }
         else
@@ -241,7 +241,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
             }
         }
         if (direction == 0 || direction == 3)
@@ -302,7 +302,7 @@ namespace PipelineRC
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
             MetalASupportsPaintSetup(
-                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 32, height, session.SupportColours);
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 15, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -364,7 +364,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
             }
         }
         else
@@ -407,7 +407,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 3, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
             }
         }
         if (direction == 0 || direction == 3)
@@ -468,7 +468,7 @@ namespace PipelineRC
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
             MetalASupportsPaintSetup(
-                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 12, height, session.SupportColours);
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 4, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -528,7 +528,7 @@ namespace PipelineRC
         if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
         {
             MetalASupportsPaintSetup(
-                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 20, height, session.SupportColours);
+                session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 10, height, session.SupportColours);
         }
         if (direction == 0 || direction == 3)
         {
@@ -590,7 +590,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
             }
         }
         else
@@ -633,7 +633,7 @@ namespace PipelineRC
             if (TrackPaintUtilShouldPaintSupports(session.MapPosition))
             {
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 6, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 2, height, session.SupportColours);
             }
         }
         if (direction == 0 || direction == 3)
@@ -737,7 +737,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height - 4, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::SquareFlat);
@@ -838,7 +838,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -912,7 +912,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::StandardFlat);
@@ -1108,7 +1108,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -1182,7 +1182,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::SquareFlat);
@@ -1309,7 +1309,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 7),
                             { 0, 0, height }, { { 16, 16, height + 27 }, { 16, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height-4,
                             session.SupportColours);
                         break;
                     case 1:
@@ -1320,7 +1320,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 15),
                             { 0, 0, height }, { { 0, 16, height + 27 }, { 16, 18, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height-4, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -1330,7 +1330,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 23),
                             { 0, 0, height }, { { 0, 6, height + 27 }, { 16, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height-4, session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -1340,7 +1340,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 31),
                             { 0, 0, height }, { { 16, 0, height + 27 }, { 16, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height-4,
                             session.SupportColours);
                         break;
                 }
@@ -1400,7 +1400,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::SquareFlat);
@@ -1527,7 +1527,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 39),
                             { 0, 0, height }, { { 16, 0, height + 27 }, { 16, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 0, height-4, session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -1537,7 +1537,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 47),
                             { 0, 0, height }, { { 0, 0, height + 27 }, { 16, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 0, height-4, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -1547,7 +1547,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 55),
                             { 0, 0, height }, { { 0, 16, height + 27 }, { 16, 18, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 0, height-4,
                             session.SupportColours);
                         break;
                     case 3:
@@ -1558,7 +1558,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_LARGE_CURVE + 63),
                             { 0, 0, height }, { { 16, 16, height + 27 }, { 16, 16, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 0, height-4,
                             session.SupportColours);
                         break;
                 }
@@ -6893,7 +6893,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TunnelType::SquareSlopeStart);
@@ -6951,7 +6951,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 4, height, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -7017,7 +7017,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TunnelType::SquareSlopeStart);
@@ -7049,7 +7049,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_SMALL_CURVE + 19),
                             { 6, 0, height }, { { 27, 16, height }, { 1, 16, 32 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 4, height, session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -7059,7 +7059,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_SMALL_CURVE + 23),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 32 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 4, height, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -7069,7 +7069,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_SMALL_CURVE + 27),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 32 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 10, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 4, height, session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -7079,7 +7079,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_SMALL_CURVE + 31),
                             { 6, 0, height }, { { 27, 0, height }, { 1, 32, 32 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 4, height, session.SupportColours);
                         break;
                 }
                 switch (direction)
@@ -11487,7 +11487,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::StandardFlat);
@@ -11513,7 +11513,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 3),
                             { 0, 0, height }, { { 0, 0, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height-4,
                             session.SupportColours);
                         break;
                     case 1:
@@ -11524,7 +11524,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 11),
                             { 0, 0, height }, { { 0, 0, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 1, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height-4,
                             session.SupportColours);
                         break;
                     case 2:
@@ -11581,7 +11581,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 3),
                             { 0, 0, height }, { { 0, 0, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopLeftSide, 0, height-4,
                             session.SupportColours);
                         break;
                     case 3:
@@ -11592,7 +11592,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 11),
                             { 0, 0, height }, { { 0, 0, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 1, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopRightSide, 0, height-4,
                             session.SupportColours);
                         break;
                 }
@@ -11643,7 +11643,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 switch (direction)
                 {
                     case 1:
@@ -11709,7 +11709,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::StandardFlat);
@@ -11735,7 +11735,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 19),
                             { 0, 0, height }, { { 0, 6, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height-4,
                             session.SupportColours);
                         break;
                     case 1:
@@ -11746,7 +11746,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 27),
                             { 0, 0, height }, { { 0, 6, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height-4,
                             session.SupportColours);
                         break;
                     case 2:
@@ -11803,7 +11803,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 19),
                             { 0, 0, height }, { { 0, 6, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomRightSide, 0, height-4,
                             session.SupportColours);
                         break;
                     case 3:
@@ -11814,7 +11814,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_S_BEND + 27),
                             { 0, 0, height }, { { 0, 6, height + 27 }, { 32, 26, 0 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomLeftSide, 0, height-4,
                             session.SupportColours);
                         break;
                 }
@@ -11865,7 +11865,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 switch (direction)
                 {
                     case 1:
@@ -12413,7 +12413,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-8, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height, TunnelType::SquareFlat);
@@ -12471,7 +12471,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 0, height-4, session.SupportColours);
                 switch (direction)
                 {
                     case 2:
@@ -12685,7 +12685,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TunnelType::StandardSlopeStart);
@@ -12808,7 +12808,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 7),
                             { 0, 0, height }, { { 16, 16, height + 40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 2, height,
                             session.SupportColours);
                         break;
                     case 1:
@@ -12819,7 +12819,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 15),
                             { 0, 0, height }, { { 0, 16, height + 40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 2, height, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -12829,7 +12829,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 23),
                             { 0, 0, height }, { { 0, 0, height + 40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 2, height, session.SupportColours);
                         break;
                     case 3:
                         PaintAddImageAsParentRotated(
@@ -12839,7 +12839,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 31),
                             { 0, 0, height }, { { 16, 0, height + 40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 2, height,
                             session.SupportColours);
                         break;
                 }
@@ -12899,7 +12899,7 @@ namespace PipelineRC
                         break;
                 }
                 MetalASupportsPaintSetup(
-                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 8, height, session.SupportColours);
+                    session, MetalSupportType::Tubes, MetalSupportPlace::Centre, 1, height, session.SupportColours);
                 if (direction == 0 || direction == 3)
                 {
                     PaintUtilPushTunnelRotated(session, direction, height - 8, TunnelType::StandardSlopeStart);
@@ -13022,7 +13022,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 39),
                             { 0, 0, height }, { { 16, 0, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::LeftCorner, 2, height, session.SupportColours);
                         break;
                     case 1:
                         PaintAddImageAsParentRotated(
@@ -13032,7 +13032,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 47),
                             { 0, 0, height }, { { 0, 0, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 8, height, session.SupportColours);
+                            session, MetalSupportType::Tubes, MetalSupportPlace::TopCorner, 2, height, session.SupportColours);
                         break;
                     case 2:
                         PaintAddImageAsParentRotated(
@@ -13042,7 +13042,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 55),
                             { 0, 0, height }, { { 0, 16, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 8, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::RightCorner, 2, height,
                             session.SupportColours);
                         break;
                     case 3:
@@ -13053,7 +13053,7 @@ namespace PipelineRC
                             session, direction, session.TrackColours.WithIndex(SPR_G2_PIPELINE_TRACK_GENTLE_LARGE_CURVE + 63),
                             { 0, 0, height }, { { 16, 16, height +40 }, { 16, 16, 1 } });
                         MetalASupportsPaintSetup(
-                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 8, height,
+                            session, MetalSupportType::Tubes, MetalSupportPlace::BottomCorner, 2, height,
                             session.SupportColours);
                         break;
                 }
