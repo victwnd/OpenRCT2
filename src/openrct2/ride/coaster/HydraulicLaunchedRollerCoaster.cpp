@@ -31,7 +31,6 @@ static constexpr MetalSupportType kSupportType = MetalSupportType::Tubes;
 
 namespace HydraulicLaunchedRC
 {
-
     static void TrackFlat(
         PaintSession& session, const Ride& ride, uint8_t trackSequence, uint8_t direction, int32_t height,
         const TrackElement& trackElement)
