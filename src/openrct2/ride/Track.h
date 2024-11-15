@@ -147,6 +147,8 @@ enum class TrackGroup : uint8_t
     diagBlockBrakes,
     inclinedBrakes,
 
+    diveLoop,
+
     count,
 };
 
@@ -601,7 +603,20 @@ namespace OpenRCT2
         DiagBlockBrakes = 338,
         Down25Brakes = 339,
 
-        Count = 340,
+        DiagFlatToUp60LongBase = 340,
+        DiagUp60ToFlatLongBase = 341,
+        DiagFlatToDown60LongBase = 342,
+        DiagDown60ToFlatLongBase = 343,
+	LeftEighthDiveLoopUpToOrthogonal = 344,
+	RightEighthDiveLoopUpToOrthogonal = 345,
+	LeftEighthDiveLoopDownToOrthogonal = 346,
+	RightEighthDiveLoopDownToOrthogonal = 347,
+	LeftDiveLoopUp = 348,
+	RightDiveLoopUp = 349,
+	LeftDiveLoopDown = 350,
+	RightDiveLoopDown = 351,              
+
+        Count = 352,
         None = 65535,
     };
 }

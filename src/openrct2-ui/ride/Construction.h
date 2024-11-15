@@ -131,6 +131,14 @@ namespace OpenRCT2
         TrackElemType::LeftLargeZeroGRollDown,
         TrackElemType::RightLargeZeroGRollUp,
         TrackElemType::RightLargeZeroGRollDown,
+        TrackElemType::LeftEighthDiveLoopUpToOrthogonal,
+        TrackElemType::LeftEighthDiveLoopDownToOrthogonal, 
+        TrackElemType::RightEighthDiveLoopUpToOrthogonal,
+        TrackElemType::RightEighthDiveLoopDownToOrthogonal,
+        TrackElemType::LeftDiveLoopUp,
+        TrackElemType::LeftDiveLoopDown,
+        TrackElemType::RightDiveLoopUp,
+        TrackElemType::RightDiveLoopDown,                 
         TrackElemType::LeftFlyerLargeHalfLoopUninvertedUp,
         TrackElemType::LeftFlyerLargeHalfLoopInvertedDown,
         TrackElemType::LeftFlyerLargeHalfLoopInvertedUp,
@@ -143,7 +151,7 @@ namespace OpenRCT2
     constexpr size_t DropdownLength = DropdownOrder.size();
 
     // Update the magic number with the current number of track elements to silence
-    static_assert(EnumValue(TrackElemType::Count) == 340, "Reminder to add new track element to special dropdown list");
+    static_assert(EnumValue(TrackElemType::Count) == 352, "Reminder to add new track element to special dropdown list");
 
     constexpr bool TrackPieceDirectionIsDiagonal(const uint8_t direction)
     {
