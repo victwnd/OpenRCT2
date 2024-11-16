@@ -1696,6 +1696,12 @@ enum : StringId
 
     STR_AT_LEAST_ONE_PEEP_NAMES_OBJECT_MUST_BE_SELECTED = 6676,
 
+    STR_DIVE_LOOP_45_LEFT = 6710,
+    STR_DIVE_LOOP_45_RIGHT = 6711,
+    STR_DIVE_LOOP_90_LEFT = 6712,
+    STR_DIVE_LOOP_90_RIGHT = 6713,
+
+
     // Have to include resource strings (from scenarios and objects) for the time being now that language is partially working
     /* MAX_STR_COUNT = 32768 */ // MAX_STR_COUNT - upper limit for number of strings, not the current count strings
 };

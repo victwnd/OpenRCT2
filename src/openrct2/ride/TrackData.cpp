@@ -11826,8 +11826,7 @@ SpinFunction::None, SpinFunction::None, SpinFunction::None, SpinFunction::None
         .clearance = { -32, 32, 0, 0, { 0b0010, 0 }, 0 },
     };
 
-
-    static constexpr SequenceDescriptor kDiagFlatToUp60LongBaseSeq0 = {
+static constexpr SequenceDescriptor kDiagFlatToUp60LongBaseSeq0 = {
         .clearance = { 0, 0, 0, 0, { 0b1101, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kDiagFlatToUp60LongBaseSeq1 = {
@@ -11948,91 +11947,89 @@ SpinFunction::None, SpinFunction::None, SpinFunction::None, SpinFunction::None
         .clearance = { -96, 96, 0, 0, { 0b0010, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopUpToOrthogonalSeq0 = {
-        .clearance = { 0, 0, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { 0, 0, 0, 64, { 0b1101, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopUpToOrthogonalSeq1 = {
-        .clearance = { 0, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { 0, 32, 0, 88, { 0b0100, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopUpToOrthogonalSeq2 = {
-        .clearance = { -32, 0, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -32, 0, 0, 88, { 0b0001, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopUpToOrthogonalSeq3 = {
-        .clearance = { -32, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -32, 32, 32, 80, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopUpToOrthogonalSeq4 = {
-        .clearance = { -64, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -64, 32, 80, 48, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopUpToOrthogonalSeq5 = {
-        .clearance = { -96, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -96, 32, 112, 24, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopUpToOrthogonalSeq0 = {
-        .clearance = { 0, 0, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { 0, 0, 0, 64, { 0b1101, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopUpToOrthogonalSeq1 = {
-        .clearance = { -32, 0, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 0, 0, 88, { 0b0001, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopUpToOrthogonalSeq2 = {
-        .clearance = { 0, 32, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { 0, 32, 0, 88, { 0b0100, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopUpToOrthogonalSeq3 = {
-        .clearance = { -32, 32, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 32, 32, 80, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopUpToOrthogonalSeq4 = {
-        .clearance = { -32, 64, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 64, 80, 48, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopUpToOrthogonalSeq5 = {
-        .clearance = { -32, 96, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 96, 112, 24, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopDownToOrthogonalSeq0 = {
-        .clearance = { 0, 0, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { 0, 0, 0, 64, { 0b1101, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopDownToOrthogonalSeq1 = {
-        .clearance = { 0, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { 0, 32, 0, 88, { 0b0100, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopDownToOrthogonalSeq2 = {
-        .clearance = { -32, 0, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -32, 0, 0, 88, { 0b0001, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopDownToOrthogonalSeq3 = {
-        .clearance = { -32, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -32, 32, 32, 80, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopDownToOrthogonalSeq4 = {
-        .clearance = { -64, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -64, 32, 80, 48, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftEighthDiveLoopDownToOrthogonalSeq5 = {
-        .clearance = { -96, 32, 0, 48, { 0b0000, 0 }, 0 },
+        .clearance = { -96, 32, 112, 24, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopDownToOrthogonalSeq0 = {
-        .clearance = { 0, 0, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { 0, 0, 0, 64, { 0b1101, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopDownToOrthogonalSeq1 = {
-        .clearance = { -32, 0, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 0, 0, 88, { 0b0001, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopDownToOrthogonalSeq2 = {
-        .clearance = { 0, 32, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { 0, 32, 0, 88, { 0b0100, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopDownToOrthogonalSeq3 = {
-        .clearance = { -32, 32, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 32, 32, 80, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopDownToOrthogonalSeq4 = {
-        .clearance = { -32, 64, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 64, 80, 48, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightEighthDiveLoopDownToOrthogonalSeq5 = {
-        .clearance = { -32, 96, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { -32, 96, 112, 24, { 0b1111, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftDiveLoopUpSeq0 = {
         .clearance = { 0, 0, 0, 48, { 0b0000, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightDiveLoopUpSeq0 = {
-        .clearance = { 0, 0, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { 0, 0, 0, 48, { 0b0000, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kLeftDiveLoopDownSeq0 = {
         .clearance = { 0, 0, 0, 48, { 0b0000, 0 }, 0 },
     };
     static constexpr SequenceDescriptor kRightDiveLoopDownSeq0 = {
-        .clearance = { 0, 0, 0, 48, { 0b0100, 0 }, 0 },
+        .clearance = { 0, 0, 0, 48, { 0b0000, 0 }, 0 },
     };
-
-
 
 
     static constexpr SequenceData kSequenceDescriptorsByElement[] = {
